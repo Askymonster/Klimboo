@@ -6,4 +6,6 @@
     <string name="password">Password</string>
     <string name="register">Register</string>
     <string name="login_button">Botão de Login</string>
+    <string name="register_button">register button</string>
+    <string name="logout">Logout</string>
 </resources>
