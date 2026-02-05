@@ -26,7 +26,7 @@
 
 
     <TextView
-        android:text="@string/login"
+        android:text="@string/register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -52,12 +52,22 @@
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    
     <Button
-        android:id="@+id/btn_login"
-        android:text="@string/login"
+        android:id="@+id/btn_register"
+        android:text="@string/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <TextView
+        android:id="@+id/loginNow"
+        android:text="@string/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
 

@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">macaco</string>
-    <string name="entrar">ENTRAR</string>
     <string name="login">Login</string>
     <string name="logo_klimboo">Logo Klimboo</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="login_button">Botão de Login</string>
 </resources>
