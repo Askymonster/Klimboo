@@ -80,17 +80,17 @@ class LoginPage : AppCompatActivity() {
                         progressBar.visibility = View.GONE
                         Toast.makeText(
                             baseContext,
-                            "Conta Criada.",
+                            "Conta existente. Iniciando sessão.",
                             Toast.LENGTH_SHORT,
                         ).show()
-                        val intent = Intent(this@LoginPage, MainActivity::class.java)
+                        val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {
                         // If sign in fails, display a message to the user.
                         Toast.makeText(
                             baseContext,
-                            "Authentication failed.",
+                            "Falha na inicialização.",
                             Toast.LENGTH_SHORT,
                         ).show()
                     }

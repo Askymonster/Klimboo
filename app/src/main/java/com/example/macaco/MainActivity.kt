@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
-class MainActivity : AppCompatActivity() {
+class                 MainActivity : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
     lateinit var button: Button
