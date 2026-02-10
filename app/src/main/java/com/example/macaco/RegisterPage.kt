@@ -84,23 +84,24 @@ class RegisterPage : AppCompatActivity() {
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        progressBar.visibility = View.GONE
-                        Toast.makeText(
-                            baseContext,
-                            "Conta Criada.",
-                            Toast.LENGTH_SHORT,
-                        ).show()
-                        val intent = Intent(this, LoginPage::class.java)
-                        startActivity(intent)
-                        finish()
+
+                        val user = auth.currentUser
+
+                        val profileUpdates = com.google.firebase.auth.UserProfileChangeRequest.Builder()
+                            .setDisplayName(username)
+                            .build()
+
+                        user?.updateProfile(profileUpdates)?.addOnCompleteListener {
+
+                            progressBar.visibility = View.GONE
+                            startActivity(Intent(this, LoginPage::class.java))
+                            finish()
+                        }
                     } else {
-                        // If sign in fails, display a message to the user.
-                        Toast.makeText(
-                            baseContext,
-                            "Autenticação falhou.",
-                            Toast.LENGTH_SHORT,
-                        ).show()
+                        progressBar.visibility = View.GONE
+                        Toast.makeText(baseContext, "Erro: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                     }
+
                 }
 
 

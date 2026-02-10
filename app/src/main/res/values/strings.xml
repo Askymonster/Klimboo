@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">macaco</string>
+    <string name="app_name">Klimboo</string>
     <string name="login">Login</string>
     <string name="logo_klimboo">Logo Klimboo</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="register">Register</string>
-    <string name="login_button">Botão de Login</string>
-    <string name="register_button">register button</string>
+    <string name="email">E-mail</string>
+    <string name="password">Senha</string>
+    <string name="register">Registre-se</string>
+    <string name="login_button">Login</string>
+    <string name="register_button">Registrar-se</string>
     <string name="logout">Logout</string>
     <string name="title_activity_settings">SettingsActivity</string>
 
@@ -25,8 +25,8 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="modo_escuro">Modo Escuro</string>
-    <string name="configurações">configs\n</string>
-    <string name="goback">voltar</string>
+    <string name="configurações">Configurações\n</string>
+    <string name="goback">Voltar</string>
     <string name="details">user_details</string>
     <string name="user_name">Nome de usuário</string>
 </resources>

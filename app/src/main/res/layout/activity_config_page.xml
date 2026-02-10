@@ -10,7 +10,13 @@
     tools:context=".ConfigPage">
 
     <TextView
-        android:id="@+id/user_details"
+        android:id="@+id/user_details_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/user_details_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""/>
@@ -26,9 +32,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <Button
         android:id="@+id/backtomain"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/goback" />
 
