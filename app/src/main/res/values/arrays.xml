@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="reply_entries">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>always</item>
+        <item>possible</item>
+        <item>never</item>
+    </string-array>
+</resources>

@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
-class                 MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
     lateinit var button: Button
@@ -24,21 +24,17 @@ class                 MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         button = findViewById(R.id.logout)
         textView = findViewById(R.id.user_details)
+        textView = findViewById(R.id.settings)
 
-        val currentUser = auth.currentUser
-
-        if (currentUser == null) {
-            startActivity(Intent(this, LoginPage::class.java))
-            finish()
-        } else {
-            user = currentUser
-            textView.text = user.email
-        }
-
-        button.setOnClickListener {
-            auth.signOut()
-            startActivity(Intent(this, LoginPage::class.java))
+        textView.setOnClickListener {
+            val intent = Intent(this, ConfigPage::class.java)
+            startActivity(intent)
             finish()
         }
+
+
+
+
+
     }
 }

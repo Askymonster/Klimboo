@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Macaco">
         <activity
+            android:name=".ConfigPage"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity

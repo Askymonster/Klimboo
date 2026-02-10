@@ -15,6 +15,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 
 class RegisterPage : AppCompatActivity() {
+    lateinit var editTextName: TextInputEditText
     lateinit var editTextEmail: TextInputEditText
     lateinit var editTextPassword: TextInputEditText
     lateinit var auth: FirebaseAuth
@@ -45,6 +46,7 @@ class RegisterPage : AppCompatActivity() {
         }
 
         auth = FirebaseAuth.getInstance()
+        editTextName = findViewById(R.id.username)
         editTextEmail = findViewById(R.id.email)
         editTextPassword = findViewById(R.id.password)
         buttonReg = findViewById(R.id.btn_register)
@@ -59,8 +61,15 @@ class RegisterPage : AppCompatActivity() {
 
         buttonReg.setOnClickListener {
             progressBar.visibility = View.VISIBLE
+            val username = editTextName.text.toString()
             val email = editTextEmail.text.toString()
             val password = editTextPassword.text.toString()
+
+
+            if (username.isEmpty()) {
+                Toast.makeText(this@RegisterPage, "Insira seu nome", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             if (email.isEmpty()) {
                 Toast.makeText(this@RegisterPage, "Insira o E-mail", Toast.LENGTH_SHORT).show()
