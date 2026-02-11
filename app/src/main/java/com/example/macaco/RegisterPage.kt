@@ -15,6 +15,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 
 class RegisterPage : AppCompatActivity() {
+    lateinit var editTextName: TextInputEditText
     lateinit var editTextEmail: TextInputEditText
     lateinit var editTextPassword: TextInputEditText
     lateinit var auth: FirebaseAuth
@@ -45,6 +46,7 @@ class RegisterPage : AppCompatActivity() {
         }
 
         auth = FirebaseAuth.getInstance()
+        editTextName = findViewById(R.id.username)
         editTextEmail = findViewById(R.id.email)
         editTextPassword = findViewById(R.id.password)
         buttonReg = findViewById(R.id.btn_register)
@@ -59,8 +61,15 @@ class RegisterPage : AppCompatActivity() {
 
         buttonReg.setOnClickListener {
             progressBar.visibility = View.VISIBLE
+            val username = editTextName.text.toString()
             val email = editTextEmail.text.toString()
             val password = editTextPassword.text.toString()
+
+
+            if (username.isEmpty()) {
+                Toast.makeText(this@RegisterPage, "Insira seu nome", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             if (email.isEmpty()) {
                 Toast.makeText(this@RegisterPage, "Insira o E-mail", Toast.LENGTH_SHORT).show()
@@ -75,23 +84,24 @@ class RegisterPage : AppCompatActivity() {
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        progressBar.visibility = View.GONE
-                        Toast.makeText(
-                            baseContext,
-                            "Conta Criada.",
-                            Toast.LENGTH_SHORT,
-                        ).show()
-                        val intent = Intent(this, LoginPage::class.java)
-                        startActivity(intent)
-                        finish()
+
+                        val user = auth.currentUser
+
+                        val profileUpdates = com.google.firebase.auth.UserProfileChangeRequest.Builder()
+                            .setDisplayName(username)
+                            .build()
+
+                        user?.updateProfile(profileUpdates)?.addOnCompleteListener {
+
+                            progressBar.visibility = View.GONE
+                            startActivity(Intent(this, LoginPage::class.java))
+                            finish()
+                        }
                     } else {
-                        // If sign in fails, display a message to the user.
-                        Toast.makeText(
-                            baseContext,
-                            "Autenticação falhou.",
-                            Toast.LENGTH_SHORT,
-                        ).show()
+                        progressBar.visibility = View.GONE
+                        Toast.makeText(baseContext, "Erro: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                     }
+
                 }
 
 
