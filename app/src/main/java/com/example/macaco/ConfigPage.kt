@@ -12,11 +12,11 @@ import com.google.firebase.auth.FirebaseAuth
 
 class ConfigPage : AppCompatActivity() {
 
-    lateinit var auth: FirebaseAuth
-    lateinit var buttonLogout: Button
-    lateinit var textName: TextView
-    lateinit var textEmail: TextView
-    lateinit var buttonBack: Button
+    private lateinit var auth: FirebaseAuth
+    private lateinit var buttonLogout: Button
+    private lateinit var textName: TextView
+    private lateinit var textEmail: TextView
+    private lateinit var buttonBack: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

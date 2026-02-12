@@ -42,4 +42,11 @@
     <string name="goback">Voltar</string>
     <string name="details">user_details</string>
     <string name="user_name">Nome de usuário</string>
+    <string name="tools">Ferramentas</string>
+    <string name="settings_desc">Configurações</string>
+    <string name="parts">Peças</string>
+    <string name="equip">Equipamentos</string>
+    <string name="wrench">Chaves</string>
+    <string name="all_equip">Todas</string>
+    <string name="find_item">Buscar item...</string>
 </resources>
