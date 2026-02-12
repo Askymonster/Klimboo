@@ -15,7 +15,7 @@
     <string name="user_default_name">Mateus Henrique Silva</string>
     <string name="user_default_email">mateus@email.com</string>
 
-    <string name="search_hint">Buscar item...</string>
+    <string name="search_hint">Buscar item</string>
 
     <string name="chip_todas">Todas</string>
     <string name="chip_chaves">Chaves</string>
@@ -48,5 +48,5 @@
     <string name="equip">Equipamentos</string>
     <string name="wrench">Chaves</string>
     <string name="all_equip">Todas</string>
-    <string name="find_item">Buscar item...</string>
+    <string name="find_item">Buscar item</string>
 </resources>

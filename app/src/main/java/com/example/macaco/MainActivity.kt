@@ -11,8 +11,8 @@ import com.google.firebase.auth.FirebaseAuth
 class MainActivity : AppCompatActivity() {
 
     private lateinit var imageConfig: ImageView
-    private lateinit var textName: TextView
-    private lateinit var textEmail: TextView
+    private lateinit var textNameMain: TextView
+    private lateinit var textEmailMain: TextView
     private lateinit var auth: FirebaseAuth
 
 
@@ -23,9 +23,10 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main_page)
 
+        auth = FirebaseAuth.getInstance()
         imageConfig = findViewById(R.id.settings)
-        textName = findViewById(R.id.user_name_main)
-        textEmail = findViewById(R.id.user_email_main)
+        textNameMain = findViewById(R.id.user_name_main)
+        textEmailMain  = findViewById(R.id.user_email_main)
 
         val currentUser = auth.currentUser
 
@@ -35,9 +36,8 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-
-        textName.text = currentUser.displayName ?: "Nome não definido"
-        textEmail.text = currentUser.email
+        textNameMain.text = currentUser.displayName ?: "Nome não definido"
+        textEmailMain.text = currentUser.email
 
 
         imageConfig.setOnClickListener {
