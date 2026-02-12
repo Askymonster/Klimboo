@@ -10,6 +10,19 @@
     <string name="logout">Logout</string>
     <string name="title_activity_settings">SettingsActivity</string>
 
+    <string name="toolbar_ferramentas">Ferramentas</string>
+
+    <string name="user_default_name">Mateus Henrique Silva</string>
+    <string name="user_default_email">mateus@email.com</string>
+
+    <string name="search_hint">Buscar item</string>
+
+    <string name="chip_todas">Todas</string>
+    <string name="chip_chaves">Chaves</string>
+    <string name="chip_equipamentos">Equipamentos</string>
+    <string name="chip_pecas">Peças</string>
+
+
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
@@ -29,4 +42,11 @@
     <string name="goback">Voltar</string>
     <string name="details">user_details</string>
     <string name="user_name">Nome de usuário</string>
+    <string name="tools">Ferramentas</string>
+    <string name="settings_desc">Configurações</string>
+    <string name="parts">Peças</string>
+    <string name="equip">Equipamentos</string>
+    <string name="wrench">Chaves</string>
+    <string name="all_equip">Todas</string>
+    <string name="find_item">Buscar item</string>
 </resources>
