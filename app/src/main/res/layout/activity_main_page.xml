@@ -4,14 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#F2F4F3">
+    android:layout_height="match_parent" >
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#2F6F6A"
+        android:background="#0E1F53"
         android:title="@string/tools"
         android:titleTextColor="@android:color/white"
         app:layout_constraintTop_toTopOf="parent"
@@ -40,7 +39,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textColor="#000"
                 android:textSize="16sp"
                 android:textStyle="bold"/>
 
@@ -49,7 +47,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textColor="#666"
                 android:textSize="14sp"
                 android:layout_marginTop="4dp" />
 
@@ -87,32 +84,51 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="@string/all_equip"
+            android:textColor="@color/white"
+            app:chipBackgroundColor="@color/royal_blue"
             app:checkedIconVisible="false"/>
 
         <com.google.android.material.chip.Chip
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:chipBackgroundColor="@color/royal_blue"
             android:text="@string/wrench"/>
 
         <com.google.android.material.chip.Chip
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:chipBackgroundColor="@color/royal_blue"
             android:text="@string/equip"/>
 
         <com.google.android.material.chip.Chip
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/parts"/>
+            android:text="@string/parts"
+            android:textColor="@color/white"
+            app:chipBackgroundColor="@color/royal_blue"/>
     </com.google.android.material.chip.ChipGroup>
 
     <ImageView
         android:id="@+id/settings"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_margin="16dp"
         android:contentDescription="@string/settings_desc"
         android:src="@drawable/config"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/stock"
+        android:layout_width="50dp"
+        android:layout_height="63dp"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/settings_desc"
+        android:src="@drawable/estoque"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
