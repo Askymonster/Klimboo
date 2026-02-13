@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 class MainActivity : AppCompatActivity() {
 
     private lateinit var imageConfig: ImageView
+    private lateinit var imageStock: ImageView
     private lateinit var textNameMain: TextView
     private lateinit var textEmailMain: TextView
     private lateinit var auth: FirebaseAuth
@@ -25,8 +26,10 @@ class MainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         imageConfig = findViewById(R.id.settings)
+        imageStock = findViewById(R.id.stock)
         textNameMain = findViewById(R.id.user_name_main)
         textEmailMain  = findViewById(R.id.user_email_main)
+
 
         val currentUser = auth.currentUser
 
@@ -42,6 +45,11 @@ class MainActivity : AppCompatActivity() {
 
         imageConfig.setOnClickListener {
             val intent = Intent(this, ConfigPage::class.java)
+            startActivity(intent)
+        }
+
+        imageStock.setOnClickListener {
+            val intent = Intent(this, StockPage::class.java)
             startActivity(intent)
         }
     }

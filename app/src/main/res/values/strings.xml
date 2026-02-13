@@ -12,8 +12,8 @@
 
     <string name="toolbar_ferramentas">Ferramentas</string>
 
-    <string name="user_default_name">Mateus Henrique Silva</string>
-    <string name="user_default_email">mateus@email.com</string>
+    <string name="user_default_name">Nome</string>
+    <string name="user_default_email">Usuario@gmail.com</string>
 
     <string name="search_hint">Buscar item</string>
 
@@ -49,4 +49,7 @@
     <string name="wrench">Chaves</string>
     <string name="all_equip">Todas</string>
     <string name="find_item">Buscar item</string>
+    <string name="login_btn">login_btn</string>
+    <string name="maiLocker">Armário de Manutenção</string>
+    <string name="macLocker">Armário de Usinagem</string>
 </resources>

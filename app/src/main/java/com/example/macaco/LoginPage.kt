@@ -22,7 +22,7 @@ class LoginPage : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
     lateinit var buttonLogin: Button
     lateinit var progressBar: ProgressBar
-    lateinit var textView: TextView
+    lateinit var textView_toRegister: TextView
 
     public override fun onStart() {
         super.onStart()
@@ -51,9 +51,9 @@ class LoginPage : AppCompatActivity() {
         editTextPassword = findViewById(R.id.password)
         buttonLogin = findViewById(R.id.btn_login)
         progressBar = findViewById(R.id.progressBar)
-        textView = findViewById(R.id.registerNow)
+        textView_toRegister = findViewById(R.id.registerNow)
 
-        textView.setOnClickListener {
+        textView_toRegister.setOnClickListener {
             val intent = Intent(this, RegisterPage::class.java)
             startActivity(intent)
             finish()
