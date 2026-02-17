@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var imageConfig: ImageView
     private lateinit var imageStock: ImageView
+    private lateinit var imageQR: ImageView
     private lateinit var textNameMain: TextView
     private lateinit var textEmailMain: TextView
     private lateinit var auth: FirebaseAuth
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         imageConfig = findViewById(R.id.settings)
         imageStock = findViewById(R.id.stock)
+        imageQR =  findViewById(R.id.qrcode)
         textNameMain = findViewById(R.id.user_name_main)
         textEmailMain  = findViewById(R.id.user_email_main)
 
@@ -50,6 +52,11 @@ class MainActivity : AppCompatActivity() {
 
         imageStock.setOnClickListener {
             val intent = Intent(this, StockPage::class.java)
+            startActivity(intent)
+        }
+
+        imageQR.setOnClickListener {
+            val intent = Intent(this, ScanPage::class.java)
             startActivity(intent)
         }
     }

@@ -126,9 +126,23 @@
         android:layout_height="63dp"
         android:layout_margin="16dp"
         android:layout_marginBottom="16dp"
-        android:contentDescription="@string/settings_desc"
+        android:contentDescription="@string/stock_desc"
         android:src="@drawable/estoque"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/qrcode"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/qr_desc"
+        android:src="@drawable/qrcode"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

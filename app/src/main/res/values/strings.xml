@@ -52,4 +52,9 @@
     <string name="login_btn">login_btn</string>
     <string name="maiLocker">Armário de Manutenção</string>
     <string name="macLocker">Armário de Usinagem</string>
+    <string name="stock_desc">desc estoque</string>
+    <string name="qr_desc">desc qrcode</string>
+    <string name="precisa_permissao">Permissão de acesso a câmera é necessário</string>
+    <string name="falha_ao_escanear_qr_code">Falha ao escanear QR CODE</string>
+    <string name="qr_code_nao_detectado">QR CODE não detectado</string>
 </resources>

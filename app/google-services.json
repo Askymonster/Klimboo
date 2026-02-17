@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "492002308671",
+    "project_id": "klimbooproject",
+    "storage_bucket": "klimbooproject.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492002308671:android:ad1ca7536675bc011f7e8a",
+        "android_client_info": {
+          "package_name": "com.example.macaco"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1lHkX4GKduJ9WMOvYpdGiBDOyC3IR4s0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492002308671:android:07607e1111ec739f1f7e8a",
+        "android_client_info": {
+          "package_name": "com.project.klimboo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1lHkX4GKduJ9WMOvYpdGiBDOyC3IR4s0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

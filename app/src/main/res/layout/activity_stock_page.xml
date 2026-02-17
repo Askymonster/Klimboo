@@ -9,15 +9,15 @@
     tools:context=".StockPage">
 
 
+    <Spinner
+        android:id="@+id/macLocker"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        />
 
     <Spinner
-        android:id="@+id/machLocker"
+        android:id="@+id/maiLocker"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <Spinner
-        android:id="@+id/maintenceLocker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="48dp"/>
 
 </LinearLayout>
