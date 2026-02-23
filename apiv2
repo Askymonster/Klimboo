@@ -1,0 +1,45 @@
+val supabase = createSupabaseClient(
+    supabaseUrl = "https://akufckqkssvegngtuago.supabase.co",
+    supabaseKey = "sb_publishable_-dAWL0RHtCk4xokE5ANAqA_7VKwR_z9"
+  ) {
+    install(Postgrest)
+}
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            MaterialTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    TodoList()
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun TodoList() {
+    var items by remember { mutableStateOf<List<TodoItem>>(listOf()) }
+    LaunchedEffect(Unit) {
+        withContext(Dispatchers.IO) {
+            items = supabase.from("todos")
+                              .select().decodeList<TodoItem>()
+        }
+    }
+    LazyColumn {
+        items(
+            items,
+            key = { item -> item.id },
+        ) { item ->
+            Text(
+                item.name,
+                modifier = Modifier.padding(8.dp),
+            )
+        }
+    }
+}
