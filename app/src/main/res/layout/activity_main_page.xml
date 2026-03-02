@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
@@ -74,10 +75,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:singleSelection="true"
-        app:layout_constraintTop_toBottomOf="@id/searchLayout"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/searchLayout"
+        app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
             android:layout_width="wrap_content"
@@ -85,29 +87,29 @@
             android:checked="true"
             android:text="@string/all_equip"
             android:textColor="@color/white"
-            app:chipBackgroundColor="@color/royal_blue"
-            app:checkedIconVisible="false"/>
+            app:checkedIconVisible="false"
+            app:chipBackgroundColor="@color/royal_blue" />
 
         <com.google.android.material.chip.Chip
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/wrench"
             android:textColor="@color/white"
-            app:chipBackgroundColor="@color/royal_blue"
-            android:text="@string/wrench"/>
+            app:chipBackgroundColor="@color/royal_blue" />
 
         <com.google.android.material.chip.Chip
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/equip"
             android:textColor="@color/white"
-            app:chipBackgroundColor="@color/royal_blue"
-            android:text="@string/equip"/>
+            app:chipBackgroundColor="@color/royal_blue" />
 
         <com.google.android.material.chip.Chip
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/parts"
             android:textColor="@color/white"
-            app:chipBackgroundColor="@color/royal_blue"/>
+            app:chipBackgroundColor="@color/royal_blue" />
     </com.google.android.material.chip.ChipGroup>
 
     <ImageView
@@ -142,7 +144,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

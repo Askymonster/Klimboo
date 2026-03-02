@@ -14,6 +14,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
+import androidx.appcompat.app.AlertDialog
+import android.widget.EditText
 
 class LoginPage : AppCompatActivity() {
 
@@ -23,6 +25,8 @@ class LoginPage : AppCompatActivity() {
     lateinit var buttonLogin: Button
     lateinit var progressBar: ProgressBar
     lateinit var textView_toRegister: TextView
+
+    lateinit var forgotPassword: TextView
 
     public override fun onStart() {
         super.onStart()
@@ -52,6 +56,52 @@ class LoginPage : AppCompatActivity() {
         buttonLogin = findViewById(R.id.btn_login)
         progressBar = findViewById(R.id.progressBar)
         textView_toRegister = findViewById(R.id.registerNow)
+        forgotPassword = findViewById(R.id.forgotPassword)
+
+
+
+
+        forgotPassword.setOnClickListener {
+
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Recuperar Senha")
+            builder.setMessage("Digite seu email para receber o link de recuperação.")
+
+            val input = EditText(this)
+            input.hint = "Seu email"
+            input.inputType = android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+
+            builder.setView(input)
+
+            builder.setPositiveButton("Enviar") { dialog, _ ->
+
+                val email = input.text.toString().trim()
+
+                if (email.isEmpty()) {
+                    Toast.makeText(this, "Digite um email válido", Toast.LENGTH_SHORT).show()
+                } else {
+
+                    auth.sendPasswordResetEmail(email)
+                        .addOnCompleteListener {
+
+                            // 👇 COLOQUE AQUI
+                            Toast.makeText(
+                                this,
+                                "Se este email estiver cadastrado, você receberá um link de recuperação.",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
+                }
+
+                dialog.dismiss()
+            }
+
+            builder.setNegativeButton("Cancelar") { dialog, _ ->
+                dialog.dismiss()
+            }
+
+            builder.show()
+        }
 
         textView_toRegister.setOnClickListener {
             val intent = Intent(this, RegisterPage::class.java)
