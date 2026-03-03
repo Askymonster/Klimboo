@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.Macaco">
         <activity
+            android:name=".ThemeActivity"
+            android:exported="false" />
+        <activity
             android:name=".WebViewActivity"
             android:exported="false" />
         <activity

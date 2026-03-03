@@ -1,4 +1,4 @@
-package com.example.macaco
+package com.example.klimboo
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.materialswitch.MaterialSwitch
 import com.google.firebase.auth.FirebaseAuth
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 class ConfigPage : AppCompatActivity() {
 
@@ -17,8 +19,10 @@ class ConfigPage : AppCompatActivity() {
     private lateinit var textName: TextView
     private lateinit var textEmail: TextView
     private lateinit var buttonBack: Button
+    private lateinit var themeManager: ThemeManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_config_page)
@@ -54,13 +58,27 @@ class ConfigPage : AppCompatActivity() {
         }
 
 
+        themeManager = ThemeManager(this)
         val switchTheme: MaterialSwitch = findViewById(R.id.switch_theme)
+
+        lifecycleScope.launch {
+            themeManager.isDarkMode.collect { isDark ->
+                switchTheme.isChecked = isDark
+            }
+        }
+
         switchTheme.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            lifecycleScope.launch {
+                themeManager.setDarkMode(isChecked)
+                val mode = if (isChecked) AppCompatDelegate.MODE_NIGHT_YES
+                else AppCompatDelegate.MODE_NIGHT_NO
+                AppCompatDelegate.setDefaultNightMode(mode)
             }
         }
     }
+
 }
+
+
+
+

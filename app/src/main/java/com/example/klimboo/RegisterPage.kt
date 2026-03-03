@@ -1,4 +1,4 @@
-package com.example.macaco
+package com.example.klimboo
 
 import android.content.Intent
 import android.os.Bundle

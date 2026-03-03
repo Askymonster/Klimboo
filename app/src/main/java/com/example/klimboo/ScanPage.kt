@@ -1,4 +1,4 @@
-package com.example.macaco
+package com.example.klimboo
 
 import android.Manifest
 import android.content.Intent

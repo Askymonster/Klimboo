@@ -1,4 +1,4 @@
-package com.example.macaco
+package com.example.klimboo
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -41,6 +41,8 @@ class LoginPage : AppCompatActivity() {
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
+        val themeManager = ThemeManager(this)
+        observeTheme(themeManager)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_login_page)
@@ -116,18 +118,19 @@ class LoginPage : AppCompatActivity() {
 
             if (email.isEmpty()) {
                 Toast.makeText(this@LoginPage, "Insira o E-mail", Toast.LENGTH_SHORT).show()
+                progressBar.visibility = View.GONE
                 return@setOnClickListener
             }
 
             if (password.isEmpty()) {
                 Toast.makeText(this@LoginPage, "Insira a Senha", Toast.LENGTH_SHORT).show()
+                progressBar.visibility = View.GONE
                 return@setOnClickListener
             }
 
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        progressBar.visibility = View.GONE
                         Toast.makeText(
                             baseContext,
                             "Conta existente. Iniciando sessão.",
@@ -137,11 +140,13 @@ class LoginPage : AppCompatActivity() {
                         startActivity(intent)
                         finish()
                     } else {
+                        progressBar.visibility = View.GONE
                         // If sign in fails, display a message to the user.
                         Toast.makeText(
                             baseContext,
                             "Falha na inicialização.",
                             Toast.LENGTH_SHORT,
+
                         ).show()
                     }
                 }

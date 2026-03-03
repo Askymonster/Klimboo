@@ -1,4 +1,4 @@
-package com.example.macaco
+package com.example.klimboo
 
 import android.content.Intent
 import android.os.Bundle
@@ -20,10 +20,13 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val themeManager = ThemeManager(this)
+        observeTheme(themeManager) // Resolve o tema para essa tela
+
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main_page)
         enableEdgeToEdge()
 
-        setContentView(R.layout.activity_main_page)
 
         auth = FirebaseAuth.getInstance()
         imageConfig = findViewById(R.id.settings)
