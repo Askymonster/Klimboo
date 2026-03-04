@@ -46,6 +46,7 @@ class ConfigPage : AppCompatActivity() {
 
         // Display de nome/email
         val currentUser = Firebase.auth.currentUser
+        val emailUser = currentUser?.email
         if (currentUser == null) {
             startActivity(Intent(this, LoginPage::class.java))
             finish()
@@ -53,17 +54,16 @@ class ConfigPage : AppCompatActivity() {
         }
 
         textName.text = currentUser.displayName ?: "Nome não definido"
-        textEmail.text = currentUser.email
+        textEmail.text = emailUser
 
 
 
         // 2. Listener: Trocar Senha (E-mail de recuperação)
         changePassword.setOnClickListener {
-            val email = Firebase.auth.currentUser?.email
-            if (email != null) {
-                Firebase.auth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
+            if (emailUser != null) {
+                Firebase.auth.sendPasswordResetEmail(emailUser).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(this, "Link de redefinição enviado para: $email", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "Link de redefinição enviado para: $emailUser", Toast.LENGTH_LONG).show()
                     }
                 }
             }
@@ -72,12 +72,11 @@ class ConfigPage : AppCompatActivity() {
         // 3. Listener: Trocar email (requerimento de senha)
         changeEmail.setOnClickListener {
             showGenericDisplay("Confirmação", "Digite sua senha atual para continuar:", "Senha", true) { password ->
-                val user = Firebase.auth.currentUser
-                val credential = EmailAuthProvider.getCredential(user?.email!!, password)
+                val credential = EmailAuthProvider.getCredential(currentUser.email!!, password)
 
-                user.reauthenticate(credential).addOnSuccessListener {
+                currentUser.reauthenticate(credential).addOnSuccessListener {
                     showGenericDisplay("Novo E-mail", "Para qual e-mail deseja alterar?", "novo@email.com", false) { novoEmail ->
-                        user.verifyBeforeUpdateEmail(novoEmail).addOnCompleteListener { task ->
+                        currentUser.verifyBeforeUpdateEmail(novoEmail).addOnCompleteListener { task ->
                             if (task.isSuccessful) {
                                 Toast.makeText(this, "Sucesso! Verifique o link no novo e-mail.", Toast.LENGTH_LONG).show()
                             }
