@@ -30,7 +30,8 @@ class LoginPage : AppCompatActivity() {
 
     public override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
+
+
         val currentUser = Firebase.auth.currentUser
         if (currentUser != null) {
             val intent = Intent(this@LoginPage, MainActivity::class.java)

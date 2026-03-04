@@ -37,6 +37,8 @@ fun AppCompatActivity.observeTheme(themeManager: ThemeManager) {
     }
 }
 
+
+//Cria o display generico para uso global
 fun AppCompatActivity.showGenericDisplay(
     titleFun: String,
     msg: String,
