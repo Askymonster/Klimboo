@@ -1,4 +1,4 @@
-package com.example.macaco
+package com.example.klimboo
 
 import android.os.Bundle
 import android.webkit.WebView

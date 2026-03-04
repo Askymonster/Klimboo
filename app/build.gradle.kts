@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.macaco"
+    namespace = "com.example.klimboo"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.example.macaco"
+        applicationId = "com.example.klimboo"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
@@ -53,4 +53,6 @@ dependencies {
     implementation ("androidx.camera:camera-camera2:1.5.3")
     implementation ("androidx.camera:camera-lifecycle:1.5.3")
     implementation ("androidx.camera:camera-view:1.5.3")
+    implementation("androidx.datastore:datastore-preferences:1.2.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.10.0")
 }

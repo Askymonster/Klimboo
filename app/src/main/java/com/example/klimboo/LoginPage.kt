@@ -1,6 +1,6 @@
-package com.example.macaco
+package com.example.klimboo
 
-import android.annotation.SuppressLint
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -14,6 +14,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
 class LoginPage : AppCompatActivity() {
 
@@ -24,10 +26,12 @@ class LoginPage : AppCompatActivity() {
     lateinit var progressBar: ProgressBar
     lateinit var textView_toRegister: TextView
 
+    lateinit var forgotPassword: TextView
+
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
+        val currentUser = Firebase.auth.currentUser
         if (currentUser != null) {
             val intent = Intent(this@LoginPage, MainActivity::class.java)
             startActivity(intent)
@@ -35,8 +39,10 @@ class LoginPage : AppCompatActivity() {
         }
     }
 
-    @SuppressLint("MissingInflatedId")
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        val themeManager = ThemeManager(this)
+        observeTheme(themeManager)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_login_page)
@@ -52,6 +58,22 @@ class LoginPage : AppCompatActivity() {
         buttonLogin = findViewById(R.id.btn_login)
         progressBar = findViewById(R.id.progressBar)
         textView_toRegister = findViewById(R.id.registerNow)
+        forgotPassword = findViewById(R.id.forgotPassword)
+
+
+
+
+        forgotPassword.setOnClickListener {
+            showGenericDisplay("Recuperar Senha", "Digite seu e-mail para receber o link:", "email@exemplo.com", false) { email ->
+                FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this, "E-mail de recuperação enviado!", Toast.LENGTH_LONG).show()
+                    } else {
+                        Toast.makeText(this, "Erro: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
 
         textView_toRegister.setOnClickListener {
             val intent = Intent(this, RegisterPage::class.java)
@@ -66,18 +88,19 @@ class LoginPage : AppCompatActivity() {
 
             if (email.isEmpty()) {
                 Toast.makeText(this@LoginPage, "Insira o E-mail", Toast.LENGTH_SHORT).show()
+                progressBar.visibility = View.GONE
                 return@setOnClickListener
             }
 
             if (password.isEmpty()) {
                 Toast.makeText(this@LoginPage, "Insira a Senha", Toast.LENGTH_SHORT).show()
+                progressBar.visibility = View.GONE
                 return@setOnClickListener
             }
 
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        progressBar.visibility = View.GONE
                         Toast.makeText(
                             baseContext,
                             "Conta existente. Iniciando sessão.",
@@ -87,11 +110,13 @@ class LoginPage : AppCompatActivity() {
                         startActivity(intent)
                         finish()
                     } else {
+                        progressBar.visibility = View.GONE
                         // If sign in fails, display a message to the user.
                         Toast.makeText(
                             baseContext,
                             "Falha na inicialização.",
                             Toast.LENGTH_SHORT,
+
                         ).show()
                     }
                 }
