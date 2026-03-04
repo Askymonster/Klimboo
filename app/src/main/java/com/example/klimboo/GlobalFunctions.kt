@@ -36,3 +36,27 @@ fun AppCompatActivity.observeTheme(themeManager: ThemeManager) {
         }
     }
 }
+
+fun AppCompatActivity.showGenericDisplay(
+    titleFun: String,
+    msg: String,
+    hint: String,
+    isPassword: Boolean = false,
+    action: (String) -> Unit
+) {
+    val input = android.widget.EditText(this).apply {
+        this.hint = hint
+        inputType = if (isPassword) 129 else android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+    }
+
+    androidx.appcompat.app.AlertDialog.Builder(this)
+        .setTitle(titleFun)
+        .setMessage(msg)
+        .setView(input)
+        .setPositiveButton("Confirmar") { _, _ ->
+            val text = input.text.toString()
+            if (text.isNotEmpty()) action(text)
+        }
+        .setNegativeButton("Cancelar", null)
+        .show()
+}

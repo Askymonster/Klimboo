@@ -1,6 +1,6 @@
 package com.example.klimboo
 
-import android.annotation.SuppressLint
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -14,8 +14,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
-import androidx.appcompat.app.AlertDialog
-import android.widget.EditText
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
 class LoginPage : AppCompatActivity() {
 
@@ -31,7 +31,7 @@ class LoginPage : AppCompatActivity() {
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
+        val currentUser = Firebase.auth.currentUser
         if (currentUser != null) {
             val intent = Intent(this@LoginPage, MainActivity::class.java)
             startActivity(intent)
@@ -39,7 +39,7 @@ class LoginPage : AppCompatActivity() {
         }
     }
 
-    @SuppressLint("MissingInflatedId")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         val themeManager = ThemeManager(this)
         observeTheme(themeManager)
@@ -64,45 +64,15 @@ class LoginPage : AppCompatActivity() {
 
 
         forgotPassword.setOnClickListener {
-
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle("Recuperar Senha")
-            builder.setMessage("Digite seu email para receber o link de recuperação.")
-
-            val input = EditText(this)
-            input.hint = "Seu email"
-            input.inputType = android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
-
-            builder.setView(input)
-
-            builder.setPositiveButton("Enviar") { dialog, _ ->
-
-                val email = input.text.toString().trim()
-
-                if (email.isEmpty()) {
-                    Toast.makeText(this, "Digite um email válido", Toast.LENGTH_SHORT).show()
-                } else {
-
-                    auth.sendPasswordResetEmail(email)
-                        .addOnCompleteListener {
-
-                            // 👇 COLOQUE AQUI
-                            Toast.makeText(
-                                this,
-                                "Se este email estiver cadastrado, você receberá um link de recuperação.",
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
+            showGenericDisplay("Recuperar Senha", "Digite seu e-mail para receber o link:", "email@exemplo.com", false) { email ->
+                FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this, "E-mail de recuperação enviado!", Toast.LENGTH_LONG).show()
+                    } else {
+                        Toast.makeText(this, "Erro: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    }
                 }
-
-                dialog.dismiss()
             }
-
-            builder.setNegativeButton("Cancelar") { dialog, _ ->
-                dialog.dismiss()
-            }
-
-            builder.show()
         }
 
         textView_toRegister.setOnClickListener {

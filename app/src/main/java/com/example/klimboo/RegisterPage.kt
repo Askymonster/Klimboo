@@ -15,13 +15,13 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 
 class RegisterPage : AppCompatActivity() {
-    lateinit var editTextName: TextInputEditText
-    lateinit var editTextEmail: TextInputEditText
-    lateinit var editTextPassword: TextInputEditText
-    lateinit var auth: FirebaseAuth
-    lateinit var buttonReg: Button
-    lateinit var progressBar: ProgressBar
-    lateinit var textView: TextView
+    private lateinit var editTextName: TextInputEditText
+    private lateinit var editTextEmail: TextInputEditText
+    private lateinit var editTextPassword: TextInputEditText
+    private lateinit var auth: FirebaseAuth
+    private lateinit var buttonReg: Button
+    private lateinit var progressBar: ProgressBar
+    private lateinit var textView: TextView
 
     public override fun onStart() {
         super.onStart()
