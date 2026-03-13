@@ -6,7 +6,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.example.klimboo.data.ThemeManager
+import com.example.klimboo.data.observeTheme
 import com.google.firebase.auth.FirebaseAuth
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import com.example.klimboo.data.SupabaseQueries
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,6 +31,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_page)
         enableEdgeToEdge()
+
+
+        lifecycleScope.launch {
+            SupabaseQueries.testeFetch()
+        }
+
+
 
 
         auth = FirebaseAuth.getInstance()
