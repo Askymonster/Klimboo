@@ -35,7 +35,7 @@
 
             <TextView
 
-                android:id="@+id/user_name_main"
+                android:id="@+id/displayUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
@@ -43,7 +43,7 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/user_email_main"
+                android:id="@+id/displayEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
@@ -111,37 +111,49 @@
             app:chipBackgroundColor="@color/royal_blue" />
     </com.google.android.material.chip.ChipGroup>
 
-    <ImageView
-        android:id="@+id/settings"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_margin="16dp"
-        android:contentDescription="@string/settings_desc"
-        android:src="@drawable/config"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <ImageView
+    <ImageButton
         android:id="@+id/stock"
-        android:layout_width="50dp"
-        android:layout_height="63dp"
-        android:layout_margin="16dp"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
         android:contentDescription="@string/stock_desc"
-        android:src="@drawable/estoque"
+        android:src="@drawable/stock"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:padding="6dp"
+        app:tint="@color/royal_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-
-    <ImageView
+    <ImageButton
         android:id="@+id/qrcode"
-        android:layout_width="50dp"
-        android:layout_height="60dp"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_marginBottom="16dp"
         android:contentDescription="@string/qr_desc"
         android:src="@drawable/qrcode"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:padding="6dp"
+        app:tint="@color/royal_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/settings"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/settings_desc"
+        android:src="@drawable/config"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:padding="6dp"
+        app:tint="@color/royal_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
 
