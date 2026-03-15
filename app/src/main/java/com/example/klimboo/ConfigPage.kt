@@ -79,6 +79,7 @@ class ConfigPage : AppCompatActivity() {
             }
         }
 
+
         // 4. Listener de Logout, backtomain
         binding.backtomainButton.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
@@ -107,5 +108,8 @@ class ConfigPage : AppCompatActivity() {
                 AppCompatDelegate.setDefaultNightMode(mode)
             }
         }
+
+
+
     }
 }

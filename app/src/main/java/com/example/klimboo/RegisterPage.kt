@@ -3,7 +3,6 @@ package com.example.klimboo
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -16,13 +15,11 @@ class RegisterPage : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterPageBinding
     private lateinit var auth: FirebaseAuth
-    private lateinit var progressBar: ProgressBar
 
     public override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
-        if (currentUser != null) {
+        if (currentUser != null && currentUser.isEmailVerified) {
             val intent = Intent(this@RegisterPage, MainActivity::class.java)
             startActivity(intent)
             finish()
@@ -41,7 +38,6 @@ class RegisterPage : AppCompatActivity() {
         }
 
         auth = FirebaseAuth.getInstance()
-        progressBar = findViewById(R.id.progressBar)
 
         binding = ActivityRegisterPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -53,54 +49,69 @@ class RegisterPage : AppCompatActivity() {
         }
 
         binding.btnRegister.setOnClickListener {
-            progressBar.visibility = View.VISIBLE
-            val username = binding.username.toString()
-            val email = binding.email.toString()
-            val password = binding.password.toString()
+            binding.progressBar.visibility = View.VISIBLE
+            binding.btnRegister.isEnabled = false
 
+            val username = binding.username.text.toString()
+            val email = binding.email.text.toString()
+            val password = binding.password.text.toString()
 
             if (username.isEmpty()) {
                 Toast.makeText(this@RegisterPage, "Insira seu nome", Toast.LENGTH_SHORT).show()
+                binding.btnRegister.isEnabled = true
+                binding.progressBar.visibility = View.GONE
                 return@setOnClickListener
             }
 
             if (email.isEmpty()) {
                 Toast.makeText(this@RegisterPage, "Insira o E-mail", Toast.LENGTH_SHORT).show()
+                binding.btnRegister.isEnabled = true
+                binding.progressBar.visibility = View.GONE
                 return@setOnClickListener
             }
 
-            if (binding.password.toString().isEmpty()) {
+            if (password.isEmpty()) {
                 Toast.makeText(this@RegisterPage, "Insira a Senha", Toast.LENGTH_SHORT).show()
+                binding.btnRegister.isEnabled = true
+                binding.progressBar.visibility = View.GONE
+                return@setOnClickListener
+            }
+
+            if (password.length !in 5..25) {
+                Toast.makeText(this@RegisterPage, "A senha deve ter entre 6 e 25 caracteres", Toast.LENGTH_SHORT).show()
+                binding.btnRegister.isEnabled = true
+                binding.progressBar.visibility = View.GONE
                 return@setOnClickListener
             }
 
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-
                         val user = auth.currentUser
-
                         val profileUpdates = com.google.firebase.auth.UserProfileChangeRequest.Builder()
                             .setDisplayName(username)
                             .build()
 
                         user?.updateProfile(profileUpdates)?.addOnCompleteListener {
+                            user.sendEmailVerification()
 
-                            progressBar.visibility = View.GONE
+                            binding.btnRegister.isEnabled = true
+                            binding.progressBar.visibility = View.GONE
+                            Toast.makeText(this, "Verifique seu e-mail antes de continuar!", Toast.LENGTH_LONG).show()
                             startActivity(Intent(this, LoginPage::class.java))
                             finish()
                         }
                     } else {
-                        progressBar.visibility = View.GONE
+                        binding.btnRegister.isEnabled = true
+                        binding.progressBar.visibility = View.GONE
                         Toast.makeText(baseContext, "Erro: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                     }
-
                 }
+        }
 
 
         }
 
 
 
-    }
 }

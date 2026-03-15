@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val themeManager = ThemeManager(this)
-        observeTheme(themeManager) // Resolve o tema para essa tela
+        observeTheme(themeManager)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_page)
