@@ -3,25 +3,20 @@ package com.example.klimboo
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ProgressBar
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.android.material.textfield.TextInputEditText
+import com.example.klimboo.databinding.ActivityRegisterPageBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class RegisterPage : AppCompatActivity() {
-    private lateinit var editTextName: TextInputEditText
-    private lateinit var editTextEmail: TextInputEditText
-    private lateinit var editTextPassword: TextInputEditText
+
+    private lateinit var binding: ActivityRegisterPageBinding
     private lateinit var auth: FirebaseAuth
-    private lateinit var buttonReg: Button
     private lateinit var progressBar: ProgressBar
-    private lateinit var textView: TextView
 
     public override fun onStart() {
         super.onStart()
@@ -46,24 +41,22 @@ class RegisterPage : AppCompatActivity() {
         }
 
         auth = FirebaseAuth.getInstance()
-        editTextName = findViewById(R.id.username)
-        editTextEmail = findViewById(R.id.email)
-        editTextPassword = findViewById(R.id.password)
-        buttonReg = findViewById(R.id.btn_register)
         progressBar = findViewById(R.id.progressBar)
-        textView = findViewById(R.id.loginNow)
 
-        textView.setOnClickListener {
+        binding = ActivityRegisterPageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.loginNow.setOnClickListener {
             val intent = Intent(this, LoginPage::class.java)
             startActivity(intent)
             finish()
         }
 
-        buttonReg.setOnClickListener {
+        binding.btnRegister.setOnClickListener {
             progressBar.visibility = View.VISIBLE
-            val username = editTextName.text.toString()
-            val email = editTextEmail.text.toString()
-            val password = editTextPassword.text.toString()
+            val username = binding.username.toString()
+            val email = binding.email.toString()
+            val password = binding.password.toString()
 
 
             if (username.isEmpty()) {
@@ -76,7 +69,7 @@ class RegisterPage : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (password.isEmpty()) {
+            if (binding.password.toString().isEmpty()) {
                 Toast.makeText(this@RegisterPage, "Insira a Senha", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }

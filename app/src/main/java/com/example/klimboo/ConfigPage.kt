@@ -2,8 +2,6 @@ package com.example.klimboo
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +9,9 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.materialswitch.MaterialSwitch
 import com.google.firebase.auth.FirebaseAuth
 import androidx.lifecycle.lifecycleScope
+import com.example.klimboo.data.ThemeManager
+import com.example.klimboo.data.showGenericDisplay
+import com.example.klimboo.databinding.ActivityConfigPageBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.auth
@@ -18,14 +19,9 @@ import kotlinx.coroutines.launch
 
 class ConfigPage : AppCompatActivity() {
 
+    private lateinit var binding: ActivityConfigPageBinding
     private lateinit var auth: FirebaseAuth
-    private lateinit var buttonLogout: Button
-    private lateinit var textName: TextView
-    private lateinit var textEmail: TextView
-    private lateinit var buttonBack: Button
     private lateinit var themeManager: ThemeManager
-    private lateinit var changeEmail: Button
-    private lateinit var changePassword: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,14 +31,9 @@ class ConfigPage : AppCompatActivity() {
 
         // 1. Inicializar Views
         auth = FirebaseAuth.getInstance()
-        buttonLogout = findViewById(R.id.logout)
-        buttonBack = findViewById(R.id.backtomain)
-        textName = findViewById(R.id.user_details_name)
-        textEmail = findViewById(R.id.user_details_email)
-        changeEmail = findViewById(R.id.changeEmail)
-        changePassword = findViewById(R.id.changePassword)
 
-
+        binding = ActivityConfigPageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // Display de nome/email
         val currentUser = Firebase.auth.currentUser
@@ -53,13 +44,13 @@ class ConfigPage : AppCompatActivity() {
             return
         }
 
-        textName.text = currentUser.displayName ?: "Nome não definido"
-        textEmail.text = emailUser
+        binding.userDetailsName.text = currentUser.displayName ?: "Nome não definido"
+        binding.userDetailsEmail.text = emailUser
 
 
 
         // 2. Listener: Trocar Senha (E-mail de recuperação)
-        changePassword.setOnClickListener {
+        binding.changePassword.setOnClickListener {
             if (emailUser != null) {
                 Firebase.auth.sendPasswordResetEmail(emailUser).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
@@ -70,7 +61,7 @@ class ConfigPage : AppCompatActivity() {
         }
 
         // 3. Listener: Trocar email (requerimento de senha)
-        changeEmail.setOnClickListener {
+        binding.changeEmail.setOnClickListener {
             showGenericDisplay("Confirmação", "Digite sua senha atual para continuar:", "Senha", true) { password ->
                 val credential = EmailAuthProvider.getCredential(currentUser.email!!, password)
 
@@ -89,12 +80,12 @@ class ConfigPage : AppCompatActivity() {
         }
 
         // 4. Listener de Logout, backtomain
-        buttonBack.setOnClickListener {
+        binding.backtomainButton.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
 
-        buttonLogout.setOnClickListener {
+        binding.logoutButton.setOnClickListener {
             Firebase.auth.signOut()
             startActivity(Intent(this, LoginPage::class.java))
             finish()

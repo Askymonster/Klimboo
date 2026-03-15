@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Nome do Usuário"
+        android:text="@string/nome_do_usuario"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="email@exemplo.com"
+        android:text="@string/email_exemplo_com"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +33,7 @@
         android:id="@+id/changeEmail"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Trocar E-mail"
+        android:text="@string/trocar_email"
         app:layout_constraintBottom_toTopOf="@+id/changePassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,25 +45,25 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Trocar Senha"
-        app:layout_constraintBottom_toTopOf="@+id/logout"
+        android:text="@string/trocar_senha"
+        app:layout_constraintBottom_toTopOf="@+id/logoutButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/changeEmail" />
 
     <Button
-        android:id="@+id/logout"
+        android:id="@+id/logoutButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="@string/logout"
-        app:layout_constraintBottom_toTopOf="@+id/backtomain"
+        app:layout_constraintBottom_toTopOf="@+id/backtomainButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/changePassword" />
 
     <Button
-        android:id="@+id/backtomain"
+        android:id="@+id/backtomainButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -71,7 +71,7 @@
         app:layout_constraintBottom_toTopOf="@+id/switch_theme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logout" />
+        app:layout_constraintTop_toBottomOf="@+id/logoutButton" />
 
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/switch_theme"
@@ -83,6 +83,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backtomain" />
+        app:layout_constraintTop_toBottomOf="@+id/backtomainButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

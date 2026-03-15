@@ -4,29 +4,26 @@ package com.example.klimboo
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ProgressBar
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.android.material.textfield.TextInputEditText
+import com.example.klimboo.data.ThemeManager
+import com.example.klimboo.data.observeTheme
+import com.example.klimboo.data.showGenericDisplay
+import com.example.klimboo.databinding.ActivityLoginPageBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 
 class LoginPage : AppCompatActivity() {
 
-    lateinit var editTextEmail: TextInputEditText
-    lateinit var editTextPassword: TextInputEditText
-    lateinit var auth: FirebaseAuth
-    lateinit var buttonLogin: Button
-    lateinit var progressBar: ProgressBar
-    lateinit var textView_toRegister: TextView
+    private lateinit var binding: ActivityLoginPageBinding
+    private lateinit var progressBar: ProgressBar
+    private lateinit var auth: FirebaseAuth
 
-    lateinit var forgotPassword: TextView
 
     public override fun onStart() {
         super.onStart()
@@ -54,17 +51,13 @@ class LoginPage : AppCompatActivity() {
         }
 
         auth = FirebaseAuth.getInstance()
-        editTextEmail = findViewById(R.id.email)
-        editTextPassword = findViewById(R.id.password)
-        buttonLogin = findViewById(R.id.btn_login)
         progressBar = findViewById(R.id.progressBar)
-        textView_toRegister = findViewById(R.id.registerNow)
-        forgotPassword = findViewById(R.id.forgotPassword)
+
+        binding = ActivityLoginPageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
-
-
-        forgotPassword.setOnClickListener {
+        binding.forgotPassword.setOnClickListener {
             showGenericDisplay("Recuperar Senha", "Digite seu e-mail para receber o link:", "email@exemplo.com", false) { email ->
                 FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
@@ -76,16 +69,16 @@ class LoginPage : AppCompatActivity() {
             }
         }
 
-        textView_toRegister.setOnClickListener {
+        binding.registerNow.setOnClickListener {
             val intent = Intent(this, RegisterPage::class.java)
             startActivity(intent)
             finish()
         }
 
-        buttonLogin.setOnClickListener {
+        binding.btnLogin.setOnClickListener {
             progressBar.visibility = View.VISIBLE
-            val email = editTextEmail.text.toString()
-            val password = editTextPassword.text.toString()
+            val email = binding.email.toString()
+            val password = binding.password.text.toString()
 
             if (email.isEmpty()) {
                 Toast.makeText(this@LoginPage, "Insira o E-mail", Toast.LENGTH_SHORT).show()
@@ -112,7 +105,6 @@ class LoginPage : AppCompatActivity() {
                         finish()
                     } else {
                         progressBar.visibility = View.GONE
-                        // If sign in fails, display a message to the user.
                         Toast.makeText(
                             baseContext,
                             "Falha na inicialização.",

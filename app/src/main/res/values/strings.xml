@@ -58,4 +58,13 @@
     <string name="falha_ao_escanear_qr_code">Falha ao escanear QR CODE</string>
     <string name="qr_code_nao_detectado">QR CODE não detectado</string>
     <string name="forgot_password">Esqueci minha senha</string>
+    <string name="edit_stock">edit stock\n</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="adicionar_stock">Adicionar</string>
+    <string name="editar_stock">Editar</string>
+    <string name="excluir_stock">Excluir</string>
+    <string name="nome_do_usuario">Nome do Usuário</string>
+    <string name="email_exemplo_com">email@exemplo.com</string>
+    <string name="trocar_email">Trocar E-mail</string>
+    <string name="trocar_senha">Trocar Senha</string>
 </resources>

@@ -1,6 +1,9 @@
-package com.example.klimboo
+package com.example.klimboo.data
 
 import android.content.Context
+import android.text.InputType
+import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -46,12 +49,12 @@ fun AppCompatActivity.showGenericDisplay(
     isPassword: Boolean = false,
     action: (String) -> Unit
 ) {
-    val input = android.widget.EditText(this).apply {
+    val input = EditText(this).apply {
         this.hint = hint
-        inputType = if (isPassword) 129 else android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+        inputType = if (isPassword) 129 else InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
     }
 
-    androidx.appcompat.app.AlertDialog.Builder(this)
+    AlertDialog.Builder(this)
         .setTitle(titleFun)
         .setMessage(msg)
         .setView(input)
