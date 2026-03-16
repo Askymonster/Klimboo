@@ -8,7 +8,7 @@
     tools:context=".ConfigPage">
 
     <TextView
-        android:id="@+id/user_details_name"
+        android:id="@+id/userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/user_details_email"
+        android:id="@+id/userEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -27,7 +27,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/user_details_name" />
+        app:layout_constraintTop_toBottomOf="@id/userName" />
 
     <Button
         android:id="@+id/changeEmail"
@@ -37,7 +37,7 @@
         app:layout_constraintBottom_toTopOf="@+id/changePassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/user_details_email"
+        app:layout_constraintTop_toBottomOf="@id/userEmail"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <Button

@@ -6,8 +6,9 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.materialswitch.MaterialSwitch
-import com.google.firebase.auth.FirebaseAuth
 import androidx.lifecycle.lifecycleScope
 import com.example.klimboo.data.ThemeManager
 import com.example.klimboo.data.showGenericDisplay
@@ -20,20 +21,21 @@ import kotlinx.coroutines.launch
 class ConfigPage : AppCompatActivity() {
 
     private lateinit var binding: ActivityConfigPageBinding
-    private lateinit var auth: FirebaseAuth
     private lateinit var themeManager: ThemeManager
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_config_page)
-
-        // 1. Inicializar Views
-        auth = FirebaseAuth.getInstance()
 
         binding = ActivityConfigPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         // Display de nome/email
         val currentUser = Firebase.auth.currentUser
@@ -44,9 +46,8 @@ class ConfigPage : AppCompatActivity() {
             return
         }
 
-        binding.userDetailsName.text = currentUser.displayName ?: "Nome não definido"
-        binding.userDetailsEmail.text = emailUser
-
+        binding.userName.text = currentUser.displayName ?: "Nome não definido"
+        binding.userEmail.text = emailUser
 
 
         // 2. Listener: Trocar Senha (E-mail de recuperação)
@@ -55,6 +56,9 @@ class ConfigPage : AppCompatActivity() {
                 Firebase.auth.sendPasswordResetEmail(emailUser).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Toast.makeText(this, "Link de redefinição enviado para: $emailUser", Toast.LENGTH_LONG).show()
+                    }
+                    else {
+                        Toast.makeText(this, "Erro ao enviar link!" , Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -78,6 +82,7 @@ class ConfigPage : AppCompatActivity() {
                 }
             }
         }
+
 
         // 4. Listener de Logout, backtomain
         binding.backtomainButton.setOnClickListener {
@@ -107,5 +112,8 @@ class ConfigPage : AppCompatActivity() {
                 AppCompatDelegate.setDefaultNightMode(mode)
             }
         }
+
+
+
     }
 }

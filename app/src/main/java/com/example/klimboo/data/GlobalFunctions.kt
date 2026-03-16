@@ -1,7 +1,6 @@
 package com.example.klimboo.data
 
 import android.content.Context
-import android.text.InputType
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -51,10 +50,10 @@ fun AppCompatActivity.showGenericDisplay(
 ) {
     val input = EditText(this).apply {
         this.hint = hint
-        inputType = if (isPassword) 129 else InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+        inputType = if (isPassword) 129 else 32
     }
 
-    AlertDialog.Builder(this)
+    AlertDialog.Builder(this, com.google.android.material.R.style.MaterialAlertDialog_Material3)
         .setTitle(titleFun)
         .setMessage(msg)
         .setView(input)
@@ -65,3 +64,6 @@ fun AppCompatActivity.showGenericDisplay(
         .setNegativeButton("Cancelar", null)
         .show()
 }
+
+
+
