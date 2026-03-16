@@ -8,18 +8,21 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.klimboo.data.ThemeManager
+import com.example.klimboo.data.observeTheme
 import com.example.klimboo.databinding.ActivityRegisterPageBinding
-import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
+import com.google.firebase.firestore.firestore
 
 class RegisterPage : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterPageBinding
-    private lateinit var auth: FirebaseAuth
+    private val currentUser get() = Firebase.auth.currentUser
 
     public override fun onStart() {
         super.onStart()
-        val currentUser = auth.currentUser
-        if (currentUser != null && currentUser.isEmailVerified) {
+        if (currentUser != null && currentUser!!.isEmailVerified) {
             val intent = Intent(this@RegisterPage, MainActivity::class.java)
             startActivity(intent)
             finish()
@@ -28,19 +31,22 @@ class RegisterPage : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val themeManager = ThemeManager(this)
+        observeTheme(themeManager)
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_register_page)
+
+        binding = ActivityRegisterPageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        auth = FirebaseAuth.getInstance()
 
-        binding = ActivityRegisterPageBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
         binding.loginNow.setOnClickListener {
             val intent = Intent(this, LoginPage::class.java)
@@ -77,23 +83,30 @@ class RegisterPage : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (password.length !in 5..25) {
+            if (password.length !in 6..25) {
                 Toast.makeText(this@RegisterPage, "A senha deve ter entre 6 e 25 caracteres", Toast.LENGTH_SHORT).show()
                 binding.btnRegister.isEnabled = true
                 binding.progressBar.visibility = View.GONE
                 return@setOnClickListener
             }
 
-            auth.createUserWithEmailAndPassword(email, password)
+            Firebase.auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        val user = auth.currentUser
                         val profileUpdates = com.google.firebase.auth.UserProfileChangeRequest.Builder()
                             .setDisplayName(username)
                             .build()
 
-                        user?.updateProfile(profileUpdates)?.addOnCompleteListener {
-                            user.sendEmailVerification()
+                        currentUser?.updateProfile(profileUpdates)?.addOnCompleteListener {
+                            currentUser!!.sendEmailVerification()
+
+                            Firebase.firestore
+                                .collection("usuarios")
+                                .document(currentUser!!.uid)
+                                .set(hashMapOf(
+                                    "email" to currentUser!!.email,
+                                    "isAdmin" to false
+                                ))
 
                             binding.btnRegister.isEnabled = true
                             binding.progressBar.visibility = View.GONE

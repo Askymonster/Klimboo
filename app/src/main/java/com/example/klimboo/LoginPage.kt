@@ -20,13 +20,12 @@ import com.google.firebase.auth.auth
 class LoginPage : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginPageBinding
-    private lateinit var auth: FirebaseAuth
+    private val currentUser get() = Firebase.auth.currentUser
 
 
     public override fun onStart() {
         super.onStart()
-        val currentUser = Firebase.auth.currentUser
-        if (currentUser != null && currentUser.isEmailVerified) {
+        if (currentUser != null && currentUser!!.isEmailVerified) {
             val intent = Intent(this@LoginPage, MainActivity::class.java)
             startActivity(intent)
             finish()
@@ -40,14 +39,16 @@ class LoginPage : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_login_page)
+
+        binding = ActivityLoginPageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        auth = FirebaseAuth.getInstance()
 
         binding = ActivityLoginPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -83,15 +84,18 @@ class LoginPage : AppCompatActivity() {
             }
 
             // verificar se senha/email estao corretos e se o email foi verificado
-            auth.signInWithEmailAndPassword(email, password)
+            Firebase.auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        val user = Firebase.auth.currentUser!!
 
-                        if (!user.isEmailVerified) {
+                        if (!currentUser!!.isEmailVerified) {
                             binding.btnLogin.isEnabled = true
                             binding.progressBar.visibility = View.GONE
-                            Toast.makeText(this, "Verifique seu e-mail antes de continuar!", Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                this,
+                                "Verifique seu e-mail antes de continuar!",
+                                Toast.LENGTH_LONG
+                            ).show()
                             Firebase.auth.signOut()
                             return@addOnCompleteListener
                         }
@@ -111,20 +115,36 @@ class LoginPage : AppCompatActivity() {
                         }
                         Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
                     }
-                }
 
-            // Funcao para recuperar conta se esquecer senha
-            binding.forgotPassword.setOnClickListener {
-                showGenericDisplay("Recuperar Senha", "Digite seu e-mail para receber o link:", "email@exemplo.com", false) { email ->
-                    FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener { task ->
+                }
+        }
+
+        // Funcao para recuperar conta se esquecer senha
+        binding.forgotPassword.setOnClickListener {
+            showGenericDisplay(
+                "Recuperar Senha",
+                "Digite seu e-mail para receber o link:",
+                "email@exemplo.com",
+                false
+            ) { email ->
+                FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                    .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            Toast.makeText(this, "E-mail de recuperação enviado!", Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                this,
+                                "E-mail de recuperação enviado!",
+                                Toast.LENGTH_LONG
+                            ).show()
                         } else {
-                            Toast.makeText(this, "Erro: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this,
+                                "Erro: ${task.exception?.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
-                }
             }
         }
+
     }
 }

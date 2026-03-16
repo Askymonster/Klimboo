@@ -4,18 +4,18 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.example.klimboo.data.ThemeManager
 import com.example.klimboo.data.observeTheme
-import com.google.firebase.auth.FirebaseAuth
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
-import com.example.klimboo.data.SupabaseQueries
 import com.example.klimboo.databinding.ActivityMainPageBinding
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainPageBinding
-    private lateinit var auth: FirebaseAuth
+
 
 
 
@@ -24,19 +24,19 @@ class MainActivity : AppCompatActivity() {
         observeTheme(themeManager)
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_page)
         enableEdgeToEdge()
 
-
-        lifecycleScope.launch {
-            SupabaseQueries.testeFetch()
-        }
-
-        auth = FirebaseAuth.getInstance()
         binding = ActivityMainPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val currentUser = auth.currentUser
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+
+        val currentUser = Firebase.auth.currentUser
 
         if (currentUser == null) {
             startActivity(Intent(this, LoginPage::class.java))
