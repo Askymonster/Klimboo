@@ -7,6 +7,8 @@ import kotlinx.serialization.Serializable
 
 object SupabaseQueries {
 
+    // ── Read models ───────────────────────────────────────────────────────────
+
     @Serializable
     data class Ferramenta(
         val id: Int,
@@ -20,6 +22,37 @@ object SupabaseQueries {
         val nome: String
     )
 
+    // ── Write models ──────────────────────────────────────────────────────────
+
+    @Serializable
+    private data class NovoArmario(
+        val nome: String
+    )
+
+    @Serializable
+    private data class NovaFerramenta(
+        val nome: String,
+        val local: Int
+    )
+
+    @Serializable
+    private data class UpdateNomeArmario(
+        val nome: String
+    )
+
+    @Serializable
+    private data class UpdateFerramenta(
+        val nome: String,
+        val local: Int
+    )
+
+    @Serializable
+    private data class UpdateLocal(
+        val local: Int
+    )
+
+    // ── Queries ───────────────────────────────────────────────────────────────
+
     suspend fun fetchArmarios(): List<Armario> {
         return try {
             client.from("armarios").select().decodeList<Armario>()
@@ -31,7 +64,7 @@ object SupabaseQueries {
 
     suspend fun insertArmario(nome: String) {
         try {
-            client.from("armarios").insert(mapOf("nome" to nome))
+            client.from("armarios").insert(NovoArmario(nome))
         } catch (e: Exception) {
             Log.e("SUPABASE", "insertArmario error: ${e.message}")
         }
@@ -40,7 +73,7 @@ object SupabaseQueries {
     suspend fun updateArmario(id: Int, novoNome: String) {
         try {
             client.from("armarios")
-                .update(mapOf("nome" to novoNome)) {
+                .update(UpdateNomeArmario(novoNome)) {
                     filter { eq("id", id) }
                 }
         } catch (e: Exception) {
@@ -52,7 +85,7 @@ object SupabaseQueries {
         try {
             if (armarioDestinoId != null) {
                 client.from("ferramentas")
-                    .update(mapOf("local" to armarioDestinoId)) {
+                    .update(UpdateLocal(armarioDestinoId)) {
                         filter { eq("local", id) }
                     }
             } else {
@@ -77,8 +110,7 @@ object SupabaseQueries {
 
     suspend fun insertFerramenta(nome: String, armarioId: Int) {
         try {
-            client.from("ferramentas")
-                .insert(mapOf("nome" to nome, "local" to armarioId))
+            client.from("ferramentas").insert(NovaFerramenta(nome, armarioId))
         } catch (e: Exception) {
             Log.e("SUPABASE", "insertFerramenta error: ${e.message}")
         }
@@ -87,7 +119,7 @@ object SupabaseQueries {
     suspend fun updateFerramenta(id: Int, novoNome: String, novoArmarioId: Int) {
         try {
             client.from("ferramentas")
-                .update(mapOf("nome" to novoNome, "local" to novoArmarioId)) {
+                .update(UpdateFerramenta(novoNome, novoArmarioId)) {
                     filter { eq("id", id) }
                 }
         } catch (e: Exception) {
