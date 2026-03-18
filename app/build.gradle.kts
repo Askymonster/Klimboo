@@ -45,6 +45,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.supabase.auth)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
