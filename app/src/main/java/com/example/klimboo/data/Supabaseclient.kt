@@ -1,6 +1,7 @@
 package com.example.klimboo.data
 
 import com.example.klimboo.BuildConfig
+import io.github.jan.supabase.auth.Auth
 import io.github.jan.supabase.createSupabaseClient
 import io.github.jan.supabase.postgrest.Postgrest
 
@@ -10,5 +11,6 @@ object SupabaseClient {
         supabaseKey = BuildConfig.SUPABASE_KEY  // anon key legacy (eyJ...)
     ) {
         install(Postgrest)
+        install(Auth)
     }
 }
