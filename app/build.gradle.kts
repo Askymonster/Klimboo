@@ -18,14 +18,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        val localProperties = com.android.build.gradle.internal.cxx.configure.gradleLocalProperties(rootDir, providers)
-        buildConfigField("String", "SUPABASE_URL", "\"${localProperties["SUPABASE_URL"]}\"")
-        buildConfigField("String", "SUPABASE_KEY", "\"${localProperties["SUPABASE_KEY"]}\"")
-        buildConfigField("String", "SUPABASE_SERVICE_KEY", "\"${localProperties["SUPABASE_SERVICE_KEY"]}\"")
     }
 
     buildFeatures {
-        buildConfig = true
         viewBinding = true
     }
 
@@ -45,7 +40,6 @@ android {
 }
 
 dependencies {
-    implementation(libs.supabase.auth)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -68,6 +62,5 @@ dependencies {
     implementation (libs.androidx.camera.view)
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.postgrest.kt)
     implementation(libs.ktor.client.android)
 }

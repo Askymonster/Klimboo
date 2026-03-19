@@ -26,7 +26,7 @@
         <Button android:id="@+id/btnToggleItem" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Item" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
-    <!-- ARMÁRIO: selecionar + destino dos itens -->
+    <!-- ARMÁRIO -->
     <LinearLayout
         android:id="@+id/layoutDeleteArmario"
         android:layout_width="match_parent"
@@ -42,11 +42,19 @@
             android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
-        <Spinner
-            android:id="@+id/spinnerArmarioParaRemover"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginBottom="16dp" />
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="16dp">
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteArmarioRemover"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Buscar armário..."
+                android:inputType="textCapWords"
+                android:completionThreshold="1" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -55,10 +63,19 @@
             android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
-        <Spinner
-            android:id="@+id/spinnerDestinoItens"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutDestinoItens"
             android:layout_width="match_parent"
-            android:layout_height="48dp" />
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteDestinoItens"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Buscar armário destino..."
+                android:inputType="textCapWords"
+                android:completionThreshold="1" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/txtAvisoSemDestino"
@@ -72,7 +89,7 @@
 
     </LinearLayout>
 
-    <!-- ITEM: só selecionar qual remover -->
+    <!-- ITEM -->
     <LinearLayout
         android:id="@+id/layoutDeleteItem"
         android:layout_width="match_parent"
@@ -88,10 +105,18 @@
             android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
-        <Spinner
-            android:id="@+id/spinnerItemParaRemover"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp" />
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteItemRemover"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Buscar item..."
+                android:inputType="textCapWords"
+                android:completionThreshold="1" />
+        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 

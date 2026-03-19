@@ -10,9 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.example.klimboo.data.SupabaseQueries
-import com.example.klimboo.data.SupabaseQueries.Armario
-import com.example.klimboo.data.SupabaseQueries.Ferramenta
+import com.example.klimboo.data.FirebaseQueries
+import com.example.klimboo.data.FirebaseQueries.Armario
+import com.example.klimboo.data.FirebaseQueries.Ferramenta
 import com.example.klimboo.databinding.ActivityStockPageBinding
 import com.example.klimboo.databinding.BottomSheetAddBinding
 import com.example.klimboo.databinding.BottomSheetBinding
@@ -78,7 +78,7 @@ class StockPage : AppCompatActivity() {
 
         lifecycleScope.launch {
             try {
-                armarios = SupabaseQueries.fetchArmarios()
+                armarios = FirebaseQueries.fetchArmarios()
                 Log.d("DEBUG_SPINNER", "Armários: ${armarios.size} → $armarios")
                 runOnUiThread {
                     b.spinnerArmarioDestino.adapter = spinnerAdapter(armarios.map { it.nome })
@@ -102,14 +102,14 @@ class StockPage : AppCompatActivity() {
                 if (isArmario) {
                     val nome = b.editNomeArmario.text.toString().trim()
                     if (nome.isEmpty()) { toast("Informe o nome do armário"); return@launch }
-                    SupabaseQueries.insertArmario(nome)
+                    FirebaseQueries.insertArmario(nome)
                     toast("Armário '$nome' adicionado!")
                 } else {
                     val nome = b.editNomeItem.text.toString().trim()
                     if (nome.isEmpty()) { toast("Informe o nome do item"); return@launch }
                     val armario = armarios.getOrNull(b.spinnerArmarioDestino.selectedItemPosition)
                     if (armario == null) { toast("Selecione um armário"); return@launch }
-                    SupabaseQueries.insertFerramenta(nome, armario.id)
+                    FirebaseQueries.insertFerramenta(nome, armario.id)
                     toast("Item '$nome' adicionado!")
                 }
                 dialog.dismiss()
@@ -124,13 +124,19 @@ class StockPage : AppCompatActivity() {
 
         var armarios: List<Armario> = emptyList()
         var ferramentas: List<Ferramenta> = emptyList()
+        var armarioSelecionado: Armario? = null
+        var ferramentaSelecionada: Ferramenta? = null
+        var armarioDestinoSelecionado: Armario? = null
 
-        lifecycleScope.launch {
-            armarios = SupabaseQueries.fetchArmarios()
-            ferramentas = SupabaseQueries.fetchFerramentas()
-            b.spinnerSelecionarArmario.adapter = spinnerAdapter(armarios.map { it.nome })
-            b.spinnerSelecionarItem.adapter = spinnerAdapter(ferramentas.map { it.nome })
-            b.spinnerMoverParaArmario.adapter = spinnerAdapter(armarios.map { it.nome })
+        // checkboxes controlam visibilidade
+        b.checkAlterarNomeArmario.setOnCheckedChangeListener { _, checked ->
+            b.layoutNovoNomeArmario.visibility = if (checked) View.VISIBLE else View.GONE
+        }
+        b.checkAlterarNomeItem.setOnCheckedChangeListener { _, checked ->
+            b.layoutNovoNomeItem.visibility = if (checked) View.VISIBLE else View.GONE
+        }
+        b.checkAlterarLocalItem.setOnCheckedChangeListener { _, checked ->
+            b.layoutMoverParaArmario.visibility = if (checked) View.VISIBLE else View.GONE
         }
 
         b.toggleGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
@@ -145,27 +151,60 @@ class StockPage : AppCompatActivity() {
             val isArmario = b.toggleGroup.checkedButtonId == R.id.btnToggleArmario
             lifecycleScope.launch {
                 if (isArmario) {
-                    val armario = armarios.getOrNull(b.spinnerSelecionarArmario.selectedItemPosition)
-                    if (armario == null) { toast("Selecione um armário"); return@launch }
+                    if (armarioSelecionado == null) { toast("Selecione um armário"); return@launch }
+                    if (!b.checkAlterarNomeArmario.isChecked) { toast("Selecione o que deseja alterar"); return@launch }
                     val novoNome = b.editNovoNomeArmario.text.toString().trim()
                     if (novoNome.isEmpty()) { toast("Informe o novo nome"); return@launch }
-                    SupabaseQueries.updateArmario(armario.id, novoNome)
+                    FirebaseQueries.updateArmario(armarioSelecionado!!.id, novoNome)
                     toast("Armário renomeado para '$novoNome'!")
                 } else {
-                    val ferramenta = ferramentas.getOrNull(b.spinnerSelecionarItem.selectedItemPosition)
-                    if (ferramenta == null) { toast("Selecione um item"); return@launch }
-                    val novoNome = b.editNovoNomeItem.text.toString().trim()
-                    if (novoNome.isEmpty()) { toast("Informe o novo nome"); return@launch }
-                    val destino = armarios.getOrNull(b.spinnerMoverParaArmario.selectedItemPosition)
-                    if (destino == null) { toast("Selecione o armário destino"); return@launch }
-                    SupabaseQueries.updateFerramenta(ferramenta.id, novoNome, destino.id)
+                    if (ferramentaSelecionada == null) { toast("Selecione um item"); return@launch }
+                    if (!b.checkAlterarNomeItem.isChecked && !b.checkAlterarLocalItem.isChecked) {
+                        toast("Selecione o que deseja alterar"); return@launch
+                    }
+                    val novoNome = if (b.checkAlterarNomeItem.isChecked) {
+                        b.editNovoNomeItem.text.toString().trim().also {
+                            if (it.isEmpty()) { toast("Informe o novo nome"); return@launch }
+                        }
+                    } else ferramentaSelecionada!!.nome
+
+                    val novoArmarioId = if (b.checkAlterarLocalItem.isChecked) {
+                        armarioDestinoSelecionado?.id.also {
+                            if (it == null) { toast("Selecione o armário destino"); return@launch }
+                        } ?: return@launch
+                    } else ferramentaSelecionada!!.local
+
+                    FirebaseQueries.updateFerramenta(ferramentaSelecionada!!.id, novoNome, novoArmarioId)
                     toast("Item atualizado!")
                 }
                 dialog.dismiss()
             }
         }
 
-        dialog.show()
+        lifecycleScope.launch {
+            armarios = FirebaseQueries.fetchArmarios()
+            ferramentas = FirebaseQueries.fetchFerramentas()
+
+            val adapterArmarios = ArrayAdapter(this@StockPage, android.R.layout.simple_dropdown_item_1line, armarios.map { it.nome })
+            val adapterFerramentas = ArrayAdapter(this@StockPage, android.R.layout.simple_dropdown_item_1line, ferramentas.map { it.nome })
+            val adapterDestinoArmarios = ArrayAdapter(this@StockPage, android.R.layout.simple_dropdown_item_1line, armarios.map { it.nome })
+
+            b.autoCompleteArmario.setAdapter(adapterArmarios)
+            b.autoCompleteItem.setAdapter(adapterFerramentas)
+            b.autoCompleteArmarioDestino.setAdapter(adapterDestinoArmarios)
+
+            b.autoCompleteArmario.setOnItemClickListener { _, _, pos, _ ->
+                armarioSelecionado = armarios.getOrNull(pos)
+            }
+            b.autoCompleteItem.setOnItemClickListener { _, _, pos, _ ->
+                ferramentaSelecionada = ferramentas.getOrNull(pos)
+            }
+            b.autoCompleteArmarioDestino.setOnItemClickListener { _, _, pos, _ ->
+                armarioDestinoSelecionado = armarios.getOrNull(pos)
+            }
+
+            dialog.show()
+        }
     }
 
     private fun showDeleteSheet() {
@@ -175,22 +214,9 @@ class StockPage : AppCompatActivity() {
 
         var armarios: List<Armario> = emptyList()
         var ferramentas: List<Ferramenta> = emptyList()
-
-        lifecycleScope.launch {
-            armarios = SupabaseQueries.fetchArmarios()
-            ferramentas = SupabaseQueries.fetchFerramentas()
-            b.spinnerArmarioParaRemover.adapter = spinnerAdapter(armarios.map { it.nome })
-            b.spinnerItemParaRemover.adapter = spinnerAdapter(ferramentas.map { it.nome })
-            atualizarSpinnerDestino(b, armarios, 0)
-        }
-
-        b.spinnerArmarioParaRemover.onItemSelectedListener =
-            object : android.widget.AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(parent: android.widget.AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    atualizarSpinnerDestino(b, armarios, pos)
-                }
-                override fun onNothingSelected(parent: android.widget.AdapterView<*>?) {}
-            }
+        var armarioSelecionado: Armario? = null
+        var armarioDestinoSelecionado: Armario? = null
+        var ferramentaSelecionada: Ferramenta? = null
 
         b.toggleGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
             if (isChecked) {
@@ -204,36 +230,58 @@ class StockPage : AppCompatActivity() {
             val isArmario = b.toggleGroup.checkedButtonId == R.id.btnToggleArmario
             lifecycleScope.launch {
                 if (isArmario) {
-                    val armario = armarios.getOrNull(b.spinnerArmarioParaRemover.selectedItemPosition)
-                    if (armario == null) { toast("Selecione um armário"); return@launch }
-                    val outros = armarios.filter { it.id != armario.id }
-                    val destino = outros.getOrNull(b.spinnerDestinoItens.selectedItemPosition)
-                    SupabaseQueries.deleteArmario(armario.id, destino?.id)
-                    toast(if (destino != null) "Itens movidos para '${destino.nome}'." else "Armário e itens removidos.")
+                    if (armarioSelecionado == null) { toast("Selecione um armário"); return@launch }
+                    FirebaseQueries.deleteArmario(armarioSelecionado!!.id, armarioDestinoSelecionado?.id)
+                    toast(if (armarioDestinoSelecionado != null) "Itens movidos para '${armarioDestinoSelecionado!!.nome}'." else "Armário e itens removidos.")
                 } else {
-                    val ferramenta = ferramentas.getOrNull(b.spinnerItemParaRemover.selectedItemPosition)
-                    if (ferramenta == null) { toast("Selecione um item"); return@launch }
-                    SupabaseQueries.deleteFerramenta(ferramenta.id)
-                    toast("Item '${ferramenta.nome}' removido!")
+                    if (ferramentaSelecionada == null) { toast("Selecione um item"); return@launch }
+                    FirebaseQueries.deleteFerramenta(ferramentaSelecionada!!.id)
+                    toast("Item '${ferramentaSelecionada!!.nome}' removido!")
                 }
                 dialog.dismiss()
             }
         }
 
-        dialog.show()
-    }
+        lifecycleScope.launch {
+            armarios = FirebaseQueries.fetchArmarios()
+            ferramentas = FirebaseQueries.fetchFerramentas()
 
-    private fun atualizarSpinnerDestino(b: BottomSheetDeleteBinding, armarios: List<Armario>, selectedIndex: Int) {
-        val removido = armarios.getOrNull(selectedIndex)
-        val outros = armarios.filter { it.id != removido?.id }
-        if (outros.isEmpty()) {
-            b.spinnerDestinoItens.adapter = spinnerAdapter(emptyList())
-            b.spinnerDestinoItens.isEnabled = false
-            b.txtAvisoSemDestino.visibility = View.VISIBLE
-        } else {
-            b.spinnerDestinoItens.adapter = spinnerAdapter(outros.map { it.nome })
-            b.spinnerDestinoItens.isEnabled = true
-            b.txtAvisoSemDestino.visibility = View.GONE
+            val adapterArmarios = ArrayAdapter(this@StockPage, android.R.layout.simple_dropdown_item_1line, armarios.map { it.nome })
+            val adapterFerramentas = ArrayAdapter(this@StockPage, android.R.layout.simple_dropdown_item_1line, ferramentas.map { it.nome })
+            val adapterDestino = ArrayAdapter(this@StockPage, android.R.layout.simple_dropdown_item_1line, armarios.map { it.nome })
+
+            b.autoCompleteArmarioRemover.setAdapter(adapterArmarios)
+            b.autoCompleteItemRemover.setAdapter(adapterFerramentas)
+            b.autoCompleteDestinoItens.setAdapter(adapterDestino)
+
+            b.autoCompleteArmarioRemover.setOnItemClickListener { _, _, pos, _ ->
+                armarioSelecionado = armarios.getOrNull(pos)
+                // atualiza destino excluindo o selecionado
+                val outros = armarios.filter { it.id != armarioSelecionado?.id }
+                val novoAdapter = ArrayAdapter(this@StockPage, android.R.layout.simple_dropdown_item_1line, outros.map { it.nome })
+                b.autoCompleteDestinoItens.setAdapter(novoAdapter)
+                b.autoCompleteDestinoItens.text.clear()
+                armarioDestinoSelecionado = null
+                if (outros.isEmpty()) {
+                    b.layoutDestinoItens.isEnabled = false
+                    b.txtAvisoSemDestino.visibility = View.VISIBLE
+                } else {
+                    b.layoutDestinoItens.isEnabled = true
+                    b.txtAvisoSemDestino.visibility = View.GONE
+                }
+            }
+
+            b.autoCompleteDestinoItens.setOnItemClickListener { _, _, pos, _ ->
+                val outros = armarios.filter { it.id != armarioSelecionado?.id }
+                armarioDestinoSelecionado = outros.getOrNull(pos)
+            }
+
+            b.autoCompleteItemRemover.setOnItemClickListener { _, _, pos, _ ->
+                ferramentaSelecionada = ferramentas.getOrNull(pos)
+            }
+
+            dialog.show()
         }
     }
+
 }

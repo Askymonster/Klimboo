@@ -26,7 +26,7 @@
         <Button android:id="@+id/btnToggleItem" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Item" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
-    <!-- ARMÁRIO: selecionar + novo nome -->
+    <!-- ARMÁRIO -->
     <LinearLayout
         android:id="@+id/layoutEditArmario"
         android:layout_width="match_parent"
@@ -42,16 +42,34 @@
             android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
-        <Spinner
-            android:id="@+id/spinnerSelecionarArmario"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginBottom="16dp" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="16dp">
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteArmario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Buscar armário..."
+                android:inputType="textCapWords"
+                android:completionThreshold="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <CheckBox
+            android:id="@+id/checkAlterarNomeArmario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alterar nome do armário"
+            android:textColor="@color/black"
+            android:layout_marginBottom="8dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutNovoNomeArmario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:visibility="gone">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editNovoNomeArmario"
                 android:layout_width="match_parent"
@@ -62,7 +80,7 @@
 
     </LinearLayout>
 
-    <!-- ITEM: selecionar + novo nome + mover para armário -->
+    <!-- ITEM -->
     <LinearLayout
         android:id="@+id/layoutEditItem"
         android:layout_width="match_parent"
@@ -78,17 +96,35 @@
             android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
-        <Spinner
-            android:id="@+id/spinnerSelecionarItem"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginBottom="16dp" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="16dp">
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Buscar item..."
+                android:inputType="textCapWords"
+                android:completionThreshold="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <CheckBox
+            android:id="@+id/checkAlterarNomeItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alterar nome do item"
+            android:textColor="@color/black"
+            android:layout_marginBottom="8dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutNovoNomeItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editNovoNomeItem"
                 android:layout_width="match_parent"
@@ -97,17 +133,28 @@
                 android:inputType="textCapWords" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
+        <CheckBox
+            android:id="@+id/checkAlterarLocalItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mover para armário:"
+            android:text="Alterar armário do item"
             android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
-        <Spinner
-            android:id="@+id/spinnerMoverParaArmario"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutMoverParaArmario"
             android:layout_width="match_parent"
-            android:layout_height="48dp" />
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:visibility="gone">
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteArmarioDestino"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Buscar armário destino..."
+                android:inputType="textCapWords"
+                android:completionThreshold="1" />
+        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
