@@ -122,8 +122,8 @@ class StockPage : AppCompatActivity() {
         val b = BottomSheetEditBinding.inflate(layoutInflater)
         dialog.setContentView(b.root)
 
-        var armarios: List<Armario> = emptyList()
-        var ferramentas: List<Ferramenta> = emptyList()
+        var armarios: List<Armario>
+        var ferramentas: List<Ferramenta>
         var armarioSelecionado: Armario? = null
         var ferramentaSelecionada: Ferramenta? = null
         var armarioDestinoSelecionado: Armario? = null
@@ -212,8 +212,8 @@ class StockPage : AppCompatActivity() {
         val b = BottomSheetDeleteBinding.inflate(layoutInflater)
         dialog.setContentView(b.root)
 
-        var armarios: List<Armario> = emptyList()
-        var ferramentas: List<Ferramenta> = emptyList()
+        var armarios: List<Armario>
+        var ferramentas: List<Ferramenta>
         var armarioSelecionado: Armario? = null
         var armarioDestinoSelecionado: Armario? = null
         var ferramentaSelecionada: Ferramenta? = null
