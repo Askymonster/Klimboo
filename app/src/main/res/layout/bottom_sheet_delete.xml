@@ -57,8 +57,34 @@
                 android:paddingEnd="10dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:completionThreshold="1" />
+                android:completionThreshold="0" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Preview + botão remover foto do armário -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/imgPreviewArmario"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                android:layout_marginEnd="12dp" />
+
+            <Button
+                android:id="@+id/btnRemoverFotoArmario"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remover foto"
+                android:visibility="gone" />
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -82,7 +108,7 @@
                 android:paddingEnd="10dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:completionThreshold="1" />
+                android:completionThreshold="0" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -116,15 +142,41 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="12dp">
             <AutoCompleteTextView
                 android:id="@+id/autoCompleteItemRemover"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Buscar item..."
                 android:inputType="textCapWords"
-                android:completionThreshold="1" />
+                android:completionThreshold="0" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Preview + botão remover foto do item -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/imgPreviewItem"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                android:layout_marginEnd="12dp" />
+
+            <Button
+                android:id="@+id/btnRemoverFotoItem"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remover foto"
+                android:visibility="gone" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

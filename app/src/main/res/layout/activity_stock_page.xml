@@ -5,9 +5,22 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".StockPage">
 
+    <Spinner
+        android:id="@+id/spinnerLockers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_alignParentTop="true" />
+
+    <ListView
+        android:id="@+id/listTools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/spinnerLockers"
+        android:layout_above="@id/editStock"
+        android:layout_margin="16dp" />
 
     <ImageButton
         android:id="@+id/editStock"

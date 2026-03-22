@@ -57,7 +57,7 @@
                 android:paddingEnd="10dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:completionThreshold="1" />
+                android:completionThreshold="0" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
@@ -81,6 +81,39 @@
                 android:hint="Novo nome do Armário"
                 android:inputType="textCapWords" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/imgPreviewArmario"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                android:layout_marginEnd="12dp" />
+
+            <Button
+                android:id="@+id/btnFotoArmario"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alterar foto" />
+
+            <Button
+                android:id="@+id/btnRemoverFotoArmario"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remover foto"
+                android:layout_marginStart="8dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -111,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Buscar item..."
                 android:inputType="textCapWords"
-                android:completionThreshold="1" />
+                android:completionThreshold="0" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
@@ -157,8 +190,41 @@
                 android:layout_height="wrap_content"
                 android:hint="Buscar armário destino..."
                 android:inputType="textCapWords"
-                android:completionThreshold="1" />
+                android:completionThreshold="0" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/imgPreviewItem"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                android:layout_marginEnd="12dp" />
+
+            <Button
+                android:id="@+id/btnFotoItem"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alterar foto" />
+
+            <Button
+                android:id="@+id/btnRemoverFotoItem"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remover foto"
+                android:layout_marginStart="8dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

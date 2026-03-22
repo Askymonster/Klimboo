@@ -1,37 +1,74 @@
 package com.example.klimboo
 
+import android.Manifest
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.example.klimboo.data.FirebaseQueries
 import com.example.klimboo.data.FirebaseQueries.Armario
 import com.example.klimboo.data.FirebaseQueries.Ferramenta
+import com.example.klimboo.data.PhotoManager
 import com.example.klimboo.databinding.ActivityStockPageBinding
 import com.example.klimboo.databinding.BottomSheetAddBinding
 import com.example.klimboo.databinding.BottomSheetBinding
 import com.example.klimboo.databinding.BottomSheetDeleteBinding
 import com.example.klimboo.databinding.BottomSheetEditBinding
+import com.google.android.material.button.MaterialButtonToggleGroup
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.launch
+import androidx.core.view.isGone
 
 class StockPage : AppCompatActivity() {
 
     private lateinit var binding: ActivityStockPageBinding
 
+    companion object {
+        private const val MSG_INFORME_NOME_ARMARIO = "Informe o nome do armário"
+        private const val MSG_INFORME_NOME_ITEM    = "Informe o nome do item"
+        private const val MSG_INFORME_NOVO_NOME    = "Informe o novo nome"
+        private const val MSG_SELECIONE_ARMARIO    = "Selecione um armário"
+        private const val MSG_SELECIONE_ITEM       = "Selecione um item"
+        private const val MSG_SELECIONE_ALTERAR    = "Selecione o que deseja alterar"
+        private const val MSG_SELECIONE_DESTINO    = "Selecione o armário destino"
+    }
+
+    // ── Câmera ────────────────────────────────────────────────────────────────
+
+    private var onPhotoTaken: ((Bitmap) -> Unit)? = null
+
+    private val takePicture = registerForActivityResult(
+        ActivityResultContracts.TakePicturePreview()
+    ) { bitmap -> bitmap?.let { onPhotoTaken?.invoke(it) } }
+
+    private val requestCameraPermission = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { granted -> if (granted) takePicture.launch(null) else toast("Permissão de câmera necessária") }
+
+    private fun openCamera(onPhoto: (Bitmap) -> Unit) {
+        onPhotoTaken = onPhoto
+        requestCameraPermission.launch(Manifest.permission.CAMERA)
+    }
+
+    // ── Lifecycle ─────────────────────────────────────────────────────────────
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
         binding = ActivityStockPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -44,29 +81,48 @@ class StockPage : AppCompatActivity() {
         FirebaseFirestore.getInstance().collection("usuarios")
             .document(Firebase.auth.currentUser!!.uid)
             .get()
-            .addOnSuccessListener { document ->
-                val isAdmin = document.getBoolean("isAdmin") ?: false
+            .addOnSuccessListener { doc ->
+                val isAdmin = doc.getBoolean("isAdmin") ?: false
                 binding.editStock.visibility = if (isAdmin) View.VISIBLE else View.GONE
                 binding.editStock.setOnClickListener { showMainSheet() }
             }
+
+        lifecycleScope.launch {
+            try {
+                val lockers = FirebaseQueries.fetchArmarios()
+                binding.spinnerLockers.adapter = spinnerAdapter(lockers.map { it.nome })
+                binding.spinnerLockers.onItemSelectedListener =
+                    object : android.widget.AdapterView.OnItemSelectedListener {
+                        override fun onItemSelected(parent: android.widget.AdapterView<*>, view: View?, pos: Int, id: Long) {
+                            val selected = lockers.getOrNull(pos) ?: return
+                            lifecycleScope.launch {
+                                val tools = FirebaseQueries.fetchFerramentasByLocker(selected.id)
+                                binding.listTools.adapter = ArrayAdapter(
+                                    this@StockPage,
+                                    android.R.layout.simple_list_item_1,
+                                    tools.map { it.nome }
+                                )
+                            }
+                        }
+                        override fun onNothingSelected(parent: android.widget.AdapterView<*>) {}
+                    }
+            } catch (e: Exception) {
+                Log.e("STOCK", "Error loading lockers: ${e.message}", e)
+            }
+        }
     }
+
+    // ── Sheets ────────────────────────────────────────────────────────────────
 
     private fun showMainSheet() {
-        val dialogBinding = BottomSheetBinding.inflate(layoutInflater)
+        val b = BottomSheetBinding.inflate(layoutInflater)
         val dialog = BottomSheetDialog(this)
-        dialogBinding.btnAdd.setOnClickListener { dialog.dismiss(); showAddSheet() }
-        dialogBinding.btnEdit.setOnClickListener { dialog.dismiss(); showEditSheet() }
-        dialogBinding.btnDelete.setOnClickListener { dialog.dismiss(); showDeleteSheet() }
-        dialog.setContentView(dialogBinding.root)
+        b.btnAdd.setOnClickListener { dialog.dismiss(); showAddSheet() }
+        b.btnEdit.setOnClickListener { dialog.dismiss(); showEditSheet() }
+        b.btnDelete.setOnClickListener { dialog.dismiss(); showDeleteSheet() }
+        dialog.setContentView(b.root)
         dialog.show()
     }
-
-    private fun toast(msg: String) = Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-
-    private fun spinnerAdapter(items: List<String>) =
-        ArrayAdapter(this, android.R.layout.simple_spinner_item, items).also {
-            it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        }
 
     private fun showAddSheet() {
         val dialog = BottomSheetDialog(this)
@@ -74,43 +130,38 @@ class StockPage : AppCompatActivity() {
         dialog.setContentView(b.root)
         dialog.show()
 
-        var armarios: List<Armario> = emptyList()
+        var lockers: List<Armario> = emptyList()
+        var photoBitmapArmario: Bitmap? = null
+        var photoBitmapItem: Bitmap? = null
 
         lifecycleScope.launch {
             try {
-                armarios = FirebaseQueries.fetchArmarios()
-                Log.d("DEBUG_SPINNER", "Armários: ${armarios.size} → $armarios")
-                runOnUiThread {
-                    b.spinnerArmarioDestino.adapter = spinnerAdapter(armarios.map { it.nome })
-                }
-            } catch (e: Exception) {
-                Log.e("DEBUG_SPINNER", "Erro: ${e.message}", e)
-            }
+                lockers = FirebaseQueries.fetchArmarios()
+                runOnUiThread { b.spinnerArmarioDestino.adapter = spinnerAdapter(lockers.map { it.nome }) }
+            } catch (e: Exception) { Log.e("DEBUG_SPINNER", "Error: ${e.message}", e) }
         }
 
-        b.toggleGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
-            if (isChecked) {
-                val isArmario = checkedId == R.id.btnToggleArmario
-                b.layoutAddArmario.visibility = if (isArmario) View.VISIBLE else View.GONE
-                b.layoutAddItem.visibility = if (isArmario) View.GONE else View.VISIBLE
-            }
-        }
+        bindToggle(b.toggleGroup, b.layoutAddArmario, b.layoutAddItem)
+        bindPhotoButtons(b.btnFotoArmario, b.btnRemoverFotoArmario, b.imgPreviewArmario) { photoBitmapArmario = it }
+        bindPhotoButtons(b.btnFotoItem, b.btnRemoverFotoItem, b.imgPreviewItem) { photoBitmapItem = it }
 
         b.btnConfirmarAdd.setOnClickListener {
-            val isArmario = b.toggleGroup.checkedButtonId == R.id.btnToggleArmario
+            val isLocker = b.toggleGroup.checkedButtonId == R.id.btnToggleArmario
             lifecycleScope.launch {
-                if (isArmario) {
-                    val nome = b.editNomeArmario.text.toString().trim()
-                    if (nome.isEmpty()) { toast("Informe o nome do armário"); return@launch }
-                    FirebaseQueries.insertArmario(nome)
-                    toast("Armário '$nome' adicionado!")
+                if (isLocker) {
+                    val name = b.editNomeArmario.text.toString().trim()
+                    if (name.isEmpty()) { toast(MSG_INFORME_NOME_ARMARIO); return@launch }
+                    val url = photoBitmapArmario?.let { PhotoManager.uploadPhoto(it, "armarios") }
+                    FirebaseQueries.insertArmario(name, url)
+                    toast("Armário '$name' adicionado!")
                 } else {
-                    val nome = b.editNomeItem.text.toString().trim()
-                    if (nome.isEmpty()) { toast("Informe o nome do item"); return@launch }
-                    val armario = armarios.getOrNull(b.spinnerArmarioDestino.selectedItemPosition)
-                    if (armario == null) { toast("Selecione um armário"); return@launch }
-                    FirebaseQueries.insertFerramenta(nome, armario.id)
-                    toast("Item '$nome' adicionado!")
+                    val name = b.editNomeItem.text.toString().trim()
+                    if (name.isEmpty()) { toast(MSG_INFORME_NOME_ITEM); return@launch }
+                    val locker = lockers.getOrNull(b.spinnerArmarioDestino.selectedItemPosition)
+                        ?: run { toast(MSG_SELECIONE_ARMARIO); return@launch }
+                    val url = photoBitmapItem?.let { PhotoManager.uploadPhoto(it, "ferramentas") }
+                    FirebaseQueries.insertFerramenta(name, locker.id, url)
+                    toast("Item '$name' adicionado!")
                 }
                 dialog.dismiss()
             }
@@ -122,59 +173,61 @@ class StockPage : AppCompatActivity() {
         val b = BottomSheetEditBinding.inflate(layoutInflater)
         dialog.setContentView(b.root)
 
-        var armarios: List<Armario>
-        var ferramentas: List<Ferramenta>
-        var armarioSelecionado: Armario? = null
-        var ferramentaSelecionada: Ferramenta? = null
-        var armarioDestinoSelecionado: Armario? = null
+        var lockers: List<Armario>
+        var tools: List<Ferramenta>
+        var selectedLocker: Armario? = null
+        var selectedTool: Ferramenta? = null
+        var selectedDestination: Armario? = null
+        var newPhotoBitmapArmario: Bitmap? = null
+        var newPhotoBitmapItem: Bitmap? = null
 
-        // checkboxes controlam visibilidade
-        b.checkAlterarNomeArmario.setOnCheckedChangeListener { _, checked ->
-            b.layoutNovoNomeArmario.visibility = if (checked) View.VISIBLE else View.GONE
-        }
-        b.checkAlterarNomeItem.setOnCheckedChangeListener { _, checked ->
-            b.layoutNovoNomeItem.visibility = if (checked) View.VISIBLE else View.GONE
-        }
-        b.checkAlterarLocalItem.setOnCheckedChangeListener { _, checked ->
-            b.layoutMoverParaArmario.visibility = if (checked) View.VISIBLE else View.GONE
+        listOf(
+            b.checkAlterarNomeArmario to b.layoutNovoNomeArmario,
+            b.checkAlterarNomeItem    to b.layoutNovoNomeItem,
+            b.checkAlterarLocalItem   to b.layoutMoverParaArmario
+        ).forEach { (check, layout) ->
+            check.setOnCheckedChangeListener { _, c -> layout.visibility = if (c) View.VISIBLE else View.GONE }
         }
 
-        b.toggleGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
-            if (isChecked) {
-                val isArmario = checkedId == R.id.btnToggleArmario
-                b.layoutEditArmario.visibility = if (isArmario) View.VISIBLE else View.GONE
-                b.layoutEditItem.visibility = if (isArmario) View.GONE else View.VISIBLE
-            }
-        }
+        bindToggle(b.toggleGroup, b.layoutEditArmario, b.layoutEditItem)
+        bindPhotoButtons(b.btnFotoArmario, b.btnRemoverFotoArmario, b.imgPreviewArmario) { newPhotoBitmapArmario = it }
+        bindPhotoButtons(b.btnFotoItem, b.btnRemoverFotoItem, b.imgPreviewItem) { newPhotoBitmapItem = it }
 
         b.btnConfirmarEdit.setOnClickListener {
-            val isArmario = b.toggleGroup.checkedButtonId == R.id.btnToggleArmario
+            val isLocker = b.toggleGroup.checkedButtonId == R.id.btnToggleArmario
             lifecycleScope.launch {
-                if (isArmario) {
-                    if (armarioSelecionado == null) { toast("Selecione um armário"); return@launch }
-                    if (!b.checkAlterarNomeArmario.isChecked) { toast("Selecione o que deseja alterar"); return@launch }
-                    val novoNome = b.editNovoNomeArmario.text.toString().trim()
-                    if (novoNome.isEmpty()) { toast("Informe o novo nome"); return@launch }
-                    FirebaseQueries.updateArmario(armarioSelecionado!!.id, novoNome)
-                    toast("Armário renomeado para '$novoNome'!")
-                } else {
-                    if (ferramentaSelecionada == null) { toast("Selecione um item"); return@launch }
-                    if (!b.checkAlterarNomeItem.isChecked && !b.checkAlterarLocalItem.isChecked) {
-                        toast("Selecione o que deseja alterar"); return@launch
+                if (isLocker) {
+                    val locker = selectedLocker ?: run { toast(MSG_SELECIONE_ARMARIO); return@launch }
+                    val hasNameChange = b.checkAlterarNomeArmario.isChecked
+                    val hasNewPhoto = newPhotoBitmapArmario != null
+                    val isRemovingPhoto = locker.photoUrl != null && b.imgPreviewArmario.isGone && !hasNewPhoto
+                    if (!hasNameChange && !hasNewPhoto && !isRemovingPhoto) { toast(MSG_SELECIONE_ALTERAR); return@launch }
+                    if (hasNameChange) {
+                        val newName = b.editNovoNomeArmario.text.toString().trim()
+                        if (newName.isEmpty()) { toast(MSG_INFORME_NOVO_NOME); return@launch }
+                        FirebaseQueries.updateArmario(locker.id, newName)
                     }
-                    val novoNome = if (b.checkAlterarNomeItem.isChecked) {
-                        b.editNovoNomeItem.text.toString().trim().also {
-                            if (it.isEmpty()) { toast("Informe o novo nome"); return@launch }
-                        }
-                    } else ferramentaSelecionada!!.nome
-
-                    val novoArmarioId = if (b.checkAlterarLocalItem.isChecked) {
-                        armarioDestinoSelecionado?.id.also {
-                            if (it == null) { toast("Selecione o armário destino"); return@launch }
-                        } ?: return@launch
-                    } else ferramentaSelecionada!!.local
-
-                    FirebaseQueries.updateFerramenta(ferramentaSelecionada!!.id, novoNome, novoArmarioId)
+                    handlePhotoUpdate(hasNewPhoto, isRemovingPhoto, newPhotoBitmapArmario, locker.photoUrl, "armarios") {
+                        FirebaseQueries.updateArmarioPhoto(locker.id, it)
+                    }
+                    toast("Armário atualizado!")
+                } else {
+                    val tool = selectedTool ?: run { toast(MSG_SELECIONE_ITEM); return@launch }
+                    val hasNameChange = b.checkAlterarNomeItem.isChecked
+                    val hasLocalChange = b.checkAlterarLocalItem.isChecked
+                    val hasNewPhoto = newPhotoBitmapItem != null
+                    val isRemovingPhoto = tool.photoUrl != null && b.imgPreviewItem.isGone && !hasNewPhoto
+                    if (!hasNameChange && !hasLocalChange && !hasNewPhoto && !isRemovingPhoto) { toast(MSG_SELECIONE_ALTERAR); return@launch }
+                    val newName = if (hasNameChange) {
+                        b.editNovoNomeItem.text.toString().trim().also { if (it.isEmpty()) { toast(MSG_INFORME_NOVO_NOME); return@launch } }
+                    } else tool.nome
+                    val newLockerId = if (hasLocalChange) {
+                        selectedDestination?.id ?: run { toast(MSG_SELECIONE_DESTINO); return@launch }
+                    } else tool.local
+                    FirebaseQueries.updateFerramenta(tool.id, newName, newLockerId)
+                    handlePhotoUpdate(hasNewPhoto, isRemovingPhoto, newPhotoBitmapItem, tool.photoUrl, "ferramentas") {
+                        FirebaseQueries.updateFerramentaPhoto(tool.id, it)
+                    }
                     toast("Item atualizado!")
                 }
                 dialog.dismiss()
@@ -182,27 +235,21 @@ class StockPage : AppCompatActivity() {
         }
 
         lifecycleScope.launch {
-            armarios = FirebaseQueries.fetchArmarios()
-            ferramentas = FirebaseQueries.fetchFerramentas()
-
-            val adapterArmarios = ArrayAdapter(this@StockPage, android.R.layout.simple_dropdown_item_1line, armarios.map { it.nome })
-            val adapterFerramentas = ArrayAdapter(this@StockPage, android.R.layout.simple_dropdown_item_1line, ferramentas.map { it.nome })
-            val adapterDestinoArmarios = ArrayAdapter(this@StockPage, android.R.layout.simple_dropdown_item_1line, armarios.map { it.nome })
-
-            b.autoCompleteArmario.setAdapter(adapterArmarios)
-            b.autoCompleteItem.setAdapter(adapterFerramentas)
-            b.autoCompleteArmarioDestino.setAdapter(adapterDestinoArmarios)
-
-            b.autoCompleteArmario.setOnItemClickListener { _, _, pos, _ ->
-                armarioSelecionado = armarios.getOrNull(pos)
+            lockers = FirebaseQueries.fetchArmarios()
+            tools = FirebaseQueries.fetchFerramentas()
+            bindAutoComplete(b.autoCompleteArmario, lockers.map { it.nome }) { pos ->
+                selectedLocker = lockers.getOrNull(pos)
+                newPhotoBitmapArmario = null
+                showPhotoPreview(selectedLocker?.photoUrl, b.imgPreviewArmario, b.btnRemoverFotoArmario)
             }
-            b.autoCompleteItem.setOnItemClickListener { _, _, pos, _ ->
-                ferramentaSelecionada = ferramentas.getOrNull(pos)
+            bindAutoComplete(b.autoCompleteItem, tools.map { it.nome }) { pos ->
+                selectedTool = tools.getOrNull(pos)
+                newPhotoBitmapItem = null
+                showPhotoPreview(selectedTool?.photoUrl, b.imgPreviewItem, b.btnRemoverFotoItem)
             }
-            b.autoCompleteArmarioDestino.setOnItemClickListener { _, _, pos, _ ->
-                armarioDestinoSelecionado = armarios.getOrNull(pos)
+            bindAutoComplete(b.autoCompleteArmarioDestino, lockers.map { it.nome }) { pos ->
+                selectedDestination = lockers.getOrNull(pos)
             }
-
             dialog.show()
         }
     }
@@ -212,76 +259,151 @@ class StockPage : AppCompatActivity() {
         val b = BottomSheetDeleteBinding.inflate(layoutInflater)
         dialog.setContentView(b.root)
 
-        var armarios: List<Armario>
-        var ferramentas: List<Ferramenta>
-        var armarioSelecionado: Armario? = null
-        var armarioDestinoSelecionado: Armario? = null
-        var ferramentaSelecionada: Ferramenta? = null
+        var lockers: List<Armario>
+        var tools: List<Ferramenta>
+        var selectedLocker: Armario? = null
+        var selectedDestination: Armario? = null
+        var selectedTool: Ferramenta? = null
 
-        b.toggleGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
-            if (isChecked) {
-                val isArmario = checkedId == R.id.btnToggleArmario
-                b.layoutDeleteArmario.visibility = if (isArmario) View.VISIBLE else View.GONE
-                b.layoutDeleteItem.visibility = if (isArmario) View.GONE else View.VISIBLE
+        bindToggle(b.toggleGroup, b.layoutDeleteArmario, b.layoutDeleteItem)
+
+        b.btnRemoverFotoArmario.setOnClickListener {
+            val locker = selectedLocker ?: return@setOnClickListener
+            lifecycleScope.launch {
+                locker.photoUrl?.let { PhotoManager.deletePhoto(it) }
+                FirebaseQueries.updateArmarioPhoto(locker.id, null)
+                selectedLocker = locker.copy(photoUrl = null)
+                showPhotoPreview(null, b.imgPreviewArmario, b.btnRemoverFotoArmario)
+                toast("Foto removida")
+            }
+        }
+        b.btnRemoverFotoItem.setOnClickListener {
+            val tool = selectedTool ?: return@setOnClickListener
+            lifecycleScope.launch {
+                tool.photoUrl?.let { PhotoManager.deletePhoto(it) }
+                FirebaseQueries.updateFerramentaPhoto(tool.id, null)
+                selectedTool = tool.copy(photoUrl = null)
+                showPhotoPreview(null, b.imgPreviewItem, b.btnRemoverFotoItem)
+                toast("Foto removida")
             }
         }
 
         b.btnConfirmarDelete.setOnClickListener {
-            val isArmario = b.toggleGroup.checkedButtonId == R.id.btnToggleArmario
+            val isLocker = b.toggleGroup.checkedButtonId == R.id.btnToggleArmario
             lifecycleScope.launch {
-                if (isArmario) {
-                    if (armarioSelecionado == null) { toast("Selecione um armário"); return@launch }
-                    FirebaseQueries.deleteArmario(armarioSelecionado!!.id, armarioDestinoSelecionado?.id)
-                    toast(if (armarioDestinoSelecionado != null) "Itens movidos para '${armarioDestinoSelecionado!!.nome}'." else "Armário e itens removidos.")
+                if (isLocker) {
+                    val locker = selectedLocker ?: run { toast(MSG_SELECIONE_ARMARIO); return@launch }
+                    locker.photoUrl?.let { PhotoManager.deletePhoto(it) }
+                    FirebaseQueries.deleteArmario(locker.id, selectedDestination?.id)
+                    toast(if (selectedDestination != null) "Itens movidos para '${selectedDestination!!.nome}'." else "Armário e itens removidos.")
                 } else {
-                    if (ferramentaSelecionada == null) { toast("Selecione um item"); return@launch }
-                    FirebaseQueries.deleteFerramenta(ferramentaSelecionada!!.id)
-                    toast("Item '${ferramentaSelecionada!!.nome}' removido!")
+                    val tool = selectedTool ?: run { toast(MSG_SELECIONE_ITEM); return@launch }
+                    tool.photoUrl?.let { PhotoManager.deletePhoto(it) }
+                    FirebaseQueries.deleteFerramenta(tool.id)
+                    toast("Item '${tool.nome}' removido!")
                 }
                 dialog.dismiss()
             }
         }
 
         lifecycleScope.launch {
-            armarios = FirebaseQueries.fetchArmarios()
-            ferramentas = FirebaseQueries.fetchFerramentas()
-
-            val adapterArmarios = ArrayAdapter(this@StockPage, android.R.layout.simple_dropdown_item_1line, armarios.map { it.nome })
-            val adapterFerramentas = ArrayAdapter(this@StockPage, android.R.layout.simple_dropdown_item_1line, ferramentas.map { it.nome })
-            val adapterDestino = ArrayAdapter(this@StockPage, android.R.layout.simple_dropdown_item_1line, armarios.map { it.nome })
-
-            b.autoCompleteArmarioRemover.setAdapter(adapterArmarios)
-            b.autoCompleteItemRemover.setAdapter(adapterFerramentas)
-            b.autoCompleteDestinoItens.setAdapter(adapterDestino)
-
-            b.autoCompleteArmarioRemover.setOnItemClickListener { _, _, pos, _ ->
-                armarioSelecionado = armarios.getOrNull(pos)
-                // atualiza destino excluindo o selecionado
-                val outros = armarios.filter { it.id != armarioSelecionado?.id }
-                val novoAdapter = ArrayAdapter(this@StockPage, android.R.layout.simple_dropdown_item_1line, outros.map { it.nome })
-                b.autoCompleteDestinoItens.setAdapter(novoAdapter)
-                b.autoCompleteDestinoItens.text.clear()
-                armarioDestinoSelecionado = null
-                if (outros.isEmpty()) {
-                    b.layoutDestinoItens.isEnabled = false
-                    b.txtAvisoSemDestino.visibility = View.VISIBLE
-                } else {
-                    b.layoutDestinoItens.isEnabled = true
-                    b.txtAvisoSemDestino.visibility = View.GONE
+            lockers = FirebaseQueries.fetchArmarios()
+            tools = FirebaseQueries.fetchFerramentas()
+            bindAutoComplete(b.autoCompleteArmarioRemover, lockers.map { it.nome }) { pos ->
+                selectedLocker = lockers.getOrNull(pos)
+                showPhotoPreview(selectedLocker?.photoUrl, b.imgPreviewArmario, b.btnRemoverFotoArmario)
+                val others = lockers.filter { it.id != selectedLocker?.id }
+                bindAutoComplete(b.autoCompleteDestinoItens, others.map { it.nome }) { p ->
+                    selectedDestination = others.getOrNull(p)
                 }
+                b.autoCompleteDestinoItens.text.clear()
+                selectedDestination = null
+                b.layoutDestinoItens.isEnabled = others.isNotEmpty()
+                b.txtAvisoSemDestino.visibility = if (others.isEmpty()) View.VISIBLE else View.GONE
             }
-
-            b.autoCompleteDestinoItens.setOnItemClickListener { _, _, pos, _ ->
-                val outros = armarios.filter { it.id != armarioSelecionado?.id }
-                armarioDestinoSelecionado = outros.getOrNull(pos)
+            bindAutoComplete(b.autoCompleteItemRemover, tools.map { it.nome }) { pos ->
+                selectedTool = tools.getOrNull(pos)
+                showPhotoPreview(selectedTool?.photoUrl, b.imgPreviewItem, b.btnRemoverFotoItem)
             }
-
-            b.autoCompleteItemRemover.setOnItemClickListener { _, _, pos, _ ->
-                ferramentaSelecionada = ferramentas.getOrNull(pos)
+            bindAutoComplete(b.autoCompleteDestinoItens, lockers.map { it.nome }) { pos ->
+                selectedDestination = lockers.getOrNull(pos)
             }
-
             dialog.show()
         }
     }
 
+    // ── Helpers ───────────────────────────────────────────────────────────────
+
+    private fun bindToggle(group: MaterialButtonToggleGroup, layoutLocker: View, layoutItem: View) {
+        group.addOnButtonCheckedListener { _, checkedId, isChecked ->
+            if (!isChecked) return@addOnButtonCheckedListener
+            val isLocker = checkedId == R.id.btnToggleArmario
+            layoutLocker.visibility = if (isLocker) View.VISIBLE else View.GONE
+            layoutItem.visibility = if (isLocker) View.GONE else View.VISIBLE
+        }
+    }
+
+    private fun bindPhotoButtons(
+        btnFoto: android.widget.Button,
+        btnRemover: android.widget.Button,
+        imgPreview: ImageView,
+        onBitmapChanged: (Bitmap?) -> Unit
+    ) {
+        btnFoto.setOnClickListener {
+            openCamera { bitmap ->
+                onBitmapChanged(bitmap)
+                imgPreview.setImageBitmap(bitmap)
+                imgPreview.visibility = View.VISIBLE
+                btnRemover.visibility = View.VISIBLE
+            }
+        }
+        btnRemover.setOnClickListener {
+            onBitmapChanged(null)
+            imgPreview.setImageDrawable(null)
+            imgPreview.visibility = View.GONE
+            btnRemover.visibility = View.GONE
+        }
+    }
+
+    private fun showPhotoPreview(url: String?, imgPreview: ImageView, btnRemover: android.widget.Button) {
+        if (url != null) {
+            Glide.with(this).load(url).into(imgPreview)
+            imgPreview.visibility = View.VISIBLE
+            btnRemover.visibility = View.VISIBLE
+        } else {
+            imgPreview.setImageDrawable(null)
+            imgPreview.visibility = View.GONE
+            btnRemover.visibility = View.GONE
+        }
+    }
+
+    private suspend fun handlePhotoUpdate(
+        hasNewPhoto: Boolean,
+        isRemoving: Boolean,
+        bitmap: Bitmap?,
+        oldUrl: String?,
+        folder: String,
+        onUrlReady: suspend (String?) -> Unit
+    ) {
+        when {
+            hasNewPhoto && bitmap != null -> onUrlReady(PhotoManager.updatePhoto(this, bitmap, oldUrl, folder))
+            isRemoving && oldUrl != null  -> { PhotoManager.deletePhoto(oldUrl); onUrlReady(null) }
+        }
+    }
+
+    private fun bindAutoComplete(view: AutoCompleteTextView, items: List<String>, onSelected: (Int) -> Unit) {
+        view.setAdapter(dropdownAdapter(items))
+        view.setOnClickListener { view.showDropDown() }
+        view.setOnItemClickListener { _, _, pos, _ -> onSelected(pos) }
+    }
+
+    private fun toast(msg: String) = Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+
+    private fun dropdownAdapter(items: List<String>) =
+        ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, items)
+
+    private fun spinnerAdapter(items: List<String>) =
+        ArrayAdapter(this, android.R.layout.simple_spinner_item, items).also {
+            it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        }
 }
