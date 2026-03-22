@@ -67,4 +67,12 @@
     <string name="email_exemplo_com">email@exemplo.com</string>
     <string name="trocar_email">Trocar E-mail</string>
     <string name="trocar_senha">Trocar Senha</string>
+    <string name="adicionar_ao_estoque">Adicionar ao Estoque</string>
+    <string name="item">Item</string>
+    <string name="arm_rio">Armário</string>
+    <string name="nome_do_arm_rio">Nome do Armário</string>
+    <string name="nome_da_ferramenta_item">Nome da Ferramenta / Item</string>
+    <string name="onde_ser_guardado">Onde será guardado?</string>
+    <string name="salvar">Salvar</string>
+    <string name="buscar_armario">Buscar armário...</string>
 </resources>
