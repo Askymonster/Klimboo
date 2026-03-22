@@ -1,41 +1,30 @@
 package com.example.klimboo.data
 
-import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.util.Base64
 import android.util.Log
-import com.google.firebase.storage.FirebaseStorage
-import kotlinx.coroutines.tasks.await
 import java.io.ByteArrayOutputStream
-import java.util.UUID
 
 object PhotoManager {
 
-    private val storage = FirebaseStorage.getInstance()
+    fun bitmapToBase64(bitmap: Bitmap): String {
+        val stream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 60, stream)
+        return Base64.encodeToString(stream.toByteArray(), Base64.NO_WRAP)
+    }
 
-    suspend fun uploadPhoto(bitmap: Bitmap, folder: String): String? {
+    fun base64ToBitmap(base64: String): Bitmap? {
         return try {
-            val ref = storage.reference.child("$folder/${UUID.randomUUID()}.jpg")
-            val stream = ByteArrayOutputStream()
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 80, stream)
-            val bytes = stream.toByteArray()
-            ref.putBytes(bytes).await()
-            ref.downloadUrl.await().toString()
+            val clean = base64.replace("\\s".toRegex(), "")
+            val bytes = Base64.decode(clean, Base64.DEFAULT)
+            val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+            Log.d("PHOTO_DEBUG", "bitmap resultado: $bitmap | bytes: ${bytes.size}")
+            bitmap
         } catch (e: Exception) {
-            Log.e("PHOTO", "uploadPhoto error: ${e.message}")
+            Log.e("PHOTO", "base64ToBitmap error", e)
             null
         }
     }
 
-    suspend fun deletePhoto(url: String) {
-        try {
-            storage.getReferenceFromUrl(url).delete().await()
-        } catch (e: Exception) {
-            Log.e("PHOTO", "deletePhoto error: ${e.message}")
-        }
-    }
-
-    suspend fun updatePhoto(context: Context, bitmap: Bitmap, oldUrl: String?, folder: String): String? {
-        if (oldUrl != null) deletePhoto(oldUrl)
-        return uploadPhoto(bitmap, folder)
-    }
 }

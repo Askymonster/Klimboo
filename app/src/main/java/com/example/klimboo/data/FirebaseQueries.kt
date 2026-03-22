@@ -7,7 +7,7 @@ import kotlinx.coroutines.tasks.await
 
 object FirebaseQueries {
 
-    private val db = FirebaseFirestore.getInstance()
+    private val db by lazy { FirebaseFirestore.getInstance() }
 
     // ── Models ────────────────────────────────────────────────────────────────
 

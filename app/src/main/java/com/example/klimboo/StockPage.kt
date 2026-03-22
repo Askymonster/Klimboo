@@ -14,8 +14,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isGone
 import androidx.lifecycle.lifecycleScope
-import com.bumptech.glide.Glide
 import com.example.klimboo.data.FirebaseQueries
 import com.example.klimboo.data.FirebaseQueries.Armario
 import com.example.klimboo.data.FirebaseQueries.Ferramenta
@@ -31,11 +31,12 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.launch
-import androidx.core.view.isGone
 
 class StockPage : AppCompatActivity() {
 
     private lateinit var binding: ActivityStockPageBinding
+    private var currentLockers: List<Armario> = emptyList()
+    private var currentLockerPos: Int = 0
 
     companion object {
         private const val MSG_INFORME_NOME_ARMARIO = "Informe o nome do armário"
@@ -87,27 +88,38 @@ class StockPage : AppCompatActivity() {
                 binding.editStock.setOnClickListener { showMainSheet() }
             }
 
+        loadPage()
+    }
+
+    // ── Carregamento da página ────────────────────────────────────────────────
+
+    private fun loadPage(restorePos: Int = 0) {
         lifecycleScope.launch {
             try {
-                val lockers = FirebaseQueries.fetchArmarios()
-                binding.spinnerLockers.adapter = spinnerAdapter(lockers.map { it.nome })
+                currentLockers = FirebaseQueries.fetchArmarios()
+                binding.spinnerLockers.adapter = LockerSpinnerAdapter(this@StockPage, currentLockers)
                 binding.spinnerLockers.onItemSelectedListener =
                     object : android.widget.AdapterView.OnItemSelectedListener {
                         override fun onItemSelected(parent: android.widget.AdapterView<*>, view: View?, pos: Int, id: Long) {
-                            val selected = lockers.getOrNull(pos) ?: return
+                            currentLockerPos = pos
+                            val selected = currentLockers.getOrNull(pos) ?: return
                             lifecycleScope.launch {
                                 val tools = FirebaseQueries.fetchFerramentasByLocker(selected.id)
-                                binding.listTools.adapter = ArrayAdapter(
+                                binding.listTools.layoutManager =
+                                    androidx.recyclerview.widget.LinearLayoutManager(this@StockPage)
+                                binding.listTools.adapter = StockAdapter(
                                     this@StockPage,
-                                    android.R.layout.simple_list_item_1,
-                                    tools.map { it.nome }
+                                    tools.map { it.nome to it.photoUrl }
                                 )
                             }
                         }
                         override fun onNothingSelected(parent: android.widget.AdapterView<*>) {}
                     }
+                if (restorePos < currentLockers.size) {
+                    binding.spinnerLockers.setSelection(restorePos)
+                }
             } catch (e: Exception) {
-                Log.e("STOCK", "Error loading lockers: ${e.message}", e)
+                Log.e("STOCK", "Error loading: ${e.message}", e)
             }
         }
     }
@@ -142,6 +154,7 @@ class StockPage : AppCompatActivity() {
         }
 
         bindToggle(b.toggleGroup, b.layoutAddArmario, b.layoutAddItem)
+        b.toggleGroup.check(R.id.btnToggleArmario)
         bindPhotoButtons(b.btnFotoArmario, b.btnRemoverFotoArmario, b.imgPreviewArmario) { photoBitmapArmario = it }
         bindPhotoButtons(b.btnFotoItem, b.btnRemoverFotoItem, b.imgPreviewItem) { photoBitmapItem = it }
 
@@ -151,7 +164,7 @@ class StockPage : AppCompatActivity() {
                 if (isLocker) {
                     val name = b.editNomeArmario.text.toString().trim()
                     if (name.isEmpty()) { toast(MSG_INFORME_NOME_ARMARIO); return@launch }
-                    val url = photoBitmapArmario?.let { PhotoManager.uploadPhoto(it, "armarios") }
+                    val url = photoBitmapArmario?.let { PhotoManager.bitmapToBase64(it) }
                     FirebaseQueries.insertArmario(name, url)
                     toast("Armário '$name' adicionado!")
                 } else {
@@ -159,11 +172,12 @@ class StockPage : AppCompatActivity() {
                     if (name.isEmpty()) { toast(MSG_INFORME_NOME_ITEM); return@launch }
                     val locker = lockers.getOrNull(b.spinnerArmarioDestino.selectedItemPosition)
                         ?: run { toast(MSG_SELECIONE_ARMARIO); return@launch }
-                    val url = photoBitmapItem?.let { PhotoManager.uploadPhoto(it, "ferramentas") }
+                    val url = photoBitmapItem?.let { PhotoManager.bitmapToBase64(it) }
                     FirebaseQueries.insertFerramenta(name, locker.id, url)
                     toast("Item '$name' adicionado!")
                 }
                 dialog.dismiss()
+                loadPage(currentLockerPos)
             }
         }
     }
@@ -207,7 +221,7 @@ class StockPage : AppCompatActivity() {
                         if (newName.isEmpty()) { toast(MSG_INFORME_NOVO_NOME); return@launch }
                         FirebaseQueries.updateArmario(locker.id, newName)
                     }
-                    handlePhotoUpdate(hasNewPhoto, isRemovingPhoto, newPhotoBitmapArmario, locker.photoUrl, "armarios") {
+                    handlePhotoUpdate(hasNewPhoto, isRemovingPhoto, newPhotoBitmapArmario) {
                         FirebaseQueries.updateArmarioPhoto(locker.id, it)
                     }
                     toast("Armário atualizado!")
@@ -225,12 +239,13 @@ class StockPage : AppCompatActivity() {
                         selectedDestination?.id ?: run { toast(MSG_SELECIONE_DESTINO); return@launch }
                     } else tool.local
                     FirebaseQueries.updateFerramenta(tool.id, newName, newLockerId)
-                    handlePhotoUpdate(hasNewPhoto, isRemovingPhoto, newPhotoBitmapItem, tool.photoUrl, "ferramentas") {
+                    handlePhotoUpdate(hasNewPhoto, isRemovingPhoto, newPhotoBitmapItem) {
                         FirebaseQueries.updateFerramentaPhoto(tool.id, it)
                     }
                     toast("Item atualizado!")
                 }
                 dialog.dismiss()
+                loadPage(currentLockerPos)
             }
         }
 
@@ -270,7 +285,6 @@ class StockPage : AppCompatActivity() {
         b.btnRemoverFotoArmario.setOnClickListener {
             val locker = selectedLocker ?: return@setOnClickListener
             lifecycleScope.launch {
-                locker.photoUrl?.let { PhotoManager.deletePhoto(it) }
                 FirebaseQueries.updateArmarioPhoto(locker.id, null)
                 selectedLocker = locker.copy(photoUrl = null)
                 showPhotoPreview(null, b.imgPreviewArmario, b.btnRemoverFotoArmario)
@@ -280,7 +294,6 @@ class StockPage : AppCompatActivity() {
         b.btnRemoverFotoItem.setOnClickListener {
             val tool = selectedTool ?: return@setOnClickListener
             lifecycleScope.launch {
-                tool.photoUrl?.let { PhotoManager.deletePhoto(it) }
                 FirebaseQueries.updateFerramentaPhoto(tool.id, null)
                 selectedTool = tool.copy(photoUrl = null)
                 showPhotoPreview(null, b.imgPreviewItem, b.btnRemoverFotoItem)
@@ -293,16 +306,15 @@ class StockPage : AppCompatActivity() {
             lifecycleScope.launch {
                 if (isLocker) {
                     val locker = selectedLocker ?: run { toast(MSG_SELECIONE_ARMARIO); return@launch }
-                    locker.photoUrl?.let { PhotoManager.deletePhoto(it) }
                     FirebaseQueries.deleteArmario(locker.id, selectedDestination?.id)
                     toast(if (selectedDestination != null) "Itens movidos para '${selectedDestination!!.nome}'." else "Armário e itens removidos.")
                 } else {
                     val tool = selectedTool ?: run { toast(MSG_SELECIONE_ITEM); return@launch }
-                    tool.photoUrl?.let { PhotoManager.deletePhoto(it) }
                     FirebaseQueries.deleteFerramenta(tool.id)
                     toast("Item '${tool.nome}' removido!")
                 }
                 dialog.dismiss()
+                loadPage(currentLockerPos)
             }
         }
 
@@ -367,7 +379,8 @@ class StockPage : AppCompatActivity() {
 
     private fun showPhotoPreview(url: String?, imgPreview: ImageView, btnRemover: android.widget.Button) {
         if (url != null) {
-            Glide.with(this).load(url).into(imgPreview)
+            val bitmap = PhotoManager.base64ToBitmap(url)
+            imgPreview.setImageBitmap(bitmap)
             imgPreview.visibility = View.VISIBLE
             btnRemover.visibility = View.VISIBLE
         } else {
@@ -377,17 +390,17 @@ class StockPage : AppCompatActivity() {
         }
     }
 
-    private suspend fun handlePhotoUpdate(
+    private fun handlePhotoUpdate(
         hasNewPhoto: Boolean,
         isRemoving: Boolean,
         bitmap: Bitmap?,
-        oldUrl: String?,
-        folder: String,
         onUrlReady: suspend (String?) -> Unit
     ) {
-        when {
-            hasNewPhoto && bitmap != null -> onUrlReady(PhotoManager.updatePhoto(this, bitmap, oldUrl, folder))
-            isRemoving && oldUrl != null  -> { PhotoManager.deletePhoto(oldUrl); onUrlReady(null) }
+        lifecycleScope.launch {
+            when {
+                hasNewPhoto && bitmap != null -> onUrlReady(PhotoManager.bitmapToBase64(bitmap))
+                isRemoving                    -> onUrlReady(null)
+            }
         }
     }
 

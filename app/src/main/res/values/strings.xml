@@ -74,5 +74,7 @@
     <string name="nome_da_ferramenta_item">Nome da Ferramenta / Item</string>
     <string name="onde_ser_guardado">Onde será guardado?</string>
     <string name="salvar">Salvar</string>
-    <string name="buscar_armario">Buscar armário...</string>
+    <string name="buscar_armario">Buscar armário…</string>
+    <string name="image">Image</string>
+    <string name="imagem_do_armario">Imagem do armario</string>
 </resources>
