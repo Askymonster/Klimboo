@@ -47,7 +47,7 @@ class RegisterPage : AppCompatActivity() {
         }
 
 
-
+        // ── Lógica dos Botões ────────────────────────────────────────────────
         binding.loginNow.setOnClickListener {
             val intent = Intent(this, LoginPage::class.java)
             startActivity(intent)
@@ -90,6 +90,7 @@ class RegisterPage : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            // ── Lógica de Registro, checker se email existe para login ────────────────────────────────────────────────
             Firebase.auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {

@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.klimboo.data.FirebaseQueries
+import com.example.klimboo.data.FirebaseQueries.Armario
 import com.example.klimboo.data.FirebaseQueries.Ferramenta
 import com.example.klimboo.data.ThemeManager
 import com.example.klimboo.data.observeTheme
@@ -24,8 +25,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainPageBinding
     private var allTools: List<Ferramenta> = emptyList()
+    private var allLockers: List<Armario> = emptyList()
     private var currentQuery: String = ""
-    private var currentChip: String = ""  // "" = todos
+    private var currentChip: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val themeManager = ThemeManager(this)
@@ -53,18 +55,19 @@ class MainActivity : AppCompatActivity() {
         binding.displayEmail.text = currentUser.displayName ?: "Nome não definido"
         binding.displayUsername.text = currentUser.email
 
+        // ── Lógica dos botões  ────────────────────────────────────────────────
         binding.settings.setOnClickListener { startActivity(Intent(this, ConfigPage::class.java)) }
         binding.stock.setOnClickListener { startActivity(Intent(this, StockPage::class.java)) }
-        binding.qrcode.setOnClickListener { startActivity(Intent(this, ScanPage::class.java)) }
 
         binding.searchResults.layoutManager = LinearLayoutManager(this)
 
-        // Carrega todos os itens
         lifecycleScope.launch {
+            allLockers = FirebaseQueries.fetchArmarios()
             allTools = FirebaseQueries.fetchFerramentas()
+            applyFilter()
         }
 
-        // Campo de busca
+        // ── Botão de procura de itens ────────────────────────────────────────────────
         binding.searchInput.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -74,13 +77,13 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        // Chips
         binding.chipTodos.setOnClickListener { currentChip = ""; applyFilter() }
         binding.chipChaves.setOnClickListener { currentChip = binding.chipChaves.text.toString(); applyFilter() }
         binding.chipFerramentas.setOnClickListener { currentChip = binding.chipFerramentas.text.toString(); applyFilter() }
         binding.chipPecas.setOnClickListener { currentChip = binding.chipPecas.text.toString(); applyFilter() }
     }
 
+    // ── Lógica dos filtros ────────────────────────────────────────────────
     private fun applyFilter() {
         val query = currentQuery.lowercase()
         val chip = currentChip.lowercase()
@@ -91,14 +94,13 @@ class MainActivity : AppCompatActivity() {
             matchesQuery && matchesChip
         }
 
-        val showResults = query.isNotEmpty() || currentChip.isNotEmpty()
-        binding.searchResults.visibility = if (showResults) View.VISIBLE else View.GONE
+        // Monta um mapa id -> nome do armário pra lookup
+        val lockerMap = allLockers.associate { it.id to it.nome }
 
-        if (showResults) {
-            binding.searchResults.adapter = StockAdapter(
-                this,
-                filtered.map { it.nome to it.photoUrl }
-            )
-        }
+        binding.searchResults.visibility = View.VISIBLE
+        binding.searchResults.adapter = StockAdapter(
+            this,
+            filtered.map { Triple(it.nome, it.photoUrl, lockerMap[it.local]) }
+        )
     }
 }

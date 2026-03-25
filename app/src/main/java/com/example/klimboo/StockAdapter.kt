@@ -38,14 +38,16 @@ class LockerSpinnerAdapter(
     }
 }
 
+// Triple: nome, photoUrl, nomeArmario (null = não mostrar armário)
 class StockAdapter(
     private val context: Context,
-    private val items: List<Pair<String, String?>>
+    private val items: List<Triple<String, String?, String?>>
 ) : RecyclerView.Adapter<StockAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imgFoto: ImageView = view.findViewById(R.id.imgPhoto)
         val txtNome: TextView = view.findViewById(R.id.txtName)
+        val txtArmario: TextView = view.findViewById(R.id.txtArmario)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -54,8 +56,14 @@ class StockAdapter(
     override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val (nome, photoUrl) = items[position]
+        val (nome, photoUrl, nomeArmario) = items[position]
         holder.txtNome.text = nome
+        if (nomeArmario != null) {
+            holder.txtArmario.text = "Armário: $nomeArmario"
+            holder.txtArmario.visibility = View.VISIBLE
+        } else {
+            holder.txtArmario.visibility = View.GONE
+        }
         if (photoUrl != null) {
             val bitmap = PhotoManager.base64ToBitmap(photoUrl)
             if (bitmap != null) holder.imgFoto.setImageBitmap(bitmap)

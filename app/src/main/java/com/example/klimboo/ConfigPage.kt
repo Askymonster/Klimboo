@@ -50,7 +50,7 @@ class ConfigPage : AppCompatActivity() {
         binding.userEmail.text = emailUser
 
 
-        // 2. Listener: Trocar Senha (E-mail de recuperação)
+        // ── Lógica da troca de senha (email de recuperação) ────────────────────────────────────────────────
         binding.changePassword.setOnClickListener {
             if (emailUser != null) {
                 Firebase.auth.sendPasswordResetEmail(emailUser).addOnCompleteListener { task ->
@@ -64,7 +64,7 @@ class ConfigPage : AppCompatActivity() {
             }
         }
 
-        // 3. Listener: Trocar email (requerimento de senha)
+        // ── Lógica da troca de e-mail (confirmação de senha) ────────────────────────────────────────────────
         binding.changeEmail.setOnClickListener {
             showGenericDisplay("Confirmação", "Digite sua senha atual para continuar:", "Senha", true) { password ->
                 val credential = EmailAuthProvider.getCredential(currentUser.email!!, password)
@@ -84,7 +84,7 @@ class ConfigPage : AppCompatActivity() {
         }
 
 
-        // 4. Listener de Logout, backtomain
+        // ── Listener de logout e voltar para a mainactivity ────────────────────────────────────────────────
         binding.backtomainButton.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
@@ -97,7 +97,7 @@ class ConfigPage : AppCompatActivity() {
         }
 
 
-        // 5. Troca de tema escuro/claro
+        // ── Lógica de trocar de tema escuro/claro ────────────────────────────────────────────────
         themeManager = ThemeManager(this)
         val switchTheme: MaterialSwitch = findViewById(R.id.switch_theme)
         lifecycleScope.launch {

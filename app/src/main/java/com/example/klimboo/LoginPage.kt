@@ -57,6 +57,7 @@ class LoginPage : AppCompatActivity() {
         setContentView(binding.root)
 
 
+        // ── Lógica dos Botões ────────────────────────────────────────────────
         binding.forgotPassword.setOnClickListener {
             showGenericDisplay("Recuperar Senha", "Digite seu e-mail para receber o link:", "email@exemplo.com", false) { email ->
                 FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener { task ->
@@ -92,6 +93,7 @@ class LoginPage : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            // ── Checker do Login ────────────────────────────────────────────────
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
