@@ -12,8 +12,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.klimboo.data.FirebaseQueries
-import com.example.klimboo.data.FirebaseQueries.Armario
-import com.example.klimboo.data.FirebaseQueries.Ferramenta
+import com.example.klimboo.data.FirebaseQueries.Locker
+import com.example.klimboo.data.FirebaseQueries.Tool
 import com.example.klimboo.data.ThemeManager
 import com.example.klimboo.data.observeTheme
 import com.example.klimboo.databinding.ActivityMainPageBinding
@@ -24,8 +24,8 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainPageBinding
-    private var allTools: List<Ferramenta> = emptyList()
-    private var allLockers: List<Armario> = emptyList()
+    private var allTools: List<Tool> = emptyList()
+    private var allLockers: List<Locker> = emptyList()
     private var currentQuery: String = ""
     private var currentChip: String = ""
 
@@ -62,8 +62,8 @@ class MainActivity : AppCompatActivity() {
         binding.searchResults.layoutManager = LinearLayoutManager(this)
 
         lifecycleScope.launch {
-            allLockers = FirebaseQueries.fetchArmarios()
-            allTools = FirebaseQueries.fetchFerramentas()
+            allLockers = FirebaseQueries.fetchLockers()
+            allTools = FirebaseQueries.fetchTools()
             applyFilter()
         }
 
@@ -78,9 +78,9 @@ class MainActivity : AppCompatActivity() {
         })
 
         binding.chipTodos.setOnClickListener { currentChip = ""; applyFilter() }
-        binding.chipChaves.setOnClickListener { currentChip = binding.chipChaves.text.toString(); applyFilter() }
-        binding.chipFerramentas.setOnClickListener { currentChip = binding.chipFerramentas.text.toString(); applyFilter() }
-        binding.chipPecas.setOnClickListener { currentChip = binding.chipPecas.text.toString(); applyFilter() }
+        binding.chipChaves.setOnClickListener { currentChip = "chave"; applyFilter() }
+        binding.chipFerramentas.setOnClickListener { currentChip = "parafuso"; applyFilter() }
+        binding.chipPecas.setOnClickListener { currentChip = "broca"; applyFilter() }
     }
 
     // ── Lógica dos filtros ────────────────────────────────────────────────
@@ -89,18 +89,18 @@ class MainActivity : AppCompatActivity() {
         val chip = currentChip.lowercase()
 
         val filtered = allTools.filter { tool ->
-            val matchesQuery = query.isEmpty() || tool.nome.lowercase().contains(query)
-            val matchesChip = chip.isEmpty() || tool.nome.lowercase().contains(chip)
+            val matchesQuery = query.isEmpty() || tool.name.lowercase().contains(query)
+            val matchesChip = chip.isEmpty() || tool.name.lowercase().contains(chip)
             matchesQuery && matchesChip
         }
 
         // Monta um mapa id -> nome do armário pra lookup
-        val lockerMap = allLockers.associate { it.id to it.nome }
+        val lockerMap = allLockers.associate { it.id to it.name }
 
         binding.searchResults.visibility = View.VISIBLE
         binding.searchResults.adapter = StockAdapter(
             this,
-            filtered.map { Triple(it.nome, it.photoUrl, lockerMap[it.local]) }
+            filtered.map { Triple(it.name, it.photoUrl, lockerMap[it.local]) }
         )
     }
 }

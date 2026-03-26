@@ -10,6 +10,7 @@
     android:background="@android:color/white"
     tools:context=".RegisterPage">
 
+
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="285dp"

@@ -83,8 +83,8 @@ class RegisterPage : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (password.length !in 6..25) {
-                Toast.makeText(this@RegisterPage, "A senha deve ter entre 6 e 25 caracteres", Toast.LENGTH_SHORT).show()
+            if (password.length !in 6..18) {
+                Toast.makeText(this@RegisterPage, "A senha deve ter entre 6 e 18 caracteres", Toast.LENGTH_SHORT).show()
                 binding.btnRegister.isEnabled = true
                 binding.progressBar.visibility = View.GONE
                 return@setOnClickListener

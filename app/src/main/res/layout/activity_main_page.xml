@@ -17,6 +17,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:contentDescription="@string/logo_klimboo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/logomini" />
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardUser"
         android:layout_width="0dp"
@@ -55,13 +65,16 @@
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.textfield.TextInputLayout
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/searchLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
         android:layout_marginHorizontal="16dp"
+        android:layout_margin="16dp"
         android:layout_marginTop="5dp"
+        app:cardBackgroundColor="@color/royal_blue"
         app:layout_constraintTop_toBottomOf="@id/cardUser"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -69,63 +82,72 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/searchInput"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:hint="@string/find_item"
-            android:layout_marginTop="5dp"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:inputType="text"
             android:imeOptions="actionSearch"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup"
+    <LinearLayout
+        android:id="@+id/chipContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchLayout"
-        app:singleSelection="true">
+        app:layout_constraintTop_toBottomOf="@id/searchLayout">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipTodos"
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/all_equip"
-            android:textColor="@color/white"
-            app:checkedIconVisible="false"
-            app:chipBackgroundColor="@color/royal_blue"/>
+            app:singleSelection="true">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipChaves"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/wrench"
-            android:textColor="@color/white"
-            app:checkedIconVisible="false"
-            app:chipBackgroundColor="@color/royal_blue"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipTodos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/all_equip"
+                android:textColor="@color/white"
+                app:checkedIconVisible="false"
+                app:chipBackgroundColor="@color/royal_blue"/>
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipFerramentas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/equip"
-            android:textColor="@color/white"
-            app:checkedIconVisible="false"
-            app:chipBackgroundColor="@color/royal_blue"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipChaves"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wrench"
+                android:textColor="@color/white"
+                app:checkedIconVisible="false"
+                app:chipBackgroundColor="@color/royal_blue"/>
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipPecas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/parts"
-            android:textColor="@color/white"
-            app:checkedIconVisible="false"
-            app:chipBackgroundColor="@color/royal_blue"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipFerramentas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Parafusos"
+                android:textColor="@color/white"
+                app:checkedIconVisible="false"
+                app:chipBackgroundColor="@color/royal_blue"/>
 
-    </com.google.android.material.chip.ChipGroup>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPecas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/brocas"
+                android:textColor="@color/white"
+                app:checkedIconVisible="false"
+                app:chipBackgroundColor="@color/royal_blue"/>
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/searchResults"
@@ -134,7 +156,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="8dp"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/chipGroup"
+        app:layout_constraintTop_toBottomOf="@id/chipContainer"
         app:layout_constraintBottom_toTopOf="@id/stock"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

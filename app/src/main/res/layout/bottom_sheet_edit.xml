@@ -141,7 +141,7 @@
             <AutoCompleteTextView
                 android:id="@+id/autoCompleteItem"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:hint="Buscar item..."
                 android:inputType="textCapWords"
                 android:completionThreshold="0" />

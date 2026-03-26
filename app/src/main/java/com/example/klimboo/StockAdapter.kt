@@ -8,13 +8,13 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.klimboo.data.FirebaseQueries.Armario
+import com.example.klimboo.data.FirebaseQueries.Locker
 import com.example.klimboo.data.PhotoManager
 
 class LockerSpinnerAdapter(
     context: Context,
-    private val lockers: List<Armario>
-) : ArrayAdapter<Armario>(context, 0, lockers) {
+    private val lockers: List<Locker>
+) : ArrayAdapter<Locker>(context, 0, lockers) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View =
         createView(position, convertView, parent)
@@ -26,7 +26,7 @@ class LockerSpinnerAdapter(
         val view = convertView ?: LayoutInflater.from(context)
             .inflate(R.layout.item_spinner_locker, parent, false)
         val locker = lockers[position]
-        view.findViewById<TextView>(R.id.txtNomeArmario).text = locker.nome
+        view.findViewById<TextView>(R.id.txtNomeArmario).text = locker.name
         val img = view.findViewById<ImageView>(R.id.imgArmario)
         if (locker.photoUrl != null) {
             val bitmap = PhotoManager.base64ToBitmap(locker.photoUrl)

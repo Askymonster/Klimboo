@@ -9,39 +9,39 @@ object FirebaseQueries {
 
     private val db by lazy { FirebaseFirestore.getInstance() }
 
-    // ── Models ────────────────────────────────────────────────────────────────
+    // ── Modelos ────────────────────────────────────────────────────────────────
 
-    data class Armario(
+    data class Locker(
         val id: String = "",
-        val nome: String = "",
+        val name: String = "",
         val photoUrl: String? = null
     )
 
-    data class Ferramenta(
+    data class Tool(
         val id: String = "",
-        val nome: String = "",
+        val name: String = "",
         val local: String = "",
         val photoUrl: String? = null
     )
 
     // ── Armarios ──────────────────────────────────────────────────────────────
 
-    suspend fun fetchArmarios(): List<Armario> {
+    suspend fun fetchLockers(): List<Locker> {
         return try {
             db.collection("armarios").get().await().documents.map { doc ->
-                Armario(
+                Locker(
                     id = doc.id,
-                    nome = doc.getString("nome") ?: "",
+                    name = doc.getString("nome") ?: "",
                     photoUrl = doc.getString("photoUrl")
                 )
             }
         } catch (e: Exception) {
-            Log.e("FIREBASE", "fetchArmarios error: ${e.message}")
+            Log.e("FIREBASE", "fetchLockers error: ${e.message}")
             emptyList()
         }
     }
 
-    suspend fun insertArmario(nome: String, photoUrl: String? = null) {
+    suspend fun insertLocker(nome: String, photoUrl: String? = null) {
         try {
             val data = mutableMapOf<String, Any>("nome" to nome)
             if (photoUrl != null) data["photoUrl"] = photoUrl
@@ -51,63 +51,63 @@ object FirebaseQueries {
         }
     }
 
-    suspend fun updateArmario(id: String, novoNome: String) {
+    suspend fun updateLocker(id: String, novoNome: String) {
         try {
             db.collection("armarios").document(id)
                 .update("nome", novoNome).await()
         } catch (e: Exception) {
-            Log.e("FIREBASE", "updateArmario error: ${e.message}")
+            Log.e("FIREBASE", "updateLocker error: ${e.message}")
         }
     }
 
-    suspend fun updateArmarioPhoto(id: String, photoUrl: String?) {
+    suspend fun updateLockerPhoto(id: String, photoUrl: String?) {
         try {
             db.collection("armarios").document(id)
                 .update("photoUrl", photoUrl).await()
         } catch (e: Exception) {
-            Log.e("FIREBASE", "updateArmarioPhoto error: ${e.message}")
+            Log.e("FIREBASE", "updateLockerPhoto error: ${e.message}")
         }
     }
 
-    suspend fun deleteArmario(id: String, armarioDestinoId: String?) {
+    suspend fun deleteLocker(id: String, lockerDestinyId: String?) {
         try {
-            val ferramentas = db.collection("ferramentas")
+            val tools = db.collection("ferramentas")
                 .whereEqualTo("local", id).get().await()
-            for (doc in ferramentas.documents) {
-                if (armarioDestinoId != null) {
-                    doc.reference.update("local", armarioDestinoId).await()
+            for (doc in tools.documents) {
+                if (lockerDestinyId != null) {
+                    doc.reference.update("local", lockerDestinyId).await()
                 } else {
                     doc.reference.delete().await()
                 }
             }
             db.collection("armarios").document(id).delete().await()
         } catch (e: Exception) {
-            Log.e("FIREBASE", "deleteArmario error: ${e.message}")
+            Log.e("FIREBASE", "deleteLocker error: ${e.message}")
         }
     }
 
     // ── Ferramentas ───────────────────────────────────────────────────────────
 
-    suspend fun fetchFerramentas(): List<Ferramenta> {
+    suspend fun fetchTools(): List<Tool> {
         return try {
             db.collection("ferramentas").get().await().documents.map { doc ->
-                Ferramenta(
+                Tool(
                     id = doc.id,
-                    nome = doc.getString("nome") ?: "",
+                    name = doc.getString("nome") ?: "",
                     local = (doc.get("local") as? DocumentReference)?.id
                         ?: doc.getString("local") ?: "",
                     photoUrl = doc.getString("photoUrl")
                 )
             }
         } catch (e: Exception) {
-            Log.e("FIREBASE", "fetchFerramentas error: ${e.message}")
+            Log.e("FIREBASE", "fetchTools error: ${e.message}")
             emptyList()
         }
     }
 
-    suspend fun insertFerramenta(nome: String, armarioId: String, photoUrl: String? = null) {
+    suspend fun insertTool(nome: String, lockerId: String, photoUrl: String? = null) {
         try {
-            val data = mutableMapOf<String, Any>("nome" to nome, "local" to armarioId)
+            val data = mutableMapOf<String, Any>("nome" to nome, "local" to lockerId)
             if (photoUrl != null) data["photoUrl"] = photoUrl
             db.collection("ferramentas").add(data).await()
         } catch (e: Exception) {
@@ -115,12 +115,12 @@ object FirebaseQueries {
         }
     }
 
-    suspend fun updateFerramenta(id: String, novoNome: String, novoArmarioId: String) {
+    suspend fun updateFerramenta(id: String, novoNome: String, newLockerId: String) {
         try {
             db.collection("ferramentas").document(id)
-                .update(mapOf("nome" to novoNome, "local" to novoArmarioId)).await()
+                .update(mapOf("nome" to novoNome, "local" to newLockerId)).await()
         } catch (e: Exception) {
-            Log.e("FIREBASE", "updateFerramenta error: ${e.message}")
+            Log.e("FIREBASE", "updateTool error: ${e.message}")
         }
     }
 
@@ -137,18 +137,18 @@ object FirebaseQueries {
         try {
             db.collection("ferramentas").document(id).delete().await()
         } catch (e: Exception) {
-            Log.e("FIREBASE", "deleteFerramenta error: ${e.message}")
+            Log.e("FIREBASE", "deleteTool error: ${e.message}")
         }
     }
 
-    suspend fun fetchFerramentasByLocker(lockerId: String): List<Ferramenta> {
+    suspend fun fetchToolsByLocker(lockerId: String): List<Tool> {
         return try {
             db.collection("ferramentas")
                 .whereEqualTo("local", lockerId)
                 .get().await().documents.map { doc ->
-                    Ferramenta(
+                    Tool(
                         id = doc.id,
-                        nome = doc.getString("nome") ?: "",
+                        name = doc.getString("nome") ?: "",
                         local = (doc.get("local") as? DocumentReference)?.id
                             ?: doc.getString("local") ?: "",
                         photoUrl = doc.getString("photoUrl")

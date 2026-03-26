@@ -7,12 +7,32 @@
     android:layout_height="match_parent"
     tools:context=".StockPage">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/royal_blue"
+        android:title="@string/tools"
+        android:titleTextColor="@android:color/white"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:contentDescription="@string/logo_klimboo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/logomini" />
+
     <Spinner
         android:id="@+id/spinnerLockers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_alignParentTop="true" />
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="100dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listTools"
