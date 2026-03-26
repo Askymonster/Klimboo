@@ -79,7 +79,7 @@
         <TextView
             android:id="@+id/forgotPassword"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="25dp"
             android:clickable="true"
             android:text="@string/forgot_password"
             android:textColor="@color/black"
@@ -89,7 +89,7 @@
         <TextView
             android:id="@+id/registerNow"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="25dp"
             android:text="@string/register_button"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"

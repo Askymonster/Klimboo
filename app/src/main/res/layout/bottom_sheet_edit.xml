@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="24dp"
+    android:padding="16dp"
     android:background="@android:color/white">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Editar Estoque"
+        android:text="@string/editar_estoque"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -26,7 +26,6 @@
         <Button android:id="@+id/btnToggleItem" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Item" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
-    <!-- ARMÁRIO -->
     <LinearLayout
         android:id="@+id/layoutEditLocker"
         android:layout_width="match_parent"
@@ -38,7 +37,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Selecionar Armário:"
+            android:text="@string/selecionar_armario_edit"
             android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
@@ -51,7 +50,7 @@
                 android:id="@+id/autoCompleteLocker"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="Buscar armário..."
+                android:hint="@string/buscar_armario_edit"
                 android:inputType="textCapWords"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
@@ -64,7 +63,7 @@
             android:id="@+id/checkChangeLockerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alterar nome do armário"
+            android:text="@string/alterar_nome_do_armario"
             android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
@@ -78,7 +77,7 @@
                 android:id="@+id/editNewLockerName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Novo nome do Armário"
+                android:hint="@string/novo_nome_do_armario"
                 android:inputType="textCapWords" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,37 +86,44 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="12dp"
-            android:gravity="center_vertical">
+            android:layout_marginStart="40dp">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imgPreviewLocker"
-                android:layout_width="80dp"
-                android:layout_height="60dp"
-                android:scaleType="centerCrop"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:contentDescription="@string/preview_do_armario_edit"
                 android:visibility="gone"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/RoundedCorners"
                 android:layout_marginEnd="12dp" />
 
-            <Button
-                android:id="@+id/btnLockerPhoto"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alterar foto" />
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btnRemoverLockerPhoto"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Remover foto"
-                android:layout_marginStart="8dp"
-                android:visibility="gone" />
+                <Button
+                    android:id="@+id/btnLockerPhoto"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/alterar_foto_edit" />
+
+                <Button
+                    android:id="@+id/btnRemoverLockerPhoto"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/remover_foto_edit"
+                    android:visibility="gone" />
+            </LinearLayout>
 
         </LinearLayout>
 
     </LinearLayout>
 
-    <!-- ITEM -->
     <LinearLayout
         android:id="@+id/layoutEditItem"
         android:layout_width="match_parent"
@@ -129,7 +135,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Selecionar Item:"
+            android:text="@string/selecionar_item_edit"
             android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
@@ -142,7 +148,11 @@
                 android:id="@+id/autoCompleteItem"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="Buscar item..."
+                android:hint="@string/buscar_item_edit"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:inputType="textCapWords"
                 android:completionThreshold="0" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -151,7 +161,7 @@
             android:id="@+id/checkChangeItemName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alterar nome do item"
+            android:text="@string/alterar_nome_do_item_edit"
             android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
@@ -166,7 +176,11 @@
                 android:id="@+id/editNewItemName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Novo nome do Item"
+                android:hint="@string/novo_nome_do_item_edit"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:inputType="textCapWords" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -174,7 +188,7 @@
             android:id="@+id/checkChangeItemLoc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alterar armário do item"
+            android:text="@string/alterar_armario_do_item_edit"
             android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
@@ -187,8 +201,12 @@
             <AutoCompleteTextView
                 android:id="@+id/autoCompleteDestityLocker"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Buscar armário destino..."
+                android:layout_height="48dp"
+                android:hint="@string/buscar_armario_destino_edit"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:inputType="textCapWords"
                 android:completionThreshold="0" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -198,31 +216,39 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="12dp"
-            android:gravity="center_vertical">
+            android:layout_marginStart="40dp">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imgPreviewItem"
-                android:layout_width="80dp"
-                android:layout_height="60dp"
-                android:scaleType="centerCrop"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:contentDescription="@string/preview_do_item_edit"
                 android:visibility="gone"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/RoundedCorners"
                 android:layout_marginEnd="12dp" />
 
-            <Button
-                android:id="@+id/btnItemPhoto"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alterar foto" />
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btnRemoveItemPhoto"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Remover foto"
-                android:layout_marginStart="8dp"
-                android:visibility="gone" />
+                <Button
+                    android:id="@+id/btnItemPhoto"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/alterar_foto_edit_item" />
+
+                <Button
+                    android:id="@+id/btnRemoveItemPhoto"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/remover_foto_edit_item"
+                    android:visibility="gone" />
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -230,9 +256,10 @@
 
     <Button
         android:id="@+id/btnConfirmEdit"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
         android:layout_height="56dp"
-        android:text="Salvar Alteração"
+        android:text="@string/salvar_alteracao_edit"
         android:layout_marginTop="24dp" />
 
 </LinearLayout>

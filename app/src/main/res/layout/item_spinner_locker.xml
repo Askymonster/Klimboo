@@ -2,23 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:gravity="center_vertical"
     android:padding="8dp">
 
-    <ImageView
-        android:id="@+id/imgArmario"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:scaleType="fitCenter"
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgLocker"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
         android:adjustViewBounds="true"
-        android:layout_marginEnd="12dp" />
+        app:shapeAppearanceOverlay="@style/RoundedCorners"
+        android:layout_marginEnd="16dp" />
 
     <TextView
-        android:id="@+id/txtNomeArmario"
+        android:id="@+id/txtNameLocker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/black" />
+        android:textSize="16sp" />
 
 </LinearLayout>

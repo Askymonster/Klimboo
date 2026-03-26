@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="24dp"
+    android:padding="16dp"
     android:background="@android:color/white">
 
     <TextView
@@ -26,7 +26,6 @@
         <Button android:id="@+id/btnToggleItem" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/item" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
-    <!-- ARMÁRIO -->
     <LinearLayout
         android:id="@+id/layoutAddLocker"
         android:layout_width="match_parent"
@@ -43,6 +42,7 @@
                 android:id="@+id/editLockerName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:hint="@string/nome_do_arm_rio"
                 android:inputType="textCapWords" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -52,36 +52,42 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="12dp"
-            android:gravity="center_vertical">
+            android:layout_marginStart="40dp">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imgPreviewLocker"
-                android:layout_width="80dp"
-                android:layout_height="60dp"
-                android:scaleType="centerCrop"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:contentDescription="@string/preview_do_armario_add"
                 android:visibility="gone"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/RoundedCorners"
                 android:layout_marginEnd="12dp" />
 
-            <Button
-                android:id="@+id/btnLockerPhoto"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adicionar foto" />
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btnRemoveLockerPhoto"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="Remover foto"
-                android:visibility="gone" />
+                <Button
+                    android:id="@+id/btnLockerPhoto"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/adicionar_foto" />
 
+                <Button
+                    android:id="@+id/btnRemoveLockerPhoto"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/remover_foto_botao"
+                    android:visibility="gone" />
+            </LinearLayout>
         </LinearLayout>
-
     </LinearLayout>
 
-    <!-- ITEM -->
     <LinearLayout
         android:id="@+id/layoutAddItem"
         android:layout_width="match_parent"
@@ -120,34 +126,39 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="12dp"
-            android:gravity="center_vertical">
-
-            <ImageView
+            android:layout_marginStart="40dp">
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imgPreviewItem"
-                android:layout_width="80dp"
-                android:layout_height="60dp"
-                android:scaleType="centerCrop"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:contentDescription="@string/preview_do_item_add"
                 android:visibility="gone"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/RoundedCorners"
                 android:layout_marginEnd="12dp" />
 
-            <Button
-                android:id="@+id/btnItemPhoto"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adicionar foto" />
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btnRemoveItemPhoto"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Remover foto"
-                android:layout_marginStart="8dp"
-                android:visibility="gone" />
+                <Button
+                    android:id="@+id/btnItemPhoto"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/adicionar_foto_add" />
 
+                <Button
+                    android:id="@+id/btnRemoveItemPhoto"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/remover_foto_add"
+                    android:visibility="gone" />
+            </LinearLayout>
         </LinearLayout>
-
     </LinearLayout>
 
     <Button

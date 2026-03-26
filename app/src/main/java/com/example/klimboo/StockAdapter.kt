@@ -1,5 +1,6 @@
 package com.example.klimboo
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -26,8 +27,8 @@ class LockerSpinnerAdapter(
         val view = convertView ?: LayoutInflater.from(context)
             .inflate(R.layout.item_spinner_locker, parent, false)
         val locker = lockers[position]
-        view.findViewById<TextView>(R.id.txtNomeArmario).text = locker.name
-        val img = view.findViewById<ImageView>(R.id.imgArmario)
+        view.findViewById<TextView>(R.id.txtNameLocker).text = locker.name
+        val img = view.findViewById<ImageView>(R.id.imgLocker)
         if (locker.photoUrl != null) {
             val bitmap = PhotoManager.base64ToBitmap(locker.photoUrl)
             if (bitmap != null) img.setImageBitmap(bitmap) else img.setImageDrawable(null)
@@ -46,8 +47,8 @@ class StockAdapter(
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imgFoto: ImageView = view.findViewById(R.id.imgPhoto)
-        val txtNome: TextView = view.findViewById(R.id.txtName)
-        val txtArmario: TextView = view.findViewById(R.id.txtArmario)
+        val txtName: TextView = view.findViewById(R.id.txtName)
+        val txtLocker: TextView = view.findViewById(R.id.txtLocker)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -55,14 +56,15 @@ class StockAdapter(
 
     override fun getItemCount() = items.size
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val (nome, photoUrl, nomeArmario) = items[position]
-        holder.txtNome.text = nome
-        if (nomeArmario != null) {
-            holder.txtArmario.text = "Armário: $nomeArmario"
-            holder.txtArmario.visibility = View.VISIBLE
+        val (name, photoUrl, nameLocker) = items[position]
+        holder.txtName.text = name
+        if (nameLocker != null) {
+            holder.txtLocker.text = "Armário: $nameLocker"
+            holder.txtLocker.visibility = View.VISIBLE
         } else {
-            holder.txtArmario.visibility = View.GONE
+            holder.txtLocker.visibility = View.GONE
         }
         if (photoUrl != null) {
             val bitmap = PhotoManager.base64ToBitmap(photoUrl)
