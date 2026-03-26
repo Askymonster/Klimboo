@@ -12,7 +12,6 @@
         android:text="@string/editar_estoque"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         android:layout_marginBottom="16dp" />
 
     <com.google.android.material.button.MaterialButtonToggleGroup
@@ -37,7 +36,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/selecionar_armario_edit"
-            android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -63,7 +61,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/alterar_nome_do_armario"
-            android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -135,7 +132,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/selecionar_item_edit"
-            android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -161,7 +157,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/alterar_nome_do_item_edit"
-            android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -174,7 +169,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editNewItemName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:hint="@string/novo_nome_do_item_edit"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
@@ -188,7 +183,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/alterar_armario_do_item_edit"
-            android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
         <com.google.android.material.textfield.TextInputLayout

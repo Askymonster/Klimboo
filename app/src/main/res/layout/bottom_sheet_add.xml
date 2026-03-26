@@ -12,7 +12,6 @@
         android:text="@string/adicionar_ao_estoque"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         android:layout_marginBottom="16dp" />
 
     <com.google.android.material.button.MaterialButtonToggleGroup
@@ -41,7 +40,6 @@
                 android:id="@+id/editLockerName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
                 android:hint="@string/nome_do_arm_rio"
                 android:inputType="textCapWords" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -112,7 +110,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/onde_ser_guardado"
-            android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
         <Spinner

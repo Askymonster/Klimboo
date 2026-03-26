@@ -12,7 +12,6 @@
         android:text="@string/remover_do_estoque"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         android:layout_marginBottom="16dp" />
 
     <com.google.android.material.button.MaterialButtonToggleGroup
@@ -37,7 +36,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/arm_rio_a_remover"
-            android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -94,7 +92,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/mover_itens_para"
-            android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -139,7 +136,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/item_a_remover"
-            android:textColor="@color/black"
             android:layout_marginBottom="8dp" />
 
         <com.google.android.material.textfield.TextInputLayout
