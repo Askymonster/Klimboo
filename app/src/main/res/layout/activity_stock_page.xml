@@ -39,12 +39,12 @@
         android:layout_above="@id/editStock"
         android:layout_margin="16dp" />
 
-    <ImageButton
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/editStock"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="16dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
+        android:background="@color/blue"
         android:contentDescription="@string/edit_stock"
         android:padding="6dp"
         android:scaleType="fitXY"
@@ -52,6 +52,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         app:tint="@color/royal_blue"
+        app:shapeAppearanceOverlay="@style/RoundedCorners"
         android:visibility="gone"/>
 
 </RelativeLayout>
