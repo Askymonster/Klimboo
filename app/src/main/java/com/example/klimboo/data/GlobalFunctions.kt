@@ -46,6 +46,7 @@ fun AppCompatActivity.showGenericDisplay(
     msg: String,
     hint: String,
     isPassword: Boolean = false,
+    forceLight: Boolean = false,
     action: (String) -> Unit
 ) {
     val input = EditText(this).apply {
@@ -53,7 +54,12 @@ fun AppCompatActivity.showGenericDisplay(
         inputType = if (isPassword) 129 else 32
     }
 
-    AlertDialog.Builder(this, com.google.android.material.R.style.MaterialAlertDialog_Material3)
+    val style = if (forceLight)
+        com.google.android.material.R.style.ThemeOverlay_Material3_Light
+    else
+        com.google.android.material.R.style.MaterialAlertDialog_Material3
+
+    AlertDialog.Builder(this, style)
         .setTitle(titleFun)
         .setMessage(msg)
         .setView(input)

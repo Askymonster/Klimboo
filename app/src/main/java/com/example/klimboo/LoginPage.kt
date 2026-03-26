@@ -16,7 +16,6 @@ import com.example.klimboo.databinding.ActivityLoginPageBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.firestore
 
@@ -56,26 +55,14 @@ class LoginPage : AppCompatActivity() {
         progressBar = binding.progressBar
 
         binding.forgotPassword.setOnClickListener {
-            showGenericDisplay("Recuperar Senha", "Digite seu e-mail para receber o link:", "email@exemplo.com", false) { email ->
-                FirebaseFirestore.getInstance().collection("usuarios")
-                    .whereEqualTo("email", email)
-                    .get()
-                    .addOnSuccessListener { result ->
-                        if (result.isEmpty) {
-                            Toast.makeText(this, "Nenhuma conta encontrada com esse e-mail.", Toast.LENGTH_SHORT).show()
-                        } else {
-                            FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener { task ->
-                                if (task.isSuccessful) {
-                                    Toast.makeText(this, "E-mail de recuperação enviado!", Toast.LENGTH_LONG).show()
-                                } else {
-                                    Toast.makeText(this, "Erro: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
-                                }
-                            }
-                        }
+            showGenericDisplay("Recuperar Senha", "...", "email@exemplo.com", forceLight = true) { email ->
+                FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this, "E-mail de recuperação enviado!", Toast.LENGTH_LONG).show()
+                    } else {
+                        Toast.makeText(this, "Erro: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                     }
-                    .addOnFailureListener {
-                        Toast.makeText(this, "Erro ao verificar e-mail.", Toast.LENGTH_SHORT).show()
-                    }
+                }
             }
         }
 
