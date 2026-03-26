@@ -54,6 +54,7 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.storage.ktx)
     implementation(libs.google.firebase.appcheck.playintegrity)
+    implementation(libs.firebase.appcheck.debug)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

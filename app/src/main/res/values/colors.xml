@@ -5,4 +5,7 @@
     <color name="royal_blue">#0E1F53</color>
     <color name="grey">#1c1c1c</color>
     <color name="blue">#2d6acc</color>
+    <color name="surface">#FFFFFFFF</color>
+    <color name="on_surface">#FF000000</color>
+    <color name="hint_color">#FF888888</color>
 </resources>

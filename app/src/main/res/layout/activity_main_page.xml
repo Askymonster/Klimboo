@@ -169,11 +169,11 @@
         android:layout_marginBottom="16dp"
         android:contentDescription="@string/stock_desc"
         android:src="@drawable/stock"
-        android:background="@color/blue"
+        android:background="@color/royal_blue"
         android:scaleType="fitXY"
         android:padding="6dp"
         app:shapeAppearanceOverlay="@style/RoundedCorners"
-        app:tint="@color/royal_blue"
+        app:tint="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -185,10 +185,10 @@
         android:layout_marginBottom="16dp"
         android:contentDescription="@string/settings_desc"
         android:src="@drawable/config"
-        android:background="@color/blue"
+        android:background="@color/royal_blue"
         android:scaleType="fitXY"
         android:padding="6dp"
-        app:tint="@color/royal_blue"
+        app:tint="@color/blue"
         app:shapeAppearanceOverlay="@style/RoundedCorners"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
