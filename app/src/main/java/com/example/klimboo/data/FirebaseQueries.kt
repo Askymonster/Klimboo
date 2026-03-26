@@ -3,6 +3,7 @@ package com.example.klimboo.data
 import android.util.Log
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
 import kotlinx.coroutines.tasks.await
 
 object FirebaseQueries {
@@ -158,5 +159,37 @@ object FirebaseQueries {
             Log.e("FIREBASE", "fetchFerramentasByLocker error: ${e.message}")
             emptyList()
         }
+    }
+
+    fun listenToLockers(onChange: (List<Locker>) -> Unit): ListenerRegistration {
+        return db.collection("armarios")
+            .addSnapshotListener { snapshot, error ->
+                if (error != null) { Log.e("FIREBASE", "listenLockers error: ${error.message}"); return@addSnapshotListener }
+                val lockers = snapshot?.documents?.map { doc ->
+                    Locker(
+                        id = doc.id,
+                        name = doc.getString("nome") ?: "",
+                        photoUrl = doc.getString("photoUrl")
+                    )
+                } ?: emptyList()
+                onChange(lockers)
+            }
+    }
+
+    fun listenToTools(onChange: (List<Tool>) -> Unit): ListenerRegistration {
+        return db.collection("ferramentas")
+            .addSnapshotListener { snapshot, error ->
+                if (error != null) { Log.e("FIREBASE", "listenTools error: ${error.message}"); return@addSnapshotListener }
+                val tools = snapshot?.documents?.map { doc ->
+                    Tool(
+                        id = doc.id,
+                        name = doc.getString("nome") ?: "",
+                        local = (doc.get("local") as? DocumentReference)?.id
+                            ?: doc.getString("local") ?: "",
+                        photoUrl = doc.getString("photoUrl")
+                    )
+                } ?: emptyList()
+                onChange(tools)
+            }
     }
 }

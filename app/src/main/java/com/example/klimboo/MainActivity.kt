@@ -9,7 +9,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.klimboo.data.FirebaseQueries
 import com.example.klimboo.data.FirebaseQueries.Locker
@@ -19,7 +18,7 @@ import com.example.klimboo.data.observeTheme
 import com.example.klimboo.databinding.ActivityMainPageBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
-import kotlinx.coroutines.launch
+import com.google.firebase.firestore.ListenerRegistration
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,6 +27,8 @@ class MainActivity : AppCompatActivity() {
     private var allLockers: List<Locker> = emptyList()
     private var currentQuery: String = ""
     private var currentChip: String = ""
+    private var lockersListener: ListenerRegistration? = null
+    private var toolsListener: ListenerRegistration? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val themeManager = ThemeManager(this)
@@ -61,12 +62,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.searchResults.layoutManager = LinearLayoutManager(this)
 
-        lifecycleScope.launch {
-            allLockers = FirebaseQueries.fetchLockers()
-            allTools = FirebaseQueries.fetchTools()
-            applyFilter()
-        }
-
         // ── Botão de procura de itens ────────────────────────────────────────────────
         binding.searchInput.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -81,6 +76,27 @@ class MainActivity : AppCompatActivity() {
         binding.chipChaves.setOnClickListener { currentChip = "chave"; applyFilter() }
         binding.chipFerramentas.setOnClickListener { currentChip = "parafuso"; applyFilter() }
         binding.chipPecas.setOnClickListener { currentChip = "broca"; applyFilter() }
+    }
+
+    // ── Lógica de atualização do database ────────────────────────────────────────────────
+    override fun onStart() {
+        super.onStart()
+
+        lockersListener = FirebaseQueries.listenToLockers { lockers ->
+            allLockers = lockers
+            applyFilter()
+        }
+
+        toolsListener = FirebaseQueries.listenToTools { tools ->
+            allTools = tools
+            applyFilter()
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        lockersListener?.remove()
+        toolsListener?.remove()
     }
 
     // ── Lógica dos filtros ────────────────────────────────────────────────
