@@ -44,14 +44,14 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/blue"
+        android:background="@color/royal_blue"
         android:contentDescription="@string/edit_stock"
         android:padding="6dp"
         android:scaleType="fitXY"
         android:src="@drawable/edit_stock"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        app:tint="@color/royal_blue"
+        app:tint="@color/blue"
         app:shapeAppearanceOverlay="@style/RoundedCorners"
         android:visibility="gone"/>
 

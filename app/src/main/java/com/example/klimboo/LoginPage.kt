@@ -94,14 +94,22 @@ class LoginPage : AppCompatActivity() {
                             Toast.makeText(this, "Conta existente. Iniciando sessão.", Toast.LENGTH_SHORT).show()
 
 
-                            val userUpdate = hashMapOf(
-                                "email" to currentUser!!.email
-                            )
-
-                            Firebase.firestore
+                            val docRef = Firebase.firestore
                                 .collection("usuarios")
                                 .document(currentUser!!.uid)
-                                .set(userUpdate, SetOptions.merge())
+
+                            docRef.get().addOnSuccessListener { document ->
+                                val updates = hashMapOf<String, Any>(
+                                    "email" to currentUser!!.email!!
+                                )
+
+                                // Só define isAdmin se o campo ainda não existir
+                                if (!document.contains("isAdmin")) {
+                                    updates["isAdmin"] = false
+                                }
+
+                                docRef.set(updates, SetOptions.merge())
+                            }
 
                             startActivity(Intent(this, MainActivity::class.java))
                             finish()

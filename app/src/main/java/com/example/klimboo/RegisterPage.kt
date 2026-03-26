@@ -12,10 +12,7 @@ import com.example.klimboo.data.ThemeManager
 import com.example.klimboo.data.observeTheme
 import com.example.klimboo.databinding.ActivityRegisterPageBinding
 import com.google.firebase.Firebase
-import com.google.firebase.appcheck.FirebaseAppCheck
-import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory
 import com.google.firebase.auth.auth
-import com.google.firebase.initialize
 
 
 class RegisterPage : AppCompatActivity() {
