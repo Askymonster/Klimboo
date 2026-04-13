@@ -1,0 +1,1066 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:2:1-49:12
+MERGED from [androidx.databinding:viewbinding:9.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\16feae2a559e53204f9df551e24d1e29\transformed\viewbinding-9.1.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.material:material:1.13.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\15dbec09d3524ba3616572115c958dd9\transformed\material-1.13.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\fc398fdefcb46d0c3411a2ccdf594eaf\transformed\constraintlayout-2.2.1\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.preference:preference:1.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c703a4459ff617666e7ef8ef4e32c7ee\transformed\preference-1.2.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.camera:camera-video:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\fd5a160bf05bb4310851d4ace36a213c\transformed\camera-video-1.6.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.camera:camera-camera2-pipe:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c1bec6d16da6dc1bbecd4f9d51bc0cb4\transformed\camera-camera2-pipe-1.6.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.camera:camera-lifecycle:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\2a9c4411622be6ddebbe49c39e19dafd\transformed\camera-lifecycle-1.6.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.camera:camera-camera2:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\81fafe17defe024c94f949f1cd4a92ad\transformed\camera-camera2-1.6.0\AndroidManifest.xml:17:1-36:12
+MERGED from [androidx.camera:camera-core:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\78a501eba38012761b319bd7b8a21618\transformed\camera-core-1.6.0\AndroidManifest.xml:17:1-36:12
+MERGED from [androidx.camera:camera-view:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6572be8e2126b0c4f7a51d5042240986\transformed\camera-view-1.6.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat-resources:1.7.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\658b3ff3294a0df1d6fe33d376242731\transformed\appcompat-resources-1.7.1\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.mlkit:barcode-scanning:17.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\05791108c06c9cf9304bb60f0b02b713\transformed\barcode-scanning-17.3.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\58bb072fddced68e5aab59e3717f8a3e\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.mlkit:barcode-scanning-common:17.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\183f3b746581de02f1ef230bae8ad84e\transformed\barcode-scanning-common-17.0.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\f329d7ace5ad043cea2499ce364f2e53\transformed\vision-common-17.3.0\AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.mlkit:common:18.11.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\55ce11fc4ed98126403ad028de092863\transformed\common-18.11.0\AndroidManifest.xml:2:1-26:12
+MERGED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:17:1-75:12
+MERGED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:17:1-52:12
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.2.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\671e1645a0445f63f8c04524ea6b5208\transformed\googleid-1.2.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.credentials:credentials:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\07bfceadceb8ae3e75bec919dedea36b\transformed\credentials-1.6.0-beta01\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\525591a551550dd45d8883490455edae\transformed\biometric-1.1.0\AndroidManifest.xml:17:1-29:12
+MERGED from [androidx.appcompat:appcompat:1.7.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\3d154f32c31f4f07de0d5bec21aafd39\transformed\appcompat-1.7.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material3:material3-android:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9ec05b59786139d0c4b0c1067a0622f6\transformed\material3\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-compose:1.13.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4596b9116630b9706d7db21e78b710a3\transformed\activity-compose-1.13.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.github.bumptech.glide:glide:5.0.5] C:\Users\gamek\.gradle\caches\9.4.0\transforms\495125aae4f17f6fbc98ae8b42a07d02\transformed\glide-5.0.5\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6c8cf32fd5025b1d60330a25ded4d5bb\transformed\viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-firestore:26.1.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b3386ee9b7177a9d64b48cd01f6aa9c2\transformed\firebase-firestore-26.1.2\AndroidManifest.xml:2:1-26:12
+MERGED from [com.google.android.gms:play-services-auth:21.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4e43fa5ef9fa5c82e4c12265449ebc22\transformed\play-services-auth-21.1.1\AndroidManifest.xml:17:1-40:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b252586ef047f52d52f14d2d72b36c83\transformed\play-services-auth-api-phone-18.0.2\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b838b97ddd94533dcdc9a70710a685a2\transformed\recaptcha-18.6.1\AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.firebase:firebase-storage-ktx:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\aa3fef4a7f7238bad9a3b0bc1383f3f7\transformed\firebase-storage-ktx-21.0.2\AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.firebase:firebase-storage:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9dd1ff5530be370a8e1b79539d195486\transformed\firebase-storage-21.0.2\AndroidManifest.xml:15:1-39:12
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\564eedd0bfce2a773ee82f558a550389\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.firebase:firebase-appcheck-playintegrity:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\809c4dfc93dad3e14d1075bafa6188cd\transformed\firebase-appcheck-playintegrity-19.0.2\AndroidManifest.xml:15:1-31:12
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ddf49b303a66015f1ccf11244ccf0a98\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.firebase:firebase-appcheck:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\83cda20dc03705eef21c3e85cad3561d\transformed\firebase-appcheck-19.0.2\AndroidManifest.xml:15:1-34:12
+MERGED from [com.google.firebase:firebase-common:22.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ba1db44c7e94954803a462df5e66e0b4\transformed\firebase-common-22.0.1\AndroidManifest.xml:15:1-41:12
+MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0777aefc815d8205dd3ebe1d13f4d29c\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c24c5600029e47d6c7b1a2fe238e0601\transformed\firebase-appcheck-interop-17.1.0\AndroidManifest.xml:15:1-23:12
+MERGED from [com.google.android.gms:play-services-fido:21.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\260ef08afec0221795c0f6ab60eef4e4\transformed\play-services-fido-21.0.0\AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-identity-credentials:16.0.0-alpha08] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9e56743f294c267004d1f75891ae222f\transformed\play-services-identity-credentials-16.0.0-alpha08\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-auth-blockstore:16.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\57208df0abd6ef8f4ba3c27a36bcee26\transformed\play-services-auth-blockstore-16.4.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.10] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9c886378e4f459753e1ef34247a050af\transformed\play-services-auth-base-18.0.10\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-base:18.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c986fea299956c0ec9b256b3dc23f669\transformed\play-services-base-18.9.0\AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.android.play:integrity:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8a7dc85167102951a639a4278504207d\transformed\integrity-1.4.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.mlkit:vision-interfaces:16.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\5f94372fa5cd9eb527d5111d1ffb74e7\transformed\vision-interfaces-16.3.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c9da6c5fd549e2bc1863c67cc675effe\transformed\drawerlayout-1.1.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\cdad2d655e555bab9e4c3db30f8145a9\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\093a721c6c1d767b387a8bf9d2f8bbce\transformed\slidingpanelayout-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.5.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\43d32dcdde9e20fbf79b809aa5c585e6\transformed\transition-1.5.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\04d6d5f76c30c0cbaf9399cc59364b56\transformed\dynamicanimation-1.1.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\db6bf9cbc1e0694f8f8e6680e8b863f9\transformed\recyclerview-1.2.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6e0b6119617334b44a51f02055d5ea1e\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\dc81b29ab65709331bfa76fde2c7d7f8\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.browser:browser:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\2db61971c2c4f93e3b2561ed65d6c72e\transformed\browser-1.4.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.camera.viewfinder:viewfinder-core:1.5.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\685e1be62836ad1ecd26c3c54d2cf4c4\transformed\viewfinder-core-1.5.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c1bff79203487b034c8b64ae3e05f132\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\e4f4feeb9afa029aa9fa78183aac6609\transformed\customview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.window:window:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0c7fbaa07ed52c94e4e47aca899bc5cb\transformed\window-1.0.0\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.compose.animation:animation-core-android:1.8.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\408e9ec8ba90f9909c6d9900596be708\transformed\animation-core-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.8.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\a7b3997f4a7b19b77d614ed388c5feca\transformed\material-ripple-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.8.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\d54eedcde1fc96740349cb1c52c81c10\transformed\animation-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.8.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\eb4deb9ec24b357403e7c268a7eaddb6\transformed\foundation-layout-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigationevent:navigationevent-android:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ab1f60e3a1cae0a7804864103699fea6\transformed\navigationevent\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigationevent:navigationevent-compose-android:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b0838b9a98a28e81bce231e0e836a506\transformed\navigationevent-compose\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\65de17bd9ba718f800bc4b573802f8df\transformed\ui-util\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\f917359f310f3bd46cbf91a66f5a6e7b\transformed\ui-unit\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\d0e38d0407e6d9a8f72bb56eaa845b8a\transformed\ui-text\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6ab098d7b87186780aeeffb1b0ddbea9\transformed\ui-graphics-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\83d396a9d63ed9570c4edfcbda78ef0f\transformed\ui-geometry\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\77db7186009440e340b8486e70e0a8bf\transformed\ui-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.8.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\593b78b157c9b085db8c9b5949834a92\transformed\foundation-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.loader:loader:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8d561d619ba096ac1380c3b8bd07e183\transformed\loader-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\1ced3fd61eec320f8e40d8bc36cbf668\transformed\autofill-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\28c6071186cfe7cb16c0528304c0ab70\transformed\graphics-path-1.0.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6ec25ba6f5abdba783e792ae7598d7cd\transformed\emoji2-views-helper-1.4.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\11da22b62ac96fab0c38bee71a5ffb1f\transformed\emoji2-1.4.0\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.core:core:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\93c6d28f3e8e5924e736bfcf34180301\transformed\core-1.18.0\AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.datastore:datastore-core-android:1.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b2a277db0519e14d15c3195f36991a2b\transformed\datastore-core\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-preferences-core-android:1.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c3a846685a47cdf002f4f33a07da2b6d\transformed\datastore-preferences-core\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-android:1.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\811407e3ed2f986001fbfe1714f7b00e\transformed\datastore\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.datastore:datastore-preferences-android:1.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b90c08a5c203516da0e3590ddfd411cc\transformed\datastore-preferences\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\792e1a690e026cff3b63165c5b5fb935\transformed\savedstate-ktx-1.4.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-android:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c1d1c3542faff19ff67ecfa2b8da4c0f\transformed\savedstate\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-compose-android:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\729d977f3cd690ba4401e359ca420f0e\transformed\savedstate-compose\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6c331f40da5efda305c49583bbf685d7\transformed\runtime-annotation\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\998c46478c315c39adc3d8b83959c34e\transformed\runtime\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\818af9fcdf652c4c196615623ad93520\transformed\runtime-saveable\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\02c62be5520956a643a804b08c730465\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\e35084d7d17649dfbacaf5498fb1c24a\transformed\lifecycle-runtime-compose\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\cf4cc2ded6a33f2b17dc7076f717279c\transformed\lifecycle-viewmodel-savedstate\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\2f4e698fa748c431ba3f0ae5a12fd3a7\transformed\lifecycle-viewmodel-2.10.0\AndroidManifest.xml:2:1-5:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\7bb6bf95e72ffcb3870ea93ea776a15a\transformed\lifecycle-viewmodel\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ac4e68d5f5751334fed2b66da16b284f\transformed\lifecycle-runtime\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0450027ff3b03064d8b608148fce78a7\transformed\lifecycle-viewmodel-ktx-2.10.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4de7de68002691a3ee361a6a96b6c212\transformed\lifecycle-livedata-core-ktx-2.10.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\7d68c395709742ef832d4947e83c7f56\transformed\lifecycle-livedata-core-2.10.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\18ecc321dcb2c3f4f64a46af85e44a2a\transformed\lifecycle-runtime-ktx\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\7544ac22225f8a5617d1afb797f76d52\transformed\lifecycle-livedata-2.10.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-tasks:18.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\aa3b5a8fbc95671a803630cbf23ab109\transformed\play-services-tasks-18.4.0\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement:18.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\7443318a82efbe7d1e14aef06d5f2a66\transformed\play-services-basement-18.9.0\AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.fragment:fragment:1.6.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\96cb72b99eacc78967c3c2ab2467b57d\transformed\fragment-1.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment-ktx:1.6.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\5aa99632642d59f2419ae2bdbc7d1e8c\transformed\fragment-ktx-1.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-ktx:1.13.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\5fbf0bafde3e3245da6cc76f44a3fa66\transformed\activity-ktx-1.13.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.13.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\d04ed44cde8e8e96befa372b42d2d2f8\transformed\activity-1.13.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.graphics:graphics-shapes-android:1.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b76100802c2cf2333135d9c3a872527e\transformed\graphics-shapes-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\969ac1032ebaea6103b9f9296d377324\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.core:core-ktx:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c6424ceaf55339b0b55e69e1bd6b0a38\transformed\core-ktx-1.18.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.media3:media3-muxer:1.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6e28cda97f4f34fc48288ebcb6dd4130\transformed\media3-muxer-1.9.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-container:1.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9b088f9e18376fa61ae0dc778548bfdf\transformed\media3-container-1.9.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-common:1.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c2c38608a8dc620462bfe5d398ec091d\transformed\media3-common-1.9.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-viewtree:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\442b7ec76f6c727d20bf9295ae1f5f8c\transformed\core-viewtree-1.0.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\696d46bf07353897cd8ae1023c6a70a5\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core-backported-fixes:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0c1d7c1f368731d89c283a1dcfa1d4ee\transformed\core-backported-fixes-1.0.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\072c072e31b94158027c726c9b51f6e9\transformed\startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing-ktx:1.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0a4f8adfdf5d3e0ae8b46d0de72328f1\transformed\tracing-ktx-1.3.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.tracing:tracing-android:1.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\f81dc67943e773639cd12b2ff8fc4fc2\transformed\tracing\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.camera.featurecombinationquery:featurecombinationquery:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\e6ae23dc8a8a6352fca125daf52c34f6\transformed\featurecombinationquery-1.6.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\26a49dd7ea9a86e5cdc63e2783e78415\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9c7084d944b592031b0289c04494ad33\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8ccb200119af1e9d53662b4bf5a34cb1\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-components:19.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c348ea06922c1c451a8e87ac7ce8ffa3\transformed\firebase-components-19.0.0\AndroidManifest.xml:15:1-20:12
+MERGED from [androidx.exifinterface:exifinterface:1.4.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\aa8012ec725fccb029803d61ef0c1157\transformed\exifinterface-1.4.2\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\cacc211b78fbc084ade0799cf442e12d\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:gifdecoder:5.0.5] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b8201e3e0902cb07c15e33667f4d7d47\transformed\gifdecoder-5.0.5\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\cd221257e6b767c16c24f79b1e433418\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8b7f392ba7c75923e1d9d7455b7e09a2\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\gamek\.gradle\caches\9.4.0\transforms\a2a9866fbcd6a17a74595c9dce708ac6\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:15:1-38:12
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\gamek\.gradle\caches\9.4.0\transforms\790ed8a3b962e8a9b4b9571c17ef9a88\transformed\transport-runtime-2.2.6\AndroidManifest.xml:15:1-41:12
+MERGED from [com.google.android.datatransport:transport-api:2.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8d691f874908acb1462161e40d746119\transformed\transport-api-2.2.1\AndroidManifest.xml:15:1-22:12
+MERGED from [com.google.firebase:firebase-encoders-json:17.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\1e06209745400f91ee7caea8d529898b\transformed\firebase-encoders-json-17.1.0\AndroidManifest.xml:15:1-23:12
+MERGED from [io.grpc:grpc-android:1.62.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9f569caf549c9017b293d0ad56d9f53c\transformed\grpc-android-1.62.2\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9efac18527d536fa9b7b3393ca7f6ed7\transformed\protolite-well-known-types-18.0.1\AndroidManifest.xml:2:1-7:12
+MERGED from [com.github.bumptech.glide:disklrucache:5.0.5] C:\Users\gamek\.gradle\caches\9.4.0\transforms\21b1041579b3564b8dbfdf22c9fe92c3\transformed\disklrucache-5.0.5\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.play:core-common:2.0.4] C:\Users\gamek\.gradle\caches\9.4.0\transforms\86c4ad272270440fc50f6e37568a4099\transformed\core-common-2.0.4\AndroidManifest.xml:2:1-21:12
+MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\68288f03eda77f0f7e310150d4c127e3\transformed\image-1.0.0-beta1\AndroidManifest.xml:2:1-9:12
+	package
+		INJECTED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:2:11-69
+uses-feature#android.hardware.camera
+ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:4:5-6:36
+	android:required
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:6:9-33
+	android:name
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:5:9-47
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:8:5-67
+MERGED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:25:5-67
+MERGED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:25:5-67
+MERGED from [com.google.firebase:firebase-firestore:26.1.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b3386ee9b7177a9d64b48cd01f6aa9c2\transformed\firebase-firestore-26.1.2\AndroidManifest.xml:11:5-67
+MERGED from [com.google.firebase:firebase-firestore:26.1.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b3386ee9b7177a9d64b48cd01f6aa9c2\transformed\firebase-firestore-26.1.2\AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b838b97ddd94533dcdc9a70710a685a2\transformed\recaptcha-18.6.1\AndroidManifest.xml:7:5-67
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b838b97ddd94533dcdc9a70710a685a2\transformed\recaptcha-18.6.1\AndroidManifest.xml:7:5-67
+MERGED from [com.google.firebase:firebase-storage:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9dd1ff5530be370a8e1b79539d195486\transformed\firebase-storage-21.0.2\AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-storage:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9dd1ff5530be370a8e1b79539d195486\transformed\firebase-storage-21.0.2\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\gamek\.gradle\caches\9.4.0\transforms\a2a9866fbcd6a17a74595c9dce708ac6\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:26:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\gamek\.gradle\caches\9.4.0\transforms\a2a9866fbcd6a17a74595c9dce708ac6\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:26:5-67
+	android:name
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:8:22-64
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:9:5-65
+	android:name
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:9:22-62
+application
+ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:11:5-47:19
+INJECTED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:11:5-47:19
+MERGED from [com.google.android.material:material:1.13.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\15dbec09d3524ba3616572115c958dd9\transformed\material-1.13.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.13.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\15dbec09d3524ba3616572115c958dd9\transformed\material-1.13.0\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\fc398fdefcb46d0c3411a2ccdf594eaf\transformed\constraintlayout-2.2.1\AndroidManifest.xml:7:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\fc398fdefcb46d0c3411a2ccdf594eaf\transformed\constraintlayout-2.2.1\AndroidManifest.xml:7:5-20
+MERGED from [androidx.camera:camera-camera2:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\81fafe17defe024c94f949f1cd4a92ad\transformed\camera-camera2-1.6.0\AndroidManifest.xml:23:5-34:19
+MERGED from [androidx.camera:camera-camera2:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\81fafe17defe024c94f949f1cd4a92ad\transformed\camera-camera2-1.6.0\AndroidManifest.xml:23:5-34:19
+MERGED from [androidx.camera:camera-core:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\78a501eba38012761b319bd7b8a21618\transformed\camera-core-1.6.0\AndroidManifest.xml:23:5-34:19
+MERGED from [androidx.camera:camera-core:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\78a501eba38012761b319bd7b8a21618\transformed\camera-core-1.6.0\AndroidManifest.xml:23:5-34:19
+MERGED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\58bb072fddced68e5aab59e3717f8a3e\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\58bb072fddced68e5aab59e3717f8a3e\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\f329d7ace5ad043cea2499ce364f2e53\transformed\vision-common-17.3.0\AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\f329d7ace5ad043cea2499ce364f2e53\transformed\vision-common-17.3.0\AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.mlkit:common:18.11.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\55ce11fc4ed98126403ad028de092863\transformed\common-18.11.0\AndroidManifest.xml:8:5-24:19
+MERGED from [com.google.mlkit:common:18.11.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\55ce11fc4ed98126403ad028de092863\transformed\common-18.11.0\AndroidManifest.xml:8:5-24:19
+MERGED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:28:5-73:19
+MERGED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:28:5-73:19
+MERGED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:23:5-50:19
+MERGED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:23:5-50:19
+MERGED from [com.google.firebase:firebase-firestore:26.1.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b3386ee9b7177a9d64b48cd01f6aa9c2\transformed\firebase-firestore-26.1.2\AndroidManifest.xml:13:5-24:19
+MERGED from [com.google.firebase:firebase-firestore:26.1.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b3386ee9b7177a9d64b48cd01f6aa9c2\transformed\firebase-firestore-26.1.2\AndroidManifest.xml:13:5-24:19
+MERGED from [com.google.android.gms:play-services-auth:21.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4e43fa5ef9fa5c82e4c12265449ebc22\transformed\play-services-auth-21.1.1\AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.android.gms:play-services-auth:21.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4e43fa5ef9fa5c82e4c12265449ebc22\transformed\play-services-auth-21.1.1\AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.firebase:firebase-storage-ktx:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\aa3fef4a7f7238bad9a3b0bc1383f3f7\transformed\firebase-storage-ktx-21.0.2\AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-storage-ktx:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\aa3fef4a7f7238bad9a3b0bc1383f3f7\transformed\firebase-storage-ktx-21.0.2\AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-storage:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9dd1ff5530be370a8e1b79539d195486\transformed\firebase-storage-21.0.2\AndroidManifest.xml:26:5-37:19
+MERGED from [com.google.firebase:firebase-storage:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9dd1ff5530be370a8e1b79539d195486\transformed\firebase-storage-21.0.2\AndroidManifest.xml:26:5-37:19
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\564eedd0bfce2a773ee82f558a550389\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\564eedd0bfce2a773ee82f558a550389\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-appcheck-playintegrity:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\809c4dfc93dad3e14d1075bafa6188cd\transformed\firebase-appcheck-playintegrity-19.0.2\AndroidManifest.xml:21:5-29:19
+MERGED from [com.google.firebase:firebase-appcheck-playintegrity:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\809c4dfc93dad3e14d1075bafa6188cd\transformed\firebase-appcheck-playintegrity-19.0.2\AndroidManifest.xml:21:5-29:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ddf49b303a66015f1ccf11244ccf0a98\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ddf49b303a66015f1ccf11244ccf0a98\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-appcheck:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\83cda20dc03705eef21c3e85cad3561d\transformed\firebase-appcheck-19.0.2\AndroidManifest.xml:21:5-32:19
+MERGED from [com.google.firebase:firebase-appcheck:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\83cda20dc03705eef21c3e85cad3561d\transformed\firebase-appcheck-19.0.2\AndroidManifest.xml:21:5-32:19
+MERGED from [com.google.firebase:firebase-common:22.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ba1db44c7e94954803a462df5e66e0b4\transformed\firebase-common-22.0.1\AndroidManifest.xml:22:5-39:19
+MERGED from [com.google.firebase:firebase-common:22.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ba1db44c7e94954803a462df5e66e0b4\transformed\firebase-common-22.0.1\AndroidManifest.xml:22:5-39:19
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c24c5600029e47d6c7b1a2fe238e0601\transformed\firebase-appcheck-interop-17.1.0\AndroidManifest.xml:21:5-20
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c24c5600029e47d6c7b1a2fe238e0601\transformed\firebase-appcheck-interop-17.1.0\AndroidManifest.xml:21:5-20
+MERGED from [com.google.android.gms:play-services-fido:21.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\260ef08afec0221795c0f6ab60eef4e4\transformed\play-services-fido-21.0.0\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-fido:21.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\260ef08afec0221795c0f6ab60eef4e4\transformed\play-services-fido-21.0.0\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-auth-blockstore:16.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\57208df0abd6ef8f4ba3c27a36bcee26\transformed\play-services-auth-blockstore-16.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-auth-blockstore:16.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\57208df0abd6ef8f4ba3c27a36bcee26\transformed\play-services-auth-blockstore-16.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-base:18.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c986fea299956c0ec9b256b3dc23f669\transformed\play-services-base-18.9.0\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c986fea299956c0ec9b256b3dc23f669\transformed\play-services-base-18.9.0\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.play:integrity:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8a7dc85167102951a639a4278504207d\transformed\integrity-1.4.0\AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.android.play:integrity:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8a7dc85167102951a639a4278504207d\transformed\integrity-1.4.0\AndroidManifest.xml:5:5-6:19
+MERGED from [androidx.window:window:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0c7fbaa07ed52c94e4e47aca899bc5cb\transformed\window-1.0.0\AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.window:window:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0c7fbaa07ed52c94e4e47aca899bc5cb\transformed\window-1.0.0\AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\11da22b62ac96fab0c38bee71a5ffb1f\transformed\emoji2-1.4.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\11da22b62ac96fab0c38bee71a5ffb1f\transformed\emoji2-1.4.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\93c6d28f3e8e5924e736bfcf34180301\transformed\core-1.18.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\93c6d28f3e8e5924e736bfcf34180301\transformed\core-1.18.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\02c62be5520956a643a804b08c730465\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\02c62be5520956a643a804b08c730465\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:23:5-33:19
+MERGED from [com.google.android.gms:play-services-tasks:18.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\aa3b5a8fbc95671a803630cbf23ab109\transformed\play-services-tasks-18.4.0\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\aa3b5a8fbc95671a803630cbf23ab109\transformed\play-services-tasks-18.4.0\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\7443318a82efbe7d1e14aef06d5f2a66\transformed\play-services-basement-18.9.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\7443318a82efbe7d1e14aef06d5f2a66\transformed\play-services-basement-18.9.0\AndroidManifest.xml:20:5-24:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\072c072e31b94158027c726c9b51f6e9\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\072c072e31b94158027c726c9b51f6e9\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8b7f392ba7c75923e1d9d7455b7e09a2\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8b7f392ba7c75923e1d9d7455b7e09a2\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\gamek\.gradle\caches\9.4.0\transforms\a2a9866fbcd6a17a74595c9dce708ac6\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\gamek\.gradle\caches\9.4.0\transforms\a2a9866fbcd6a17a74595c9dce708ac6\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\gamek\.gradle\caches\9.4.0\transforms\790ed8a3b962e8a9b4b9571c17ef9a88\transformed\transport-runtime-2.2.6\AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\gamek\.gradle\caches\9.4.0\transforms\790ed8a3b962e8a9b4b9571c17ef9a88\transformed\transport-runtime-2.2.6\AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.android.play:core-common:2.0.4] C:\Users\gamek\.gradle\caches\9.4.0\transforms\86c4ad272270440fc50f6e37568a4099\transformed\core-common-2.0.4\AndroidManifest.xml:11:5-19:19
+MERGED from [com.google.android.play:core-common:2.0.4] C:\Users\gamek\.gradle\caches\9.4.0\transforms\86c4ad272270440fc50f6e37568a4099\transformed\core-common-2.0.4\AndroidManifest.xml:11:5-19:19
+MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\68288f03eda77f0f7e310150d4c127e3\transformed\image-1.0.0-beta1\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\68288f03eda77f0f7e310150d4c127e3\transformed\image-1.0.0-beta1\AndroidManifest.xml:7:5-20
+	android:extractNativeLibs
+		INJECTED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\93c6d28f3e8e5924e736bfcf34180301\transformed\core-1.18.0\AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:18:9-35
+	android:label
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:16:9-41
+	android:fullBackupContent
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:14:9-54
+	android:roundIcon
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:17:9-54
+	android:icon
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:15:9-43
+	android:allowBackup
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:12:9-35
+	android:theme
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:19:9-49
+	android:dataExtractionRules
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:13:9-65
+activity#com.example.klimboo.WebViewActivity
+ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:20:9-22:40
+	android:exported
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:22:13-37
+	android:name
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:21:13-44
+activity#com.example.klimboo.ScanPage
+ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:23:9-25:40
+	android:exported
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:24:13-37
+activity#com.example.klimboo.StockPage
+ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:26:9-28:40
+	android:exported
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:27:13-38
+activity#com.example.klimboo.ConfigPage
+ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:29:9-31:40
+	android:exported
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:30:13-39
+activity#com.example.klimboo.MainActivity
+ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:33:13-41
+activity#com.example.klimboo.RegisterPage
+ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:35:9-37:40
+	android:exported
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:37:13-37
+	android:name
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:36:13-41
+activity#com.example.klimboo.LoginPage
+ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:38:9-46:20
+	android:exported
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:40:13-36
+	android:name
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:39:13-38
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:41:13-45:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:42:17-69
+	android:name
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:42:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:44:17-77
+	android:name
+		ADDED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml:44:27-74
+uses-sdk
+INJECTED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml
+MERGED from [androidx.databinding:viewbinding:9.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\16feae2a559e53204f9df551e24d1e29\transformed\viewbinding-9.1.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.databinding:viewbinding:9.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\16feae2a559e53204f9df551e24d1e29\transformed\viewbinding-9.1.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.material:material:1.13.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\15dbec09d3524ba3616572115c958dd9\transformed\material-1.13.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.13.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\15dbec09d3524ba3616572115c958dd9\transformed\material-1.13.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\fc398fdefcb46d0c3411a2ccdf594eaf\transformed\constraintlayout-2.2.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\fc398fdefcb46d0c3411a2ccdf594eaf\transformed\constraintlayout-2.2.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.preference:preference:1.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c703a4459ff617666e7ef8ef4e32c7ee\transformed\preference-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.preference:preference:1.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c703a4459ff617666e7ef8ef4e32c7ee\transformed\preference-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.camera:camera-video:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\fd5a160bf05bb4310851d4ace36a213c\transformed\camera-video-1.6.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-video:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\fd5a160bf05bb4310851d4ace36a213c\transformed\camera-video-1.6.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-camera2-pipe:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c1bec6d16da6dc1bbecd4f9d51bc0cb4\transformed\camera-camera2-pipe-1.6.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-camera2-pipe:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c1bec6d16da6dc1bbecd4f9d51bc0cb4\transformed\camera-camera2-pipe-1.6.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-lifecycle:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\2a9c4411622be6ddebbe49c39e19dafd\transformed\camera-lifecycle-1.6.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-lifecycle:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\2a9c4411622be6ddebbe49c39e19dafd\transformed\camera-lifecycle-1.6.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-camera2:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\81fafe17defe024c94f949f1cd4a92ad\transformed\camera-camera2-1.6.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.camera:camera-camera2:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\81fafe17defe024c94f949f1cd4a92ad\transformed\camera-camera2-1.6.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.camera:camera-core:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\78a501eba38012761b319bd7b8a21618\transformed\camera-core-1.6.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.camera:camera-core:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\78a501eba38012761b319bd7b8a21618\transformed\camera-core-1.6.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.camera:camera-view:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6572be8e2126b0c4f7a51d5042240986\transformed\camera-view-1.6.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-view:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6572be8e2126b0c4f7a51d5042240986\transformed\camera-view-1.6.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\658b3ff3294a0df1d6fe33d376242731\transformed\appcompat-resources-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\658b3ff3294a0df1d6fe33d376242731\transformed\appcompat-resources-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [com.google.mlkit:barcode-scanning:17.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\05791108c06c9cf9304bb60f0b02b713\transformed\barcode-scanning-17.3.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.mlkit:barcode-scanning:17.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\05791108c06c9cf9304bb60f0b02b713\transformed\barcode-scanning-17.3.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\58bb072fddced68e5aab59e3717f8a3e\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:6:5-44
+MERGED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\58bb072fddced68e5aab59e3717f8a3e\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:6:5-44
+MERGED from [com.google.mlkit:barcode-scanning-common:17.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\183f3b746581de02f1ef230bae8ad84e\transformed\barcode-scanning-common-17.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.mlkit:barcode-scanning-common:17.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\183f3b746581de02f1ef230bae8ad84e\transformed\barcode-scanning-common-17.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\f329d7ace5ad043cea2499ce364f2e53\transformed\vision-common-17.3.0\AndroidManifest.xml:6:5-44
+MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\f329d7ace5ad043cea2499ce364f2e53\transformed\vision-common-17.3.0\AndroidManifest.xml:6:5-44
+MERGED from [com.google.mlkit:common:18.11.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\55ce11fc4ed98126403ad028de092863\transformed\common-18.11.0\AndroidManifest.xml:6:5-44
+MERGED from [com.google.mlkit:common:18.11.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\55ce11fc4ed98126403ad028de092863\transformed\common-18.11.0\AndroidManifest.xml:6:5-44
+MERGED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:21:5-23:151
+MERGED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:21:5-23:151
+MERGED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:21:5-44
+MERGED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:21:5-44
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.2.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\671e1645a0445f63f8c04524ea6b5208\transformed\googleid-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.2.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\671e1645a0445f63f8c04524ea6b5208\transformed\googleid-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.credentials:credentials:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\07bfceadceb8ae3e75bec919dedea36b\transformed\credentials-1.6.0-beta01\AndroidManifest.xml:5:5-44
+MERGED from [androidx.credentials:credentials:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\07bfceadceb8ae3e75bec919dedea36b\transformed\credentials-1.6.0-beta01\AndroidManifest.xml:5:5-44
+MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\525591a551550dd45d8883490455edae\transformed\biometric-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\525591a551550dd45d8883490455edae\transformed\biometric-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.7.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\3d154f32c31f4f07de0d5bec21aafd39\transformed\appcompat-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.7.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\3d154f32c31f4f07de0d5bec21aafd39\transformed\appcompat-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material3:material3-android:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9ec05b59786139d0c4b0c1067a0622f6\transformed\material3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9ec05b59786139d0c4b0c1067a0622f6\transformed\material3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-compose:1.13.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4596b9116630b9706d7db21e78b710a3\transformed\activity-compose-1.13.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.13.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4596b9116630b9706d7db21e78b710a3\transformed\activity-compose-1.13.0\AndroidManifest.xml:5:5-44
+MERGED from [com.github.bumptech.glide:glide:5.0.5] C:\Users\gamek\.gradle\caches\9.4.0\transforms\495125aae4f17f6fbc98ae8b42a07d02\transformed\glide-5.0.5\AndroidManifest.xml:5:5-44
+MERGED from [com.github.bumptech.glide:glide:5.0.5] C:\Users\gamek\.gradle\caches\9.4.0\transforms\495125aae4f17f6fbc98ae8b42a07d02\transformed\glide-5.0.5\AndroidManifest.xml:5:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6c8cf32fd5025b1d60330a25ded4d5bb\transformed\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6c8cf32fd5025b1d60330a25ded4d5bb\transformed\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-firestore:26.1.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b3386ee9b7177a9d64b48cd01f6aa9c2\transformed\firebase-firestore-26.1.2\AndroidManifest.xml:6:5-44
+MERGED from [com.google.firebase:firebase-firestore:26.1.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b3386ee9b7177a9d64b48cd01f6aa9c2\transformed\firebase-firestore-26.1.2\AndroidManifest.xml:6:5-44
+MERGED from [com.google.android.gms:play-services-auth:21.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4e43fa5ef9fa5c82e4c12265449ebc22\transformed\play-services-auth-21.1.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:21.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4e43fa5ef9fa5c82e4c12265449ebc22\transformed\play-services-auth-21.1.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b252586ef047f52d52f14d2d72b36c83\transformed\play-services-auth-api-phone-18.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b252586ef047f52d52f14d2d72b36c83\transformed\play-services-auth-api-phone-18.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b838b97ddd94533dcdc9a70710a685a2\transformed\recaptcha-18.6.1\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b838b97ddd94533dcdc9a70710a685a2\transformed\recaptcha-18.6.1\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-storage-ktx:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\aa3fef4a7f7238bad9a3b0bc1383f3f7\transformed\firebase-storage-ktx-21.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-storage-ktx:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\aa3fef4a7f7238bad9a3b0bc1383f3f7\transformed\firebase-storage-ktx-21.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-storage:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9dd1ff5530be370a8e1b79539d195486\transformed\firebase-storage-21.0.2\AndroidManifest.xml:19:5-44
+MERGED from [com.google.firebase:firebase-storage:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9dd1ff5530be370a8e1b79539d195486\transformed\firebase-storage-21.0.2\AndroidManifest.xml:19:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\564eedd0bfce2a773ee82f558a550389\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\564eedd0bfce2a773ee82f558a550389\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-appcheck-playintegrity:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\809c4dfc93dad3e14d1075bafa6188cd\transformed\firebase-appcheck-playintegrity-19.0.2\AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-appcheck-playintegrity:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\809c4dfc93dad3e14d1075bafa6188cd\transformed\firebase-appcheck-playintegrity-19.0.2\AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ddf49b303a66015f1ccf11244ccf0a98\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ddf49b303a66015f1ccf11244ccf0a98\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-appcheck:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\83cda20dc03705eef21c3e85cad3561d\transformed\firebase-appcheck-19.0.2\AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-appcheck:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\83cda20dc03705eef21c3e85cad3561d\transformed\firebase-appcheck-19.0.2\AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-common:22.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ba1db44c7e94954803a462df5e66e0b4\transformed\firebase-common-22.0.1\AndroidManifest.xml:19:5-44
+MERGED from [com.google.firebase:firebase-common:22.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ba1db44c7e94954803a462df5e66e0b4\transformed\firebase-common-22.0.1\AndroidManifest.xml:19:5-44
+MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0777aefc815d8205dd3ebe1d13f4d29c\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0777aefc815d8205dd3ebe1d13f4d29c\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c24c5600029e47d6c7b1a2fe238e0601\transformed\firebase-appcheck-interop-17.1.0\AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c24c5600029e47d6c7b1a2fe238e0601\transformed\firebase-appcheck-interop-17.1.0\AndroidManifest.xml:18:5-44
+MERGED from [com.google.android.gms:play-services-fido:21.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\260ef08afec0221795c0f6ab60eef4e4\transformed\play-services-fido-21.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-fido:21.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\260ef08afec0221795c0f6ab60eef4e4\transformed\play-services-fido-21.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-identity-credentials:16.0.0-alpha08] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9e56743f294c267004d1f75891ae222f\transformed\play-services-identity-credentials-16.0.0-alpha08\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-identity-credentials:16.0.0-alpha08] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9e56743f294c267004d1f75891ae222f\transformed\play-services-identity-credentials-16.0.0-alpha08\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-blockstore:16.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\57208df0abd6ef8f4ba3c27a36bcee26\transformed\play-services-auth-blockstore-16.4.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-blockstore:16.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\57208df0abd6ef8f4ba3c27a36bcee26\transformed\play-services-auth-blockstore-16.4.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.10] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9c886378e4f459753e1ef34247a050af\transformed\play-services-auth-base-18.0.10\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.10] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9c886378e4f459753e1ef34247a050af\transformed\play-services-auth-base-18.0.10\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:18.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c986fea299956c0ec9b256b3dc23f669\transformed\play-services-base-18.9.0\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c986fea299956c0ec9b256b3dc23f669\transformed\play-services-base-18.9.0\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.play:integrity:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8a7dc85167102951a639a4278504207d\transformed\integrity-1.4.0\AndroidManifest.xml:4:5-44
+MERGED from [com.google.android.play:integrity:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8a7dc85167102951a639a4278504207d\transformed\integrity-1.4.0\AndroidManifest.xml:4:5-44
+MERGED from [com.google.mlkit:vision-interfaces:16.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\5f94372fa5cd9eb527d5111d1ffb74e7\transformed\vision-interfaces-16.3.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.mlkit:vision-interfaces:16.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\5f94372fa5cd9eb527d5111d1ffb74e7\transformed\vision-interfaces-16.3.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c9da6c5fd549e2bc1863c67cc675effe\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c9da6c5fd549e2bc1863c67cc675effe\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\cdad2d655e555bab9e4c3db30f8145a9\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\cdad2d655e555bab9e4c3db30f8145a9\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\093a721c6c1d767b387a8bf9d2f8bbce\transformed\slidingpanelayout-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\093a721c6c1d767b387a8bf9d2f8bbce\transformed\slidingpanelayout-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.5.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\43d32dcdde9e20fbf79b809aa5c585e6\transformed\transition-1.5.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.transition:transition:1.5.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\43d32dcdde9e20fbf79b809aa5c585e6\transformed\transition-1.5.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\04d6d5f76c30c0cbaf9399cc59364b56\transformed\dynamicanimation-1.1.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\04d6d5f76c30c0cbaf9399cc59364b56\transformed\dynamicanimation-1.1.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\db6bf9cbc1e0694f8f8e6680e8b863f9\transformed\recyclerview-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\db6bf9cbc1e0694f8f8e6680e8b863f9\transformed\recyclerview-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6e0b6119617334b44a51f02055d5ea1e\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6e0b6119617334b44a51f02055d5ea1e\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\dc81b29ab65709331bfa76fde2c7d7f8\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\dc81b29ab65709331bfa76fde2c7d7f8\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.browser:browser:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\2db61971c2c4f93e3b2561ed65d6c72e\transformed\browser-1.4.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.browser:browser:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\2db61971c2c4f93e3b2561ed65d6c72e\transformed\browser-1.4.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.camera.viewfinder:viewfinder-core:1.5.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\685e1be62836ad1ecd26c3c54d2cf4c4\transformed\viewfinder-core-1.5.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera.viewfinder:viewfinder-core:1.5.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\685e1be62836ad1ecd26c3c54d2cf4c4\transformed\viewfinder-core-1.5.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c1bff79203487b034c8b64ae3e05f132\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c1bff79203487b034c8b64ae3e05f132\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\e4f4feeb9afa029aa9fa78183aac6609\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\e4f4feeb9afa029aa9fa78183aac6609\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0c7fbaa07ed52c94e4e47aca899bc5cb\transformed\window-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0c7fbaa07ed52c94e4e47aca899bc5cb\transformed\window-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.compose.animation:animation-core-android:1.8.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\408e9ec8ba90f9909c6d9900596be708\transformed\animation-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.8.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\408e9ec8ba90f9909c6d9900596be708\transformed\animation-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.8.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\a7b3997f4a7b19b77d614ed388c5feca\transformed\material-ripple-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.8.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\a7b3997f4a7b19b77d614ed388c5feca\transformed\material-ripple-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.8.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\d54eedcde1fc96740349cb1c52c81c10\transformed\animation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.8.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\d54eedcde1fc96740349cb1c52c81c10\transformed\animation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.8.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\eb4deb9ec24b357403e7c268a7eaddb6\transformed\foundation-layout-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.8.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\eb4deb9ec24b357403e7c268a7eaddb6\transformed\foundation-layout-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigationevent:navigationevent-android:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ab1f60e3a1cae0a7804864103699fea6\transformed\navigationevent\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigationevent:navigationevent-android:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ab1f60e3a1cae0a7804864103699fea6\transformed\navigationevent\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigationevent:navigationevent-compose-android:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b0838b9a98a28e81bce231e0e836a506\transformed\navigationevent-compose\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigationevent:navigationevent-compose-android:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b0838b9a98a28e81bce231e0e836a506\transformed\navigationevent-compose\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\65de17bd9ba718f800bc4b573802f8df\transformed\ui-util\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\65de17bd9ba718f800bc4b573802f8df\transformed\ui-util\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\f917359f310f3bd46cbf91a66f5a6e7b\transformed\ui-unit\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\f917359f310f3bd46cbf91a66f5a6e7b\transformed\ui-unit\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\d0e38d0407e6d9a8f72bb56eaa845b8a\transformed\ui-text\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\d0e38d0407e6d9a8f72bb56eaa845b8a\transformed\ui-text\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6ab098d7b87186780aeeffb1b0ddbea9\transformed\ui-graphics-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6ab098d7b87186780aeeffb1b0ddbea9\transformed\ui-graphics-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\83d396a9d63ed9570c4edfcbda78ef0f\transformed\ui-geometry\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\83d396a9d63ed9570c4edfcbda78ef0f\transformed\ui-geometry\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\77db7186009440e340b8486e70e0a8bf\transformed\ui-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\77db7186009440e340b8486e70e0a8bf\transformed\ui-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.8.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\593b78b157c9b085db8c9b5949834a92\transformed\foundation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.8.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\593b78b157c9b085db8c9b5949834a92\transformed\foundation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.loader:loader:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8d561d619ba096ac1380c3b8bd07e183\transformed\loader-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.loader:loader:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8d561d619ba096ac1380c3b8bd07e183\transformed\loader-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\1ced3fd61eec320f8e40d8bc36cbf668\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\1ced3fd61eec320f8e40d8bc36cbf668\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\28c6071186cfe7cb16c0528304c0ab70\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\28c6071186cfe7cb16c0528304c0ab70\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6ec25ba6f5abdba783e792ae7598d7cd\transformed\emoji2-views-helper-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6ec25ba6f5abdba783e792ae7598d7cd\transformed\emoji2-views-helper-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\11da22b62ac96fab0c38bee71a5ffb1f\transformed\emoji2-1.4.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\11da22b62ac96fab0c38bee71a5ffb1f\transformed\emoji2-1.4.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.core:core:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\93c6d28f3e8e5924e736bfcf34180301\transformed\core-1.18.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\93c6d28f3e8e5924e736bfcf34180301\transformed\core-1.18.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b2a277db0519e14d15c3195f36991a2b\transformed\datastore-core\AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b2a277db0519e14d15c3195f36991a2b\transformed\datastore-core\AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-preferences-core-android:1.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c3a846685a47cdf002f4f33a07da2b6d\transformed\datastore-preferences-core\AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-preferences-core-android:1.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c3a846685a47cdf002f4f33a07da2b6d\transformed\datastore-preferences-core\AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-android:1.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\811407e3ed2f986001fbfe1714f7b00e\transformed\datastore\AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-android:1.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\811407e3ed2f986001fbfe1714f7b00e\transformed\datastore\AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b90c08a5c203516da0e3590ddfd411cc\transformed\datastore-preferences\AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b90c08a5c203516da0e3590ddfd411cc\transformed\datastore-preferences\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\792e1a690e026cff3b63165c5b5fb935\transformed\savedstate-ktx-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\792e1a690e026cff3b63165c5b5fb935\transformed\savedstate-ktx-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c1d1c3542faff19ff67ecfa2b8da4c0f\transformed\savedstate\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c1d1c3542faff19ff67ecfa2b8da4c0f\transformed\savedstate\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\729d977f3cd690ba4401e359ca420f0e\transformed\savedstate-compose\AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\729d977f3cd690ba4401e359ca420f0e\transformed\savedstate-compose\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6c331f40da5efda305c49583bbf685d7\transformed\runtime-annotation\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6c331f40da5efda305c49583bbf685d7\transformed\runtime-annotation\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\998c46478c315c39adc3d8b83959c34e\transformed\runtime\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\998c46478c315c39adc3d8b83959c34e\transformed\runtime\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\818af9fcdf652c4c196615623ad93520\transformed\runtime-saveable\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.9.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\818af9fcdf652c4c196615623ad93520\transformed\runtime-saveable\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\02c62be5520956a643a804b08c730465\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\02c62be5520956a643a804b08c730465\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\e35084d7d17649dfbacaf5498fb1c24a\transformed\lifecycle-runtime-compose\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\e35084d7d17649dfbacaf5498fb1c24a\transformed\lifecycle-runtime-compose\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\cf4cc2ded6a33f2b17dc7076f717279c\transformed\lifecycle-viewmodel-savedstate\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\cf4cc2ded6a33f2b17dc7076f717279c\transformed\lifecycle-viewmodel-savedstate\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\2f4e698fa748c431ba3f0ae5a12fd3a7\transformed\lifecycle-viewmodel-2.10.0\AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\2f4e698fa748c431ba3f0ae5a12fd3a7\transformed\lifecycle-viewmodel-2.10.0\AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\7bb6bf95e72ffcb3870ea93ea776a15a\transformed\lifecycle-viewmodel\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\7bb6bf95e72ffcb3870ea93ea776a15a\transformed\lifecycle-viewmodel\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ac4e68d5f5751334fed2b66da16b284f\transformed\lifecycle-runtime\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ac4e68d5f5751334fed2b66da16b284f\transformed\lifecycle-runtime\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0450027ff3b03064d8b608148fce78a7\transformed\lifecycle-viewmodel-ktx-2.10.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0450027ff3b03064d8b608148fce78a7\transformed\lifecycle-viewmodel-ktx-2.10.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4de7de68002691a3ee361a6a96b6c212\transformed\lifecycle-livedata-core-ktx-2.10.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4de7de68002691a3ee361a6a96b6c212\transformed\lifecycle-livedata-core-ktx-2.10.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\7d68c395709742ef832d4947e83c7f56\transformed\lifecycle-livedata-core-2.10.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\7d68c395709742ef832d4947e83c7f56\transformed\lifecycle-livedata-core-2.10.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\18ecc321dcb2c3f4f64a46af85e44a2a\transformed\lifecycle-runtime-ktx\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\18ecc321dcb2c3f4f64a46af85e44a2a\transformed\lifecycle-runtime-ktx\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\7544ac22225f8a5617d1afb797f76d52\transformed\lifecycle-livedata-2.10.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\7544ac22225f8a5617d1afb797f76d52\transformed\lifecycle-livedata-2.10.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\aa3b5a8fbc95671a803630cbf23ab109\transformed\play-services-tasks-18.4.0\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\aa3b5a8fbc95671a803630cbf23ab109\transformed\play-services-tasks-18.4.0\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\7443318a82efbe7d1e14aef06d5f2a66\transformed\play-services-basement-18.9.0\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\7443318a82efbe7d1e14aef06d5f2a66\transformed\play-services-basement-18.9.0\AndroidManifest.xml:18:5-43
+MERGED from [androidx.fragment:fragment:1.6.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\96cb72b99eacc78967c3c2ab2467b57d\transformed\fragment-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.6.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\96cb72b99eacc78967c3c2ab2467b57d\transformed\fragment-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.6.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\5aa99632642d59f2419ae2bdbc7d1e8c\transformed\fragment-ktx-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.6.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\5aa99632642d59f2419ae2bdbc7d1e8c\transformed\fragment-ktx-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-ktx:1.13.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\5fbf0bafde3e3245da6cc76f44a3fa66\transformed\activity-ktx-1.13.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.13.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\5fbf0bafde3e3245da6cc76f44a3fa66\transformed\activity-ktx-1.13.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.13.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\d04ed44cde8e8e96befa372b42d2d2f8\transformed\activity-1.13.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.13.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\d04ed44cde8e8e96befa372b42d2d2f8\transformed\activity-1.13.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.graphics:graphics-shapes-android:1.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b76100802c2cf2333135d9c3a872527e\transformed\graphics-shapes-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-shapes-android:1.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b76100802c2cf2333135d9c3a872527e\transformed\graphics-shapes-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\969ac1032ebaea6103b9f9296d377324\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\969ac1032ebaea6103b9f9296d377324\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.core:core-ktx:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c6424ceaf55339b0b55e69e1bd6b0a38\transformed\core-ktx-1.18.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c6424ceaf55339b0b55e69e1bd6b0a38\transformed\core-ktx-1.18.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.media3:media3-muxer:1.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6e28cda97f4f34fc48288ebcb6dd4130\transformed\media3-muxer-1.9.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-muxer:1.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\6e28cda97f4f34fc48288ebcb6dd4130\transformed\media3-muxer-1.9.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-container:1.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9b088f9e18376fa61ae0dc778548bfdf\transformed\media3-container-1.9.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-container:1.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9b088f9e18376fa61ae0dc778548bfdf\transformed\media3-container-1.9.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-common:1.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c2c38608a8dc620462bfe5d398ec091d\transformed\media3-common-1.9.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-common:1.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c2c38608a8dc620462bfe5d398ec091d\transformed\media3-common-1.9.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\442b7ec76f6c727d20bf9295ae1f5f8c\transformed\core-viewtree-1.0.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\442b7ec76f6c727d20bf9295ae1f5f8c\transformed\core-viewtree-1.0.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\696d46bf07353897cd8ae1023c6a70a5\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\696d46bf07353897cd8ae1023c6a70a5\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-backported-fixes:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0c1d7c1f368731d89c283a1dcfa1d4ee\transformed\core-backported-fixes-1.0.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-backported-fixes:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0c1d7c1f368731d89c283a1dcfa1d4ee\transformed\core-backported-fixes-1.0.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\072c072e31b94158027c726c9b51f6e9\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\072c072e31b94158027c726c9b51f6e9\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing-ktx:1.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0a4f8adfdf5d3e0ae8b46d0de72328f1\transformed\tracing-ktx-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing-ktx:1.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0a4f8adfdf5d3e0ae8b46d0de72328f1\transformed\tracing-ktx-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing-android:1.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\f81dc67943e773639cd12b2ff8fc4fc2\transformed\tracing\AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing-android:1.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\f81dc67943e773639cd12b2ff8fc4fc2\transformed\tracing\AndroidManifest.xml:20:5-44
+MERGED from [androidx.camera.featurecombinationquery:featurecombinationquery:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\e6ae23dc8a8a6352fca125daf52c34f6\transformed\featurecombinationquery-1.6.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera.featurecombinationquery:featurecombinationquery:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\e6ae23dc8a8a6352fca125daf52c34f6\transformed\featurecombinationquery-1.6.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\26a49dd7ea9a86e5cdc63e2783e78415\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\26a49dd7ea9a86e5cdc63e2783e78415\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9c7084d944b592031b0289c04494ad33\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9c7084d944b592031b0289c04494ad33\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8ccb200119af1e9d53662b4bf5a34cb1\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8ccb200119af1e9d53662b4bf5a34cb1\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-components:19.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c348ea06922c1c451a8e87ac7ce8ffa3\transformed\firebase-components-19.0.0\AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-components:19.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c348ea06922c1c451a8e87ac7ce8ffa3\transformed\firebase-components-19.0.0\AndroidManifest.xml:18:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.4.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\aa8012ec725fccb029803d61ef0c1157\transformed\exifinterface-1.4.2\AndroidManifest.xml:5:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.4.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\aa8012ec725fccb029803d61ef0c1157\transformed\exifinterface-1.4.2\AndroidManifest.xml:5:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\cacc211b78fbc084ade0799cf442e12d\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\cacc211b78fbc084ade0799cf442e12d\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:gifdecoder:5.0.5] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b8201e3e0902cb07c15e33667f4d7d47\transformed\gifdecoder-5.0.5\AndroidManifest.xml:5:5-44
+MERGED from [com.github.bumptech.glide:gifdecoder:5.0.5] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b8201e3e0902cb07c15e33667f4d7d47\transformed\gifdecoder-5.0.5\AndroidManifest.xml:5:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\cd221257e6b767c16c24f79b1e433418\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\cd221257e6b767c16c24f79b1e433418\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8b7f392ba7c75923e1d9d7455b7e09a2\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8b7f392ba7c75923e1d9d7455b7e09a2\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\gamek\.gradle\caches\9.4.0\transforms\a2a9866fbcd6a17a74595c9dce708ac6\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\gamek\.gradle\caches\9.4.0\transforms\a2a9866fbcd6a17a74595c9dce708ac6\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\gamek\.gradle\caches\9.4.0\transforms\790ed8a3b962e8a9b4b9571c17ef9a88\transformed\transport-runtime-2.2.6\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\gamek\.gradle\caches\9.4.0\transforms\790ed8a3b962e8a9b4b9571c17ef9a88\transformed\transport-runtime-2.2.6\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:2.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8d691f874908acb1462161e40d746119\transformed\transport-api-2.2.1\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:2.2.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8d691f874908acb1462161e40d746119\transformed\transport-api-2.2.1\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-encoders-json:17.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\1e06209745400f91ee7caea8d529898b\transformed\firebase-encoders-json-17.1.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-encoders-json:17.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\1e06209745400f91ee7caea8d529898b\transformed\firebase-encoders-json-17.1.0\AndroidManifest.xml:19:5-21:41
+MERGED from [io.grpc:grpc-android:1.62.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9f569caf549c9017b293d0ad56d9f53c\transformed\grpc-android-1.62.2\AndroidManifest.xml:5:5-44
+MERGED from [io.grpc:grpc-android:1.62.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9f569caf549c9017b293d0ad56d9f53c\transformed\grpc-android-1.62.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9efac18527d536fa9b7b3393ca7f6ed7\transformed\protolite-well-known-types-18.0.1\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9efac18527d536fa9b7b3393ca7f6ed7\transformed\protolite-well-known-types-18.0.1\AndroidManifest.xml:5:5-44
+MERGED from [com.github.bumptech.glide:disklrucache:5.0.5] C:\Users\gamek\.gradle\caches\9.4.0\transforms\21b1041579b3564b8dbfdf22c9fe92c3\transformed\disklrucache-5.0.5\AndroidManifest.xml:5:5-44
+MERGED from [com.github.bumptech.glide:disklrucache:5.0.5] C:\Users\gamek\.gradle\caches\9.4.0\transforms\21b1041579b3564b8dbfdf22c9fe92c3\transformed\disklrucache-5.0.5\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.play:core-common:2.0.4] C:\Users\gamek\.gradle\caches\9.4.0\transforms\86c4ad272270440fc50f6e37568a4099\transformed\core-common-2.0.4\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.play:core-common:2.0.4] C:\Users\gamek\.gradle\caches\9.4.0\transforms\86c4ad272270440fc50f6e37568a4099\transformed\core-common-2.0.4\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\68288f03eda77f0f7e310150d4c127e3\transformed\image-1.0.0-beta1\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\68288f03eda77f0f7e310150d4c127e3\transformed\image-1.0.0-beta1\AndroidManifest.xml:5:5-44
+	tools:overrideLibrary
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:23:9-148
+	android:targetSdkVersion
+		INJECTED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\gamek\StudioProjects\Klimboo\app\src\main\AndroidManifest.xml
+service#androidx.camera.core.impl.MetadataHolderService
+ADDED from [androidx.camera:camera-camera2:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\81fafe17defe024c94f949f1cd4a92ad\transformed\camera-camera2-1.6.0\AndroidManifest.xml:24:9-33:19
+MERGED from [androidx.camera:camera-core:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\78a501eba38012761b319bd7b8a21618\transformed\camera-core-1.6.0\AndroidManifest.xml:29:9-33:78
+MERGED from [androidx.camera:camera-core:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\78a501eba38012761b319bd7b8a21618\transformed\camera-core-1.6.0\AndroidManifest.xml:29:9-33:78
+	tools:node
+		ADDED from [androidx.camera:camera-camera2:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\81fafe17defe024c94f949f1cd4a92ad\transformed\camera-camera2-1.6.0\AndroidManifest.xml:29:13-31
+	android:enabled
+		ADDED from [androidx.camera:camera-camera2:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\81fafe17defe024c94f949f1cd4a92ad\transformed\camera-camera2-1.6.0\AndroidManifest.xml:26:13-36
+	android:exported
+		ADDED from [androidx.camera:camera-camera2:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\81fafe17defe024c94f949f1cd4a92ad\transformed\camera-camera2-1.6.0\AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.camera:camera-camera2:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\81fafe17defe024c94f949f1cd4a92ad\transformed\camera-camera2-1.6.0\AndroidManifest.xml:28:13-75
+	android:name
+		ADDED from [androidx.camera:camera-camera2:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\81fafe17defe024c94f949f1cd4a92ad\transformed\camera-camera2-1.6.0\AndroidManifest.xml:25:13-75
+meta-data#androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER
+ADDED from [androidx.camera:camera-camera2:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\81fafe17defe024c94f949f1cd4a92ad\transformed\camera-camera2-1.6.0\AndroidManifest.xml:30:13-32:89
+	android:value
+		ADDED from [androidx.camera:camera-camera2:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\81fafe17defe024c94f949f1cd4a92ad\transformed\camera-camera2-1.6.0\AndroidManifest.xml:32:17-86
+	android:name
+		ADDED from [androidx.camera:camera-camera2:1.6.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\81fafe17defe024c94f949f1cd4a92ad\transformed\camera-camera2-1.6.0\AndroidManifest.xml:31:17-103
+service#com.google.mlkit.common.internal.MlKitComponentDiscoveryService
+ADDED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\58bb072fddced68e5aab59e3717f8a3e\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\f329d7ace5ad043cea2499ce364f2e53\transformed\vision-common-17.3.0\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\f329d7ace5ad043cea2499ce364f2e53\transformed\vision-common-17.3.0\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.mlkit:common:18.11.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\55ce11fc4ed98126403ad028de092863\transformed\common-18.11.0\AndroidManifest.xml:15:9-23:19
+MERGED from [com.google.mlkit:common:18.11.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\55ce11fc4ed98126403ad028de092863\transformed\common-18.11.0\AndroidManifest.xml:15:9-23:19
+	android:exported
+		ADDED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\58bb072fddced68e5aab59e3717f8a3e\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:11:13-37
+	tools:targetApi
+		ADDED from [com.google.mlkit:common:18.11.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\55ce11fc4ed98126403ad028de092863\transformed\common-18.11.0\AndroidManifest.xml:19:13-32
+	android:directBootAware
+		ADDED from [com.google.mlkit:common:18.11.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\55ce11fc4ed98126403ad028de092863\transformed\common-18.11.0\AndroidManifest.xml:17:13-43
+	android:name
+		ADDED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\58bb072fddced68e5aab59e3717f8a3e\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:10:13-91
+meta-data#com.google.firebase.components:com.google.mlkit.vision.barcode.internal.BarcodeRegistrar
+ADDED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\58bb072fddced68e5aab59e3717f8a3e\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\58bb072fddced68e5aab59e3717f8a3e\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\58bb072fddced68e5aab59e3717f8a3e\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:13:17-120
+meta-data#com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar
+ADDED from [com.google.mlkit:vision-common:17.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\f329d7ace5ad043cea2499ce364f2e53\transformed\vision-common-17.3.0\AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.mlkit:vision-common:17.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\f329d7ace5ad043cea2499ce364f2e53\transformed\vision-common-17.3.0\AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.mlkit:vision-common:17.3.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\f329d7ace5ad043cea2499ce364f2e53\transformed\vision-common-17.3.0\AndroidManifest.xml:13:17-124
+provider#com.google.mlkit.common.internal.MlKitInitProvider
+ADDED from [com.google.mlkit:common:18.11.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\55ce11fc4ed98126403ad028de092863\transformed\common-18.11.0\AndroidManifest.xml:9:9-13:38
+	android:authorities
+		ADDED from [com.google.mlkit:common:18.11.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\55ce11fc4ed98126403ad028de092863\transformed\common-18.11.0\AndroidManifest.xml:11:13-69
+	android:exported
+		ADDED from [com.google.mlkit:common:18.11.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\55ce11fc4ed98126403ad028de092863\transformed\common-18.11.0\AndroidManifest.xml:12:13-37
+	android:initOrder
+		ADDED from [com.google.mlkit:common:18.11.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\55ce11fc4ed98126403ad028de092863\transformed\common-18.11.0\AndroidManifest.xml:13:13-35
+	android:name
+		ADDED from [com.google.mlkit:common:18.11.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\55ce11fc4ed98126403ad028de092863\transformed\common-18.11.0\AndroidManifest.xml:10:13-78
+meta-data#com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar
+ADDED from [com.google.mlkit:common:18.11.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\55ce11fc4ed98126403ad028de092863\transformed\common-18.11.0\AndroidManifest.xml:20:13-22:85
+	android:value
+		ADDED from [com.google.mlkit:common:18.11.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\55ce11fc4ed98126403ad028de092863\transformed\common-18.11.0\AndroidManifest.xml:22:17-82
+	android:name
+		ADDED from [com.google.mlkit:common:18.11.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\55ce11fc4ed98126403ad028de092863\transformed\common-18.11.0\AndroidManifest.xml:21:17-120
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-firestore:26.1.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b3386ee9b7177a9d64b48cd01f6aa9c2\transformed\firebase-firestore-26.1.2\AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-firestore:26.1.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b3386ee9b7177a9d64b48cd01f6aa9c2\transformed\firebase-firestore-26.1.2\AndroidManifest.xml:10:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b838b97ddd94533dcdc9a70710a685a2\transformed\recaptcha-18.6.1\AndroidManifest.xml:8:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b838b97ddd94533dcdc9a70710a685a2\transformed\recaptcha-18.6.1\AndroidManifest.xml:8:5-79
+MERGED from [com.google.firebase:firebase-storage:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9dd1ff5530be370a8e1b79539d195486\transformed\firebase-storage-21.0.2\AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-storage:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9dd1ff5530be370a8e1b79539d195486\transformed\firebase-storage-21.0.2\AndroidManifest.xml:23:5-79
+MERGED from [androidx.media3:media3-common:1.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c2c38608a8dc620462bfe5d398ec091d\transformed\media3-common-1.9.0\AndroidManifest.xml:22:5-79
+MERGED from [androidx.media3:media3-common:1.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c2c38608a8dc620462bfe5d398ec091d\transformed\media3-common-1.9.0\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\gamek\.gradle\caches\9.4.0\transforms\a2a9866fbcd6a17a74595c9dce708ac6\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\gamek\.gradle\caches\9.4.0\transforms\a2a9866fbcd6a17a74595c9dce708ac6\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\gamek\.gradle\caches\9.4.0\transforms\790ed8a3b962e8a9b4b9571c17ef9a88\transformed\transport-runtime-2.2.6\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\gamek\.gradle\caches\9.4.0\transforms\790ed8a3b962e8a9b4b9571c17ef9a88\transformed\transport-runtime-2.2.6\AndroidManifest.xml:22:5-79
+MERGED from [io.grpc:grpc-android:1.62.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9f569caf549c9017b293d0ad56d9f53c\transformed\grpc-android-1.62.2\AndroidManifest.xml:7:5-79
+MERGED from [io.grpc:grpc-android:1.62.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9f569caf549c9017b293d0ad56d9f53c\transformed\grpc-android-1.62.2\AndroidManifest.xml:7:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:26:22-76
+activity#com.google.firebase.auth.internal.GenericIdpActivity
+ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:29:9-46:20
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:31:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:33:13-44
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:32:13-36
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:34:13-72
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:30:13-80
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:genericidp
+ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:35:13-45:29
+action#android.intent.action.VIEW
+ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:36:17-69
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:36:25-66
+category#android.intent.category.DEFAULT
+ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:38:17-76
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:38:27-73
+category#android.intent.category.BROWSABLE
+ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:39:17-78
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:39:27-75
+data
+ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:41:17-44:51
+	android:path
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:43:21-37
+	android:host
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:42:21-49
+	android:scheme
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:44:21-48
+activity#com.google.firebase.auth.internal.RecaptchaActivity
+ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:47:9-64:20
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:49:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:51:13-44
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:50:13-36
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:52:13-72
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:48:13-79
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:recaptcha
+ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:53:13-63:29
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:66:9-72:19
+MERGED from [com.google.firebase:firebase-firestore:26.1.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b3386ee9b7177a9d64b48cd01f6aa9c2\transformed\firebase-firestore-26.1.2\AndroidManifest.xml:14:9-23:19
+MERGED from [com.google.firebase:firebase-firestore:26.1.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b3386ee9b7177a9d64b48cd01f6aa9c2\transformed\firebase-firestore-26.1.2\AndroidManifest.xml:14:9-23:19
+MERGED from [com.google.firebase:firebase-storage-ktx:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\aa3fef4a7f7238bad9a3b0bc1383f3f7\transformed\firebase-storage-ktx-21.0.2\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-storage-ktx:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\aa3fef4a7f7238bad9a3b0bc1383f3f7\transformed\firebase-storage-ktx-21.0.2\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-storage:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9dd1ff5530be370a8e1b79539d195486\transformed\firebase-storage-21.0.2\AndroidManifest.xml:27:9-36:19
+MERGED from [com.google.firebase:firebase-storage:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9dd1ff5530be370a8e1b79539d195486\transformed\firebase-storage-21.0.2\AndroidManifest.xml:27:9-36:19
+MERGED from [com.google.firebase:firebase-appcheck-playintegrity:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\809c4dfc93dad3e14d1075bafa6188cd\transformed\firebase-appcheck-playintegrity-19.0.2\AndroidManifest.xml:22:9-28:19
+MERGED from [com.google.firebase:firebase-appcheck-playintegrity:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\809c4dfc93dad3e14d1075bafa6188cd\transformed\firebase-appcheck-playintegrity-19.0.2\AndroidManifest.xml:22:9-28:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ddf49b303a66015f1ccf11244ccf0a98\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ddf49b303a66015f1ccf11244ccf0a98\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-appcheck:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\83cda20dc03705eef21c3e85cad3561d\transformed\firebase-appcheck-19.0.2\AndroidManifest.xml:22:9-31:19
+MERGED from [com.google.firebase:firebase-appcheck:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\83cda20dc03705eef21c3e85cad3561d\transformed\firebase-appcheck-19.0.2\AndroidManifest.xml:22:9-31:19
+MERGED from [com.google.firebase:firebase-common:22.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ba1db44c7e94954803a462df5e66e0b4\transformed\firebase-common-22.0.1\AndroidManifest.xml:30:9-38:19
+MERGED from [com.google.firebase:firebase-common:22.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ba1db44c7e94954803a462df5e66e0b4\transformed\firebase-common-22.0.1\AndroidManifest.xml:30:9-38:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:68:13-37
+	tools:targetApi
+		ADDED from [com.google.firebase:firebase-common:22.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ba1db44c7e94954803a462df5e66e0b4\transformed\firebase-common-22.0.1\AndroidManifest.xml:34:13-32
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:22.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ba1db44c7e94954803a462df5e66e0b4\transformed\firebase-common-22.0.1\AndroidManifest.xml:32:13-43
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:67:13-84
+meta-data#com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar
+ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:69:13-71:85
+	android:value
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:71:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:24.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ecf3b34aa7986770375eb8c99140311d\transformed\firebase-auth-24.0.1\AndroidManifest.xml:70:17-109
+service#androidx.credentials.playservices.CredentialProviderMetadataHolder
+ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:24:9-32:19
+	android:enabled
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:26:13-35
+	android:exported
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:28:13-60
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:25:13-94
+meta-data#androidx.credentials.CREDENTIAL_PROVIDER_KEY
+ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:29:13-31:104
+	android:value
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:31:17-101
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:30:17-76
+activity#androidx.credentials.playservices.controllers.identityauth.HiddenActivity
+ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:34:9-41:20
+	android:fitsSystemWindows
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:39:13-45
+	android:enabled
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:38:13-37
+	android:configChanges
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:36:13-87
+	android:theme
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:40:13-48
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:35:13-101
+activity#androidx.credentials.playservices.controllers.identitycredentials.IdentityCredentialApiHiddenActivity
+ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:42:9-49:20
+	android:fitsSystemWindows
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:47:13-45
+	android:enabled
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:45:13-35
+	android:exported
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:46:13-37
+	android:configChanges
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:44:13-87
+	android:theme
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:48:13-48
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.6.0-beta01] C:\Users\gamek\.gradle\caches\9.4.0\transforms\8c26f077ea3c3fdabf875d97898c7a81\transformed\credentials-play-services-auth-1.6.0-beta01\AndroidManifest.xml:43:13-129
+uses-permission#android.permission.USE_BIOMETRIC
+ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\525591a551550dd45d8883490455edae\transformed\biometric-1.1.0\AndroidManifest.xml:24:5-72
+	android:name
+		ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\525591a551550dd45d8883490455edae\transformed\biometric-1.1.0\AndroidManifest.xml:24:22-69
+uses-permission#android.permission.USE_FINGERPRINT
+ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\525591a551550dd45d8883490455edae\transformed\biometric-1.1.0\AndroidManifest.xml:27:5-74
+	android:name
+		ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\525591a551550dd45d8883490455edae\transformed\biometric-1.1.0\AndroidManifest.xml:27:22-71
+meta-data#com.google.firebase.components:com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar
+ADDED from [com.google.firebase:firebase-firestore:26.1.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b3386ee9b7177a9d64b48cd01f6aa9c2\transformed\firebase-firestore-26.1.2\AndroidManifest.xml:17:13-19:85
+	android:value
+		ADDED from [com.google.firebase:firebase-firestore:26.1.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b3386ee9b7177a9d64b48cd01f6aa9c2\transformed\firebase-firestore-26.1.2\AndroidManifest.xml:19:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-firestore:26.1.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b3386ee9b7177a9d64b48cd01f6aa9c2\transformed\firebase-firestore-26.1.2\AndroidManifest.xml:18:17-122
+meta-data#com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar
+ADDED from [com.google.firebase:firebase-firestore:26.1.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b3386ee9b7177a9d64b48cd01f6aa9c2\transformed\firebase-firestore-26.1.2\AndroidManifest.xml:20:13-22:85
+	android:value
+		ADDED from [com.google.firebase:firebase-firestore:26.1.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b3386ee9b7177a9d64b48cd01f6aa9c2\transformed\firebase-firestore-26.1.2\AndroidManifest.xml:22:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-firestore:26.1.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b3386ee9b7177a9d64b48cd01f6aa9c2\transformed\firebase-firestore-26.1.2\AndroidManifest.xml:21:17-111
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:21.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4e43fa5ef9fa5c82e4c12265449ebc22\transformed\play-services-auth-21.1.1\AndroidManifest.xml:23:9-27:75
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:21.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4e43fa5ef9fa5c82e4c12265449ebc22\transformed\play-services-auth-21.1.1\AndroidManifest.xml:25:13-46
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:21.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4e43fa5ef9fa5c82e4c12265449ebc22\transformed\play-services-auth-21.1.1\AndroidManifest.xml:26:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:21.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4e43fa5ef9fa5c82e4c12265449ebc22\transformed\play-services-auth-21.1.1\AndroidManifest.xml:27:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:21.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4e43fa5ef9fa5c82e4c12265449ebc22\transformed\play-services-auth-21.1.1\AndroidManifest.xml:24:13-93
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:21.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4e43fa5ef9fa5c82e4c12265449ebc22\transformed\play-services-auth-21.1.1\AndroidManifest.xml:33:9-37:51
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:21.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4e43fa5ef9fa5c82e4c12265449ebc22\transformed\play-services-auth-21.1.1\AndroidManifest.xml:35:13-36
+	android:visibleToInstantApps
+		ADDED from [com.google.android.gms:play-services-auth:21.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4e43fa5ef9fa5c82e4c12265449ebc22\transformed\play-services-auth-21.1.1\AndroidManifest.xml:37:13-48
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:21.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4e43fa5ef9fa5c82e4c12265449ebc22\transformed\play-services-auth-21.1.1\AndroidManifest.xml:36:13-107
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:21.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\4e43fa5ef9fa5c82e4c12265449ebc22\transformed\play-services-auth-21.1.1\AndroidManifest.xml:34:13-89
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from [com.google.android.recaptcha:recaptcha:18.6.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b838b97ddd94533dcdc9a70710a685a2\transformed\recaptcha-18.6.1\AndroidManifest.xml:9:5-98
+	android:name
+		ADDED from [com.google.android.recaptcha:recaptcha:18.6.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\b838b97ddd94533dcdc9a70710a685a2\transformed\recaptcha-18.6.1\AndroidManifest.xml:9:22-95
+meta-data#com.google.firebase.components:com.google.firebase.storage.ktx.FirebaseStorageLegacyRegistrar
+ADDED from [com.google.firebase:firebase-storage-ktx:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\aa3fef4a7f7238bad9a3b0bc1383f3f7\transformed\firebase-storage-ktx-21.0.2\AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.firebase:firebase-storage-ktx:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\aa3fef4a7f7238bad9a3b0bc1383f3f7\transformed\firebase-storage-ktx-21.0.2\AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-storage-ktx:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\aa3fef4a7f7238bad9a3b0bc1383f3f7\transformed\firebase-storage-ktx-21.0.2\AndroidManifest.xml:13:17-125
+meta-data#com.google.firebase.components:com.google.firebase.storage.FirebaseStorageKtxRegistrar
+ADDED from [com.google.firebase:firebase-storage:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9dd1ff5530be370a8e1b79539d195486\transformed\firebase-storage-21.0.2\AndroidManifest.xml:30:13-32:85
+	android:value
+		ADDED from [com.google.firebase:firebase-storage:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9dd1ff5530be370a8e1b79539d195486\transformed\firebase-storage-21.0.2\AndroidManifest.xml:32:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-storage:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9dd1ff5530be370a8e1b79539d195486\transformed\firebase-storage-21.0.2\AndroidManifest.xml:31:17-118
+meta-data#com.google.firebase.components:com.google.firebase.storage.StorageRegistrar
+ADDED from [com.google.firebase:firebase-storage:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9dd1ff5530be370a8e1b79539d195486\transformed\firebase-storage-21.0.2\AndroidManifest.xml:33:13-35:85
+	android:value
+		ADDED from [com.google.firebase:firebase-storage:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9dd1ff5530be370a8e1b79539d195486\transformed\firebase-storage-21.0.2\AndroidManifest.xml:35:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-storage:21.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\9dd1ff5530be370a8e1b79539d195486\transformed\firebase-storage-21.0.2\AndroidManifest.xml:34:17-107
+meta-data#com.google.firebase.components:com.google.firebase.appcheck.playintegrity.FirebaseAppCheckPlayIntegrityRegistrar
+ADDED from [com.google.firebase:firebase-appcheck-playintegrity:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\809c4dfc93dad3e14d1075bafa6188cd\transformed\firebase-appcheck-playintegrity-19.0.2\AndroidManifest.xml:25:13-27:85
+	android:value
+		ADDED from [com.google.firebase:firebase-appcheck-playintegrity:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\809c4dfc93dad3e14d1075bafa6188cd\transformed\firebase-appcheck-playintegrity-19.0.2\AndroidManifest.xml:27:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-appcheck-playintegrity:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\809c4dfc93dad3e14d1075bafa6188cd\transformed\firebase-appcheck-playintegrity-19.0.2\AndroidManifest.xml:26:17-144
+meta-data#com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar
+ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ddf49b303a66015f1ccf11244ccf0a98\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ddf49b303a66015f1ccf11244ccf0a98\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ddf49b303a66015f1ccf11244ccf0a98\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:13:17-116
+meta-data#com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckKtxRegistrar
+ADDED from [com.google.firebase:firebase-appcheck:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\83cda20dc03705eef21c3e85cad3561d\transformed\firebase-appcheck-19.0.2\AndroidManifest.xml:25:13-27:85
+	android:value
+		ADDED from [com.google.firebase:firebase-appcheck:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\83cda20dc03705eef21c3e85cad3561d\transformed\firebase-appcheck-19.0.2\AndroidManifest.xml:27:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-appcheck:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\83cda20dc03705eef21c3e85cad3561d\transformed\firebase-appcheck-19.0.2\AndroidManifest.xml:26:17-120
+meta-data#com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckRegistrar
+ADDED from [com.google.firebase:firebase-appcheck:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\83cda20dc03705eef21c3e85cad3561d\transformed\firebase-appcheck-19.0.2\AndroidManifest.xml:28:13-30:85
+	android:value
+		ADDED from [com.google.firebase:firebase-appcheck:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\83cda20dc03705eef21c3e85cad3561d\transformed\firebase-appcheck-19.0.2\AndroidManifest.xml:30:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-appcheck:19.0.2] C:\Users\gamek\.gradle\caches\9.4.0\transforms\83cda20dc03705eef21c3e85cad3561d\transformed\firebase-appcheck-19.0.2\AndroidManifest.xml:29:17-117
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:22.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ba1db44c7e94954803a462df5e66e0b4\transformed\firebase-common-22.0.1\AndroidManifest.xml:23:9-28:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:22.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ba1db44c7e94954803a462df5e66e0b4\transformed\firebase-common-22.0.1\AndroidManifest.xml:25:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:22.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ba1db44c7e94954803a462df5e66e0b4\transformed\firebase-common-22.0.1\AndroidManifest.xml:27:13-37
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:22.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ba1db44c7e94954803a462df5e66e0b4\transformed\firebase-common-22.0.1\AndroidManifest.xml:26:13-43
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:22.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ba1db44c7e94954803a462df5e66e0b4\transformed\firebase-common-22.0.1\AndroidManifest.xml:28:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:22.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ba1db44c7e94954803a462df5e66e0b4\transformed\firebase-common-22.0.1\AndroidManifest.xml:24:13-77
+meta-data#com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar
+ADDED from [com.google.firebase:firebase-common:22.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ba1db44c7e94954803a462df5e66e0b4\transformed\firebase-common-22.0.1\AndroidManifest.xml:35:13-37:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common:22.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ba1db44c7e94954803a462df5e66e0b4\transformed\firebase-common-22.0.1\AndroidManifest.xml:37:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common:22.0.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\ba1db44c7e94954803a462df5e66e0b4\transformed\firebase-common-22.0.1\AndroidManifest.xml:36:17-109
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c986fea299956c0ec9b256b3dc23f669\transformed\play-services-base-18.9.0\AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c986fea299956c0ec9b256b3dc23f669\transformed\play-services-base-18.9.0\AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c986fea299956c0ec9b256b3dc23f669\transformed\play-services-base-18.9.0\AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\c986fea299956c0ec9b256b3dc23f669\transformed\play-services-base-18.9.0\AndroidManifest.xml:20:19-85
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0c7fbaa07ed52c94e4e47aca899bc5cb\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0c7fbaa07ed52c94e4e47aca899bc5cb\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0c7fbaa07ed52c94e4e47aca899bc5cb\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0c7fbaa07ed52c94e4e47aca899bc5cb\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0c7fbaa07ed52c94e4e47aca899bc5cb\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\0c7fbaa07ed52c94e4e47aca899bc5cb\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\11da22b62ac96fab0c38bee71a5ffb1f\transformed\emoji2-1.4.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\02c62be5520956a643a804b08c730465\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\02c62be5520956a643a804b08c730465\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\072c072e31b94158027c726c9b51f6e9\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\gamek\.gradle\caches\9.4.0\transforms\072c072e31b94158027c726c9b51f6e9\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\11da22b62ac96fab0c38bee71a5ffb1f\transformed\emoji2-1.4.0\AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\11da22b62ac96fab0c38bee71a5ffb1f\transformed\emoji2-1.4.0\AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\11da22b62ac96fab0c38bee71a5ffb1f\transformed\emoji2-1.4.0\AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\11da22b62ac96fab0c38bee71a5ffb1f\transformed\emoji2-1.4.0\AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\11da22b62ac96fab0c38bee71a5ffb1f\transformed\emoji2-1.4.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\11da22b62ac96fab0c38bee71a5ffb1f\transformed\emoji2-1.4.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\11da22b62ac96fab0c38bee71a5ffb1f\transformed\emoji2-1.4.0\AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\93c6d28f3e8e5924e736bfcf34180301\transformed\core-1.18.0\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\93c6d28f3e8e5924e736bfcf34180301\transformed\core-1.18.0\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\93c6d28f3e8e5924e736bfcf34180301\transformed\core-1.18.0\AndroidManifest.xml:23:9-81
+permission#com.example.klimboo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\93c6d28f3e8e5924e736bfcf34180301\transformed\core-1.18.0\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\93c6d28f3e8e5924e736bfcf34180301\transformed\core-1.18.0\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\93c6d28f3e8e5924e736bfcf34180301\transformed\core-1.18.0\AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\93c6d28f3e8e5924e736bfcf34180301\transformed\core-1.18.0\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\93c6d28f3e8e5924e736bfcf34180301\transformed\core-1.18.0\AndroidManifest.xml:26:22-94
+uses-permission#com.example.klimboo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\93c6d28f3e8e5924e736bfcf34180301\transformed\core-1.18.0\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.18.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\93c6d28f3e8e5924e736bfcf34180301\transformed\core-1.18.0\AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\02c62be5520956a643a804b08c730465\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\02c62be5520956a643a804b08c730465\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\02c62be5520956a643a804b08c730465\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:30:17-78
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\7443318a82efbe7d1e14aef06d5f2a66\transformed\play-services-basement-18.9.0\AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\7443318a82efbe7d1e14aef06d5f2a66\transformed\play-services-basement-18.9.0\AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.9.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\7443318a82efbe7d1e14aef06d5f2a66\transformed\play-services-basement-18.9.0\AndroidManifest.xml:22:13-58
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\gamek\.gradle\caches\9.4.0\transforms\bc11ec9633d28d7bc532d0d95870a731\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+service#com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\gamek\.gradle\caches\9.4.0\transforms\a2a9866fbcd6a17a74595c9dce708ac6\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\gamek\.gradle\caches\9.4.0\transforms\790ed8a3b962e8a9b4b9571c17ef9a88\transformed\transport-runtime-2.2.6\AndroidManifest.xml:36:9-38:40
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\gamek\.gradle\caches\9.4.0\transforms\790ed8a3b962e8a9b4b9571c17ef9a88\transformed\transport-runtime-2.2.6\AndroidManifest.xml:36:9-38:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\gamek\.gradle\caches\9.4.0\transforms\a2a9866fbcd6a17a74595c9dce708ac6\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\gamek\.gradle\caches\9.4.0\transforms\a2a9866fbcd6a17a74595c9dce708ac6\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:30:13-103
+meta-data#backend:com.google.android.datatransport.cct.CctBackendFactory
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\gamek\.gradle\caches\9.4.0\transforms\a2a9866fbcd6a17a74595c9dce708ac6\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:32:13-34:39
+	android:value
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\gamek\.gradle\caches\9.4.0\transforms\a2a9866fbcd6a17a74595c9dce708ac6\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:34:17-36
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\gamek\.gradle\caches\9.4.0\transforms\a2a9866fbcd6a17a74595c9dce708ac6\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:33:17-94
+service#com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\gamek\.gradle\caches\9.4.0\transforms\790ed8a3b962e8a9b4b9571c17ef9a88\transformed\transport-runtime-2.2.6\AndroidManifest.xml:26:9-30:19
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\gamek\.gradle\caches\9.4.0\transforms\790ed8a3b962e8a9b4b9571c17ef9a88\transformed\transport-runtime-2.2.6\AndroidManifest.xml:28:13-37
+	android:permission
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\gamek\.gradle\caches\9.4.0\transforms\790ed8a3b962e8a9b4b9571c17ef9a88\transformed\transport-runtime-2.2.6\AndroidManifest.xml:29:13-69
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\gamek\.gradle\caches\9.4.0\transforms\790ed8a3b962e8a9b4b9571c17ef9a88\transformed\transport-runtime-2.2.6\AndroidManifest.xml:27:13-117
+receiver#com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\gamek\.gradle\caches\9.4.0\transforms\790ed8a3b962e8a9b4b9571c17ef9a88\transformed\transport-runtime-2.2.6\AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\gamek\.gradle\caches\9.4.0\transforms\790ed8a3b962e8a9b4b9571c17ef9a88\transformed\transport-runtime-2.2.6\AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\gamek\.gradle\caches\9.4.0\transforms\790ed8a3b962e8a9b4b9571c17ef9a88\transformed\transport-runtime-2.2.6\AndroidManifest.xml:33:13-132
+activity#com.google.android.play.core.common.PlayCoreDialogWrapperActivity
+ADDED from [com.google.android.play:core-common:2.0.4] C:\Users\gamek\.gradle\caches\9.4.0\transforms\86c4ad272270440fc50f6e37568a4099\transformed\core-common-2.0.4\AndroidManifest.xml:14:9-18:65
+	android:stateNotNeeded
+		ADDED from [com.google.android.play:core-common:2.0.4] C:\Users\gamek\.gradle\caches\9.4.0\transforms\86c4ad272270440fc50f6e37568a4099\transformed\core-common-2.0.4\AndroidManifest.xml:17:13-42
+	android:exported
+		ADDED from [com.google.android.play:core-common:2.0.4] C:\Users\gamek\.gradle\caches\9.4.0\transforms\86c4ad272270440fc50f6e37568a4099\transformed\core-common-2.0.4\AndroidManifest.xml:16:13-37
+	android:theme
+		ADDED from [com.google.android.play:core-common:2.0.4] C:\Users\gamek\.gradle\caches\9.4.0\transforms\86c4ad272270440fc50f6e37568a4099\transformed\core-common-2.0.4\AndroidManifest.xml:18:13-62
+	android:name
+		ADDED from [com.google.android.play:core-common:2.0.4] C:\Users\gamek\.gradle\caches\9.4.0\transforms\86c4ad272270440fc50f6e37568a4099\transformed\core-common-2.0.4\AndroidManifest.xml:15:13-93

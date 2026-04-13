@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?android:attr/buttonBarStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <Button
+        android:id="@+id/btnAdd"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginHorizontal="5dp"
+        android:text="@string/adicionar_stock" />
+
+    <Button
+        android:id="@+id/btnEdit"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="5dp"
+        android:text="@string/editar_stock" />
+
+    <Button
+        android:id="@+id/btnDelete"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginHorizontal="5dp"
+        android:text="@string/excluir_stock" />
+
+</LinearLayout>

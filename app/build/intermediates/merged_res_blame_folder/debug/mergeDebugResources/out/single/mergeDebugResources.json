@@ -1,0 +1,142 @@
+[
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\layout_activity_stock_page.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\activity_stock_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\drawable_edit_stock.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\drawable\\edit_stock.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\layout_bottom_sheet_edit.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\bottom_sheet_edit.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\layout_activity_register_page.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\activity_register_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\layout_item_spinner_locker.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\item_spinner_locker.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\layout_bottom_sheet_add.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\bottom_sheet_add.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\layout_bottom_sheet.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\bottom_sheet.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\mipmap-anydpi\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\layout_activity_config_page.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\activity_config_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\layout_activity_main_page.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\activity_main_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.klimboo.app-debug-74:/layout_bottom_sheet_delete.xml.flat",
+        "source": "com.example.klimboo.app-main-76:/layout/bottom_sheet_delete.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\mipmap-anydpi\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\layout_bottom_sheet_delete.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\bottom_sheet_delete.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\drawable_capa.png.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\drawable\\capa.png"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.klimboo.app-debug-74:/layout_bottom_sheet_edit.xml.flat",
+        "source": "com.example.klimboo.app-main-76:/layout/bottom_sheet_edit.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\layout_item_locker.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\item_locker.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.klimboo.app-debug-74:/layout_bottom_sheet_add.xml.flat",
+        "source": "com.example.klimboo.app-main-76:/layout/bottom_sheet_add.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\drawable_config.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\drawable\\config.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\layout_activity_login_page.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\activity_login_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\drawable_logomini.png.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\drawable\\logomini.png"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-debug-74:\\drawable_stock.xml.flat",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\drawable\\stock.xml"
+    }
+]

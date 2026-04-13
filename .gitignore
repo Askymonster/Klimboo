@@ -1,28 +1,46 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# CREDENCIAIS E CONFIGURAÇÕES SENSÍVEIS
+google-services.json
+firebase-config.json
+.env
+.env.local
+.env.*.local
 local.properties
+secrets.properties
 
-# IDE
-.idea/
-.kotlin/
-
-# arquivos Build
-app/build/
-app/release/
+# GRADLE E BUILD
+.gradle/
 /build/
+/captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.ap_
 
-# Arquivos ignorados por deffault
-/shelf/
-/workspace.xml
+# IDE (Android Studio, IntelliJ, etc)
+.idea/
+*.iml
+*.iws
+*.ipr
+.DS_Store
+*.swp
+*.swo
+*~
+
+# KOTLIN E JAVA
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# OS E EDITOR
+Thumbs.db
+*.log
+
+# ARQUIVOS DE DESENVOLVEDOR LOCAL
+keystore.jks
+*.keystore
+debug.keystore
