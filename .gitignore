@@ -13,3 +13,9 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+/build
+
+# Arquivos ignorados por deffault
+/shelf/
+/workspace.xml
