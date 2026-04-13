@@ -1,0 +1,58 @@
+[
+    {
+        "merged": "com.example.klimboo.app-mergeDebugResources-73:/layout/bottom_sheet_add.xml",
+        "source": "com.example.klimboo.app-main-76:/layout/bottom_sheet_add.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-mergeDebugResources-73:\\layout\\item_spinner_locker.xml",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\item_spinner_locker.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-mergeDebugResources-73:\\layout\\bottom_sheet_edit.xml",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\bottom_sheet_edit.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-mergeDebugResources-73:\\layout\\item_locker.xml",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\item_locker.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-mergeDebugResources-73:\\layout\\bottom_sheet_delete.xml",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\bottom_sheet_delete.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-mergeDebugResources-73:\\layout\\activity_main_page.xml",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\activity_main_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-mergeDebugResources-73:\\layout\\activity_stock_page.xml",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\activity_stock_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-mergeDebugResources-73:\\layout\\bottom_sheet_add.xml",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\bottom_sheet_add.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-mergeDebugResources-73:\\layout\\activity_register_page.xml",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\activity_register_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-mergeDebugResources-73:\\layout\\activity_login_page.xml",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\activity_login_page.xml"
+    },
+    {
+        "merged": "com.example.klimboo.app-mergeDebugResources-73:/layout/bottom_sheet_edit.xml",
+        "source": "com.example.klimboo.app-main-76:/layout/bottom_sheet_edit.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-mergeDebugResources-73:\\layout\\activity_config_page.xml",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\activity_config_page.xml"
+    },
+    {
+        "merged": "com.example.klimboo.app-mergeDebugResources-73:/layout/bottom_sheet_delete.xml",
+        "source": "com.example.klimboo.app-main-76:/layout/bottom_sheet_delete.xml"
+    },
+    {
+        "merged": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-mergeDebugResources-73:\\layout\\bottom_sheet.xml",
+        "source": "C:\\Users\\gamek\\.gradle\\daemon\\9.4.0\\com.example.klimboo.app-main-76:\\layout\\bottom_sheet.xml"
+    }
+]

@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.klimboo.app-mergeDebugResources-72:/values-v18/values-v18.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\gamek\\.gradle\\caches\\9.4.0\\transforms\\67f2d5b14fbbbbc4a6cc9442ecf6c5bf\\transformed\\appcompat-1.7.1\\res\\values-v18\\values-v18.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "48",
+                        "endOffsets": "99"
+                    }
+                }
+            ]
+        }
+    ]
+}

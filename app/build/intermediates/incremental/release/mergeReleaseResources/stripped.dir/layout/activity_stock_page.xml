@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StockPage">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/royal_blue"
+        android:title="@string/tools"
+        android:titleTextColor="@android:color/white"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:contentDescription="@string/logo_klimboo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/logomini" />
+
+    <Spinner
+        android:id="@+id/spinnerLockers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listTools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/spinnerLockers"
+        android:layout_above="@id/editStock"
+        android:layout_margin="16dp" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/editStock"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/blue"
+        android:contentDescription="@string/edit_stock"
+        android:padding="6dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/edit_stock"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:tint="@color/royal_blue"
+        app:shapeAppearanceOverlay="@style/RoundedCorners"
+        android:visibility="gone"/>
+
+</RelativeLayout>
