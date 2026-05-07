@@ -1,7 +1,6 @@
 package com.example.klimboo.data
 
 import android.util.Log
-import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 import kotlinx.coroutines.tasks.await
@@ -15,6 +14,7 @@ object FirebaseQueries {
     data class Locker(
         val id: String = "",
         val name: String = "",
+        val local: String = "",
         val photoUrl: String? = null
     )
 
@@ -33,31 +33,32 @@ object FirebaseQueries {
                 Locker(
                     id = doc.id,
                     name = doc.getString("nome") ?: "",
+                    local = doc.getString("local") ?: "",
                     photoUrl = doc.getString("photoUrl")
                 )
             }
         } catch (e: Exception) {
-            Log.e("FIREBASE", "fetchLockers error: ${e.message}")
+            logError("fetchLockers", e)
             emptyList()
         }
     }
 
-    suspend fun insertLocker(nome: String, photoUrl: String? = null) {
+    suspend fun insertLocker(nome: String, photoUrl: String? = null, local: String) {
         try {
-            val data = mutableMapOf<String, Any>("nome" to nome)
+            val data = mutableMapOf<String, Any>("nome" to nome, "local" to local)
             if (photoUrl != null) data["photoUrl"] = photoUrl
             db.collection("armarios").add(data).await()
         } catch (e: Exception) {
-            Log.e("FIREBASE", "insertArmario error: ${e.message}")
+            logError("insertLocker", e)
         }
     }
 
-    suspend fun updateLocker(id: String, novoNome: String) {
+    suspend fun updateLocker(id: String, newName: String, newLocal: String) {
         try {
             db.collection("armarios").document(id)
-                .update("nome", novoNome).await()
+                .update(mapOf("nome" to newName, "local" to newLocal)).await()
         } catch (e: Exception) {
-            Log.e("FIREBASE", "updateLocker error: ${e.message}")
+            logError("updateLocker", e)
         }
     }
 
@@ -66,7 +67,7 @@ object FirebaseQueries {
             db.collection("armarios").document(id)
                 .update("photoUrl", photoUrl).await()
         } catch (e: Exception) {
-            Log.e("FIREBASE", "updateLockerPhoto error: ${e.message}")
+            logError("updateLockerPhoto", e)
         }
     }
 
@@ -83,7 +84,7 @@ object FirebaseQueries {
             }
             db.collection("armarios").document(id).delete().await()
         } catch (e: Exception) {
-            Log.e("FIREBASE", "deleteLocker error: ${e.message}")
+            logError("deleteLocker", e)
         }
     }
 
@@ -95,13 +96,12 @@ object FirebaseQueries {
                 Tool(
                     id = doc.id,
                     name = doc.getString("nome") ?: "",
-                    local = (doc.get("local") as? DocumentReference)?.id
-                        ?: doc.getString("local") ?: "",
+                    local = doc.getString("local") ?: "",
                     photoUrl = doc.getString("photoUrl")
                 )
             }
         } catch (e: Exception) {
-            Log.e("FIREBASE", "fetchTools error: ${e.message}")
+            logError("fetchTools", e)
             emptyList()
         }
     }
@@ -112,63 +112,49 @@ object FirebaseQueries {
             if (photoUrl != null) data["photoUrl"] = photoUrl
             db.collection("ferramentas").add(data).await()
         } catch (e: Exception) {
-            Log.e("FIREBASE", "insertFerramenta error: ${e.message}")
+            logError("insertTool", e)
         }
     }
 
-    suspend fun updateFerramenta(id: String, novoNome: String, newLockerId: String) {
+    suspend fun updateTool(id: String, novoNome: String, newLockerId: String) {
         try {
             db.collection("ferramentas").document(id)
                 .update(mapOf("nome" to novoNome, "local" to newLockerId)).await()
         } catch (e: Exception) {
-            Log.e("FIREBASE", "updateTool error: ${e.message}")
+            logError("updateTool", e)
         }
     }
 
-    suspend fun updateFerramentaPhoto(id: String, photoUrl: String?) {
+    suspend fun updateToolPhoto(id: String, photoUrl: String?) {
         try {
             db.collection("ferramentas").document(id)
                 .update("photoUrl", photoUrl).await()
         } catch (e: Exception) {
-            Log.e("FIREBASE", "updateFerramentaPhoto error: ${e.message}")
+            logError("updateToolPhoto", e)
         }
     }
 
-    suspend fun deleteFerramenta(id: String) {
+    suspend fun deleteTool(id: String) {
         try {
             db.collection("ferramentas").document(id).delete().await()
         } catch (e: Exception) {
-            Log.e("FIREBASE", "deleteTool error: ${e.message}")
+            logError("deleteTool", e)
         }
     }
 
-    suspend fun fetchToolsByLocker(lockerId: String): List<Tool> {
-        return try {
-            db.collection("ferramentas")
-                .whereEqualTo("local", lockerId)
-                .get().await().documents.map { doc ->
-                    Tool(
-                        id = doc.id,
-                        name = doc.getString("nome") ?: "",
-                        local = (doc.get("local") as? DocumentReference)?.id
-                            ?: doc.getString("local") ?: "",
-                        photoUrl = doc.getString("photoUrl")
-                    )
-                }
-        } catch (e: Exception) {
-            Log.e("FIREBASE", "fetchFerramentasByLocker error: ${e.message}")
-            emptyList()
-        }
-    }
 
     fun listenToLockers(onChange: (List<Locker>) -> Unit): ListenerRegistration {
         return db.collection("armarios")
             .addSnapshotListener { snapshot, error ->
-                if (error != null) { Log.e("FIREBASE", "listenLockers error: ${error.message}"); return@addSnapshotListener }
+                if (error != null) {
+                    logError("listenToLockers", error)
+                    return@addSnapshotListener
+                }
                 val lockers = snapshot?.documents?.map { doc ->
                     Locker(
                         id = doc.id,
                         name = doc.getString("nome") ?: "",
+                        local = doc.getString("local") ?: "",
                         photoUrl = doc.getString("photoUrl")
                     )
                 } ?: emptyList()
@@ -179,17 +165,29 @@ object FirebaseQueries {
     fun listenToTools(onChange: (List<Tool>) -> Unit): ListenerRegistration {
         return db.collection("ferramentas")
             .addSnapshotListener { snapshot, error ->
-                if (error != null) { Log.e("FIREBASE", "listenTools error: ${error.message}"); return@addSnapshotListener }
+                if (error != null) {
+                    logError("listenToTools", error)
+                    return@addSnapshotListener
+                }
                 val tools = snapshot?.documents?.map { doc ->
                     Tool(
                         id = doc.id,
                         name = doc.getString("nome") ?: "",
-                        local = (doc.get("local") as? DocumentReference)?.id
-                            ?: doc.getString("local") ?: "",
+                        local = doc.getString("local") ?: "",
                         photoUrl = doc.getString("photoUrl")
                     )
                 } ?: emptyList()
                 onChange(tools)
             }
+    }
+
+    // ── Helpers ────────────────────────────────────────────────────────────────
+
+    private fun logError(functionName: String, exception: Exception) {
+        Log.e("FIREBASE", "$functionName error: ${exception.message}", exception)
+    }
+
+    private fun logError(functionName: String, exception: com.google.firebase.FirebaseException) {
+        Log.e("FIREBASE", "$functionName error: ${exception.message}", exception)
     }
 }

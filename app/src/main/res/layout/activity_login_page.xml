@@ -75,16 +75,28 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp">
+        android:padding="10dp"
+        android:layout_marginTop="10dp">
         <TextView
             android:id="@+id/forgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
-            android:clickable="true"
             android:text="@string/forgot_password"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/guestLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:textSize="15sp"
+            android:text="@string/entry_as_guest"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
             android:id="@+id/registerNow"
