@@ -10,6 +10,7 @@ secrets.properties
 # GRADLE E BUILD
 .gradle/
 /build/
+app/build/
 /captures/
 .externalNativeBuild/
 .cxx/
@@ -44,3 +45,4 @@ Thumbs.db
 keystore.jks
 *.keystore
 debug.keystore
+gradle/gradle-daemon-jvm.properties

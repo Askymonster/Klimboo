@@ -43,6 +43,12 @@ class ConfigPage : AppCompatActivity() {
             finish()
             return
         }
+        if (currentUser!!.isAnonymous) {
+            Toast.makeText(this, "Você precisa estar logado para acessar as configurações.", Toast.LENGTH_LONG).show()
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+            return
+        }
 
         binding.userName.text = currentUser!!.displayName ?: "Nome não definido"
         binding.userEmail.text = emailUser

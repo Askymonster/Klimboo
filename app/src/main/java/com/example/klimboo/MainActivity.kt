@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -53,11 +54,22 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        binding.displayEmail.text = currentUser.displayName ?: "Nome não definido"
-        binding.displayUsername.text = currentUser.email
+        val isGuest = currentUser.isAnonymous
+        binding.displayEmail.text = if (isGuest) "Acesso limitado" else currentUser.displayName ?: "Nome não definido"
+        binding.displayUsername.text = if (isGuest) "Visitante" else currentUser.email ?: ""
 
         // ── Lógica dos botões  ────────────────────────────────────────────────
-        binding.settings.setOnClickListener { startActivity(Intent(this, ConfigPage::class.java)) }
+        binding.settings.setOnClickListener {
+            if (currentUser.isAnonymous) {
+                AlertDialog.Builder(this)
+                    .setTitle("Login necessário")
+                    .setMessage("Você precisa estar logado para acessar as configurações.")
+                    .setPositiveButton("OK", null)
+                    .show()
+            } else {
+                startActivity(Intent(this, ConfigPage::class.java))
+            }
+        }
         binding.stock.setOnClickListener { startActivity(Intent(this, StockPage::class.java)) }
 
         binding.searchResults.layoutManager = LinearLayoutManager(this)

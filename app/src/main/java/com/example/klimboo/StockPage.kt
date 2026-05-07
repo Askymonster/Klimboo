@@ -1,6 +1,7 @@
 package com.example.klimboo
 
 import android.Manifest
+import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
@@ -102,8 +103,16 @@ class StockPage : AppCompatActivity() {
     // ── Admin Check ───────────────────────────────────────────────────────────
 
     private fun checkAdminStatus() {
+        binding.editStock.visibility = View.GONE
+
+        val currentUser = Firebase.auth.currentUser
+        if (currentUser == null) {
+            startActivity(Intent(this, LoginPage::class.java))
+            finish()
+            return
+        }
         FirebaseFirestore.getInstance().collection("usuarios")
-            .document(Firebase.auth.currentUser!!.uid)
+            .document(currentUser.uid)
             .get()
             .addOnSuccessListener { doc ->
                 val isAdmin = doc.getBoolean("isAdmin") ?: false
@@ -111,6 +120,7 @@ class StockPage : AppCompatActivity() {
                 binding.editStock.setOnClickListener { showMainSheet() }
             }
             .addOnFailureListener { e ->
+                binding.editStock.visibility = View.GONE
                 Log.e("STOCK", "Failed to check admin status", e)
             }
     }
