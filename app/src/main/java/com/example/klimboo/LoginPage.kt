@@ -28,7 +28,7 @@ class LoginPage : AppCompatActivity() {
 
     public override fun onStart() {
         super.onStart()
-        if (currentUser != null && currentUser!!.isEmailVerified) {
+        if (currentUser != null && (currentUser!!.isAnonymous || currentUser!!.isEmailVerified)) {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
@@ -67,8 +67,17 @@ class LoginPage : AppCompatActivity() {
         }
 
         binding.guestLogin.setOnClickListener {
-            startActivity(Intent(this, RegisterPage::class.java))
-            finish()
+            progressBar.visibility = View.VISIBLE
+            auth.signInAnonymously()
+                .addOnCompleteListener(this) { task ->
+                    progressBar.visibility = View.GONE
+                    if (task.isSuccessful) {
+                        startActivity(Intent(this, MainActivity::class.java))
+                        finish()
+                    } else {
+                        Toast.makeText(this, "Erro ao entrar como visitante.", Toast.LENGTH_SHORT).show()
+                    }
+                }
         }
 
         binding.registerNow.setOnClickListener {
@@ -98,7 +107,6 @@ class LoginPage : AppCompatActivity() {
                         if (currentUser != null && currentUser!!.isEmailVerified) {
                             Toast.makeText(this, "Conta existente. Iniciando sessão.", Toast.LENGTH_SHORT).show()
 
-
                             val docRef = Firebase.firestore
                                 .collection("usuarios")
                                 .document(currentUser!!.uid)
@@ -108,7 +116,6 @@ class LoginPage : AppCompatActivity() {
                                     "email" to currentUser!!.email!!
                                 )
 
-                                // Só define isAdmin se o campo ainda não existir
                                 if (!document.contains("isAdmin")) {
                                     updates["isAdmin"] = false
                                 }
