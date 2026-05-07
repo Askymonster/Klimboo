@@ -57,7 +57,7 @@
     <string name="precisa_permissao">Permissão de acesso a câmera é necessário</string>
     <string name="falha_ao_escanear_qr_code">Falha ao escanear QR CODE</string>
     <string name="qr_code_nao_detectado">QR CODE não detectado</string>
-    <string name="forgot_password">Esqueci minha senha</string>
+    <string name="forgot_password">Esqueci a senha</string>
     <string name="edit_stock">edit stock\n</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="adicionar_stock">Adicionar</string>
@@ -101,7 +101,7 @@
     <string name="preview_do_armario_add">Preview do Armário</string>
     <string name="editar_estoque">Editar Estoque</string>
     <string name="selecionar_armario_edit">Selecionar Armário:</string>
-    <string name="buscar_armario_edit">Buscar armário...</string>
+    <string name="buscar_armario_edit">Buscar armário…</string>
     <string name="alterar_nome_do_armario">Alterar nome do armário</string>
     <string name="novo_nome_do_armario">Novo nome do Armário</string>
     <string name="alterar_foto_edit">Alterar foto</string>
@@ -117,4 +117,10 @@
     <string name="remover_foto_edit_item">Remover foto</string>
     <string name="salvar_alteracao_edit">Salvar Alteração</string>
     <string name="preview_do_armario_edit">Preview do Armário</string>
+    <string name="entry_as_guest">Entrar como visitante</string>
+    <string name="locker_place">Local do armário</string>
+    <string name="change_local_locker">Alterar local do armário</string>
+    <string name="new_locker_local">Novo local do armário</string>
+    <string name="locker">Armário</string>
+    <string name="item_locker">Item</string>
 </resources>

@@ -30,13 +30,19 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
 import kotlinx.coroutines.launch
 
 class StockPage : AppCompatActivity() {
 
     private lateinit var binding: ActivityStockPageBinding
     private var currentLockers: List<Locker> = emptyList()
+    private var allTools: List<Tool> = emptyList()
     private var currentLockerPos: Int = 0
+
+    // Listeners para cleanup
+    private var lockerListener: ListenerRegistration? = null
+    private var toolListener: ListenerRegistration? = null
 
     companion object {
         private const val MSG_ENTER_LOCKER_NAME   = "Enter the locker name"
@@ -58,7 +64,10 @@ class StockPage : AppCompatActivity() {
 
     private val requestCameraPermission = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
-    ) { granted -> if (granted) takePicture.launch(null) else toast("Camera permission required") }
+    ) { granted ->
+        if (granted) takePicture.launch(null)
+        else toast("Camera permission required")
+    }
 
     private fun openCamera(onPhoto: (Bitmap) -> Unit) {
         onPhotoTaken = onPhoto
@@ -79,6 +88,20 @@ class StockPage : AppCompatActivity() {
             insets
         }
 
+        checkAdminStatus()
+        loadPage()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // Cleanup listeners para evitar vazamento de memória
+        lockerListener?.remove()
+        toolListener?.remove()
+    }
+
+    // ── Admin Check ───────────────────────────────────────────────────────────
+
+    private fun checkAdminStatus() {
         FirebaseFirestore.getInstance().collection("usuarios")
             .document(Firebase.auth.currentUser!!.uid)
             .get()
@@ -87,8 +110,9 @@ class StockPage : AppCompatActivity() {
                 binding.editStock.visibility = if (isAdmin) View.VISIBLE else View.GONE
                 binding.editStock.setOnClickListener { showMainSheet() }
             }
-
-        loadPage()
+            .addOnFailureListener { e ->
+                Log.e("STOCK", "Failed to check admin status", e)
+            }
     }
 
     // ── Carregamento da página ────────────────────────────────────────────────
@@ -97,31 +121,49 @@ class StockPage : AppCompatActivity() {
         lifecycleScope.launch {
             try {
                 currentLockers = FirebaseQueries.fetchLockers()
-                binding.spinnerLockers.adapter = LockerSpinnerAdapter(this@StockPage, currentLockers)
-                binding.spinnerLockers.onItemSelectedListener =
-                    object : android.widget.AdapterView.OnItemSelectedListener {
-                        override fun onItemSelected(parent: android.widget.AdapterView<*>, view: View?, pos: Int, id: Long) {
-                            currentLockerPos = pos
-                            val selected = currentLockers.getOrNull(pos) ?: return
-                            lifecycleScope.launch {
-                                val tools = FirebaseQueries.fetchToolsByLocker(selected.id)
-                                binding.listTools.layoutManager =
-                                    androidx.recyclerview.widget.LinearLayoutManager(this@StockPage)
-                                binding.listTools.adapter = StockAdapter(
-                                    this@StockPage,
-                                    tools.map { Triple<String, String?, String?>(it.name, it.photoUrl, null) }
-                                )
-                            }
-                        }
-                        override fun onNothingSelected(parent: android.widget.AdapterView<*>) {}
-                    }
+                allTools = FirebaseQueries.fetchTools()
+
+                setupLockerSpinner(currentLockers)
+
                 if (restorePos < currentLockers.size) {
                     binding.spinnerLockers.setSelection(restorePos)
                 }
             } catch (e: Exception) {
-                Log.e("STOCK", "Error loading: ${e.message}", e)
+                Log.e("STOCK", "Error loading page", e)
+                toast("Failed to load data. Try again later.")
             }
         }
+    }
+
+    private fun setupLockerSpinner(lockers: List<Locker>) {
+        binding.spinnerLockers.adapter = LockerSpinnerAdapter(this, lockers)
+        binding.spinnerLockers.onItemSelectedListener = LockerSpinnerListener()
+    }
+
+    private inner class LockerSpinnerListener :
+        android.widget.AdapterView.OnItemSelectedListener {
+        override fun onItemSelected(
+            parent: android.widget.AdapterView<*>,
+            view: View?,
+            pos: Int,
+            id: Long
+        ) {
+            currentLockerPos = pos
+            val selected = currentLockers.getOrNull(pos) ?: return
+            // Filtra tools em memória em vez de buscar do BD novamente
+            updateToolsList(allTools.filter { it.local == selected.id })
+        }
+
+        override fun onNothingSelected(parent: android.widget.AdapterView<*>) {}
+    }
+
+    private fun updateToolsList(tools: List<Tool>) {
+        binding.listTools.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(this@StockPage)
+        binding.listTools.adapter = StockAdapter(
+            this@StockPage,
+            tools.map { Triple<String, String?, String?>(it.name, it.photoUrl, null) }
+        )
     }
 
     // ── Sheets ────────────────────────────────────────────────────────────────
@@ -144,15 +186,16 @@ class StockPage : AppCompatActivity() {
         dialog.setContentView(b.root)
         dialog.show()
 
-        var lockers: List<Locker> = emptyList()
         var photoBitmapLocker: Bitmap? = null
         var photoBitmapItem: Bitmap? = null
 
         lifecycleScope.launch {
             try {
-                lockers = FirebaseQueries.fetchLockers()
-                runOnUiThread { b.spinnerDestinyLocker.adapter = spinnerAdapter(lockers.map { it.name }) }
-            } catch (e: Exception) { Log.e("DEBUG_SPINNER", "Error: ${e.message}", e) }
+                val lockers = FirebaseQueries.fetchLockers()
+                b.spinnerDestinyLocker.adapter = spinnerAdapter(lockers.map { it.name })
+            } catch (e: Exception) {
+                Log.e("STOCK", "Error loading lockers for add sheet", e)
+            }
         }
 
         bindToggle(b.toggleGroup, b.layoutAddLocker, b.layoutAddItem)
@@ -164,24 +207,43 @@ class StockPage : AppCompatActivity() {
             val isLocker = b.toggleGroup.checkedButtonId == R.id.btnToggleLocker
             lifecycleScope.launch {
                 if (isLocker) {
-                    val name = b.editLockerName.text.toString().trim()
-                    if (name.isEmpty()) { toast(MSG_ENTER_LOCKER_NAME); return@launch }
-                    val url = photoBitmapLocker?.let { PhotoManager.bitmapToBase64(it) }
-                    FirebaseQueries.insertLocker(name, url)
-                    toast("Locker '$name' added!")
+                    addNewLocker(b, photoBitmapLocker)
                 } else {
-                    val name = b.editNomeItem.text.toString().trim()
-                    if (name.isEmpty()) { toast(MSG_ENTER_ITEM_NAME); return@launch }
-                    val locker = lockers.getOrNull(b.spinnerDestinyLocker.selectedItemPosition)
-                        ?: run { toast(MSG_SELECT_LOCKER); return@launch }
-                    val url = photoBitmapItem?.let { PhotoManager.bitmapToBase64(it) }
-                    FirebaseQueries.insertTool(name, locker.id, url)
-                    toast("Item '$name' added!")
+                    addNewTool(b, photoBitmapItem)
                 }
                 dialog.dismiss()
                 loadPage(currentLockerPos)
             }
         }
+    }
+
+    private suspend fun addNewLocker(b: BottomSheetAddBinding, photoBitmap: Bitmap?) {
+        val name = b.editLockerName.text.toString().trim()
+        val local = b.editLockerLocal.text.toString().trim()
+
+        if (name.isEmpty()) {
+            toast(MSG_ENTER_LOCKER_NAME)
+            return
+        }
+
+        val url = getPhotoUrl(photoBitmap)
+        FirebaseQueries.insertLocker(name, url, local)
+        toast("Locker '$name' added!")
+    }
+
+    private suspend fun addNewTool(b: BottomSheetAddBinding, photoBitmap: Bitmap?) {
+        val name = b.editNomeItem.text.toString().trim()
+        if (name.isEmpty()) {
+            toast(MSG_ENTER_ITEM_NAME)
+            return
+        }
+
+        val locker = currentLockers.getOrNull(b.spinnerDestinyLocker.selectedItemPosition)
+            ?: run { toast(MSG_SELECT_LOCKER); return }
+
+        val url = getPhotoUrl(photoBitmap)
+        FirebaseQueries.insertTool(name, locker.id, url)
+        toast("Item '$name' added!")
     }
 
     // ── Edit BottomSheet ──────────────────────────────────────────────────────
@@ -201,6 +263,7 @@ class StockPage : AppCompatActivity() {
 
         listOf(
             b.checkChangeLockerName to b.layoutNewLockerName,
+            b.checkChangeLockerLocal to b.layoutNewLockerLocal,
             b.checkChangeItemName   to b.layoutNewItemName,
             b.checkChangeItemLoc    to b.layoutMoveToLocal
         ).forEach { (check, layout) ->
@@ -215,38 +278,9 @@ class StockPage : AppCompatActivity() {
             val isLocker = b.toggleGroup.checkedButtonId == R.id.btnToggleLocker
             lifecycleScope.launch {
                 if (isLocker) {
-                    val locker = selectedLocker ?: run { toast(MSG_SELECT_LOCKER); return@launch }
-                    val hasNameChange = b.checkChangeLockerName.isChecked
-                    val hasNewPhoto = newPhotoBitmapLocker != null
-                    val isRemovingPhoto = locker.photoUrl != null && b.imgPreviewLocker.isGone && !hasNewPhoto
-                    if (!hasNameChange && !hasNewPhoto && !isRemovingPhoto) { toast(MSG_SELECT_WHAT_TO_EDIT); return@launch }
-                    if (hasNameChange) {
-                        val newName = b.editNewLockerName.text.toString().trim()
-                        if (newName.isEmpty()) { toast(MSG_ENTER_NEW_NAME); return@launch }
-                        FirebaseQueries.updateLocker(locker.id, newName)
-                    }
-                    handlePhotoUpdate(hasNewPhoto, isRemovingPhoto, newPhotoBitmapLocker) {
-                        FirebaseQueries.updateLockerPhoto(locker.id, it)
-                    }
-                    toast("Locker updated!")
+                    editLocker(b, selectedLocker, newPhotoBitmapLocker, b.imgPreviewLocker)
                 } else {
-                    val tool = selectedTool ?: run { toast(MSG_SELECT_ITEM); return@launch }
-                    val hasNameChange = b.checkChangeItemName.isChecked
-                    val hasLocalChange = b.checkChangeItemLoc.isChecked
-                    val hasNewPhoto = newPhotoBitmapItem != null
-                    val isRemovingPhoto = tool.photoUrl != null && b.imgPreviewItem.isGone && !hasNewPhoto
-                    if (!hasNameChange && !hasLocalChange && !hasNewPhoto && !isRemovingPhoto) { toast(MSG_SELECT_WHAT_TO_EDIT); return@launch }
-                    val newName = if (hasNameChange) {
-                        b.editNewItemName.text.toString().trim().also { if (it.isEmpty()) { toast(MSG_ENTER_NEW_NAME); return@launch } }
-                    } else tool.name
-                    val newLockerId = if (hasLocalChange) {
-                        selectedDestination?.id ?: run { toast(MSG_SELECT_DESTINATION); return@launch }
-                    } else tool.local
-                    FirebaseQueries.updateFerramenta(tool.id, newName, newLockerId)
-                    handlePhotoUpdate(hasNewPhoto, isRemovingPhoto, newPhotoBitmapItem) {
-                        FirebaseQueries.updateFerramentaPhoto(tool.id, it)
-                    }
-                    toast("Item updated!")
+                    editTool(b, selectedTool, selectedDestination, newPhotoBitmapItem, b.imgPreviewItem)
                 }
                 dialog.dismiss()
                 loadPage(currentLockerPos)
@@ -257,24 +291,116 @@ class StockPage : AppCompatActivity() {
             lockers = FirebaseQueries.fetchLockers()
             tools = FirebaseQueries.fetchTools()
 
-            bindAutoComplete(b.autoCompleteLocker, lockers.map { it.name }) { _ ->
-                val name = b.autoCompleteLocker.text.toString()
-                selectedLocker = lockers.find { it.name == name }
-                newPhotoBitmapLocker = null
-                showPhotoPreview(selectedLocker?.photoUrl, b.imgPreviewLocker, b.btnRemoverLockerPhoto)
-            }
-            bindAutoComplete(b.autoCompleteItem, tools.map { it.name }) { _ ->
-                val name = b.autoCompleteItem.text.toString()
-                selectedTool = tools.find { it.name == name }
-                newPhotoBitmapItem = null
-                showPhotoPreview(selectedTool?.photoUrl, b.imgPreviewItem, b.btnRemoveItemPhoto)
-            }
-            bindAutoComplete(b.autoCompleteDestityLocker, lockers.map { it.name }) { _ ->
-                val name = b.autoCompleteDestityLocker.text.toString()
-                selectedDestination = lockers.find { it.name == name }
-            }
+            // AutoComplete para Locker
+            bindAutoCompleteGeneric(
+                b.autoCompleteLocker,
+                lockers,
+                { it.name },
+                { locker ->
+                    selectedLocker = locker
+                    newPhotoBitmapLocker = null
+                    showPhotoPreview(locker.photoUrl, b.imgPreviewLocker, b.btnRemoverLockerPhoto)
+                }
+            )
+
+            // AutoComplete para Tool
+            bindAutoCompleteGeneric(
+                b.autoCompleteItem,
+                tools,
+                { it.name },
+                { tool ->
+                    selectedTool = tool
+                    newPhotoBitmapItem = null
+                    showPhotoPreview(tool.photoUrl, b.imgPreviewItem, b.btnRemoveItemPhoto)
+                }
+            )
+
+            // AutoComplete para Destino
+            bindAutoCompleteGeneric(
+                b.autoCompleteDestityLocker,
+                lockers,
+                { it.name },
+                { locker -> selectedDestination = locker }
+            )
+
             dialog.show()
         }
+    }
+
+    private suspend fun editLocker(
+        b: BottomSheetEditBinding,
+        selectedLocker: Locker?,
+        newPhotoBitmap: Bitmap?,
+        imgPreview: ImageView
+    ) {
+        val locker = requireSelectedOrNull(selectedLocker, MSG_SELECT_LOCKER) ?: return
+
+        val hasNameChange = b.checkChangeLockerName.isChecked
+        val hasLocalChange = b.checkChangeLockerLocal.isChecked
+        val hasNewPhoto = newPhotoBitmap != null
+        val isRemovingPhoto = locker.photoUrl != null && imgPreview.isGone && !hasNewPhoto
+
+        if (!hasNameChange && !hasLocalChange && !hasNewPhoto && !isRemovingPhoto) {
+            toast(MSG_SELECT_WHAT_TO_EDIT)
+            return
+        }
+
+        if (hasNameChange) {
+            val newName = b.editNewLockerName.text.toString().trim()
+            val newLocal = b.editNewLockerLocal.text.toString().trim()
+            if (newName.isEmpty()) {
+                toast(MSG_ENTER_NEW_NAME)
+                return
+            }
+            FirebaseQueries.updateLocker(locker.id, newName, newLocal)
+        }
+
+        handlePhotoUpdate(hasNewPhoto, isRemovingPhoto, newPhotoBitmap) {
+            FirebaseQueries.updateLockerPhoto(locker.id, it)
+        }
+
+        toast("Locker updated!")
+    }
+
+    private suspend fun editTool(
+        b: BottomSheetEditBinding,
+        selectedTool: Tool?,
+        selectedDestination: Locker?,
+        newPhotoBitmap: Bitmap?,
+        imgPreview: ImageView
+    ) {
+        val tool = requireSelectedOrNull(selectedTool, MSG_SELECT_ITEM) ?: return
+
+        val hasNameChange = b.checkChangeItemName.isChecked
+        val hasLocalChange = b.checkChangeItemLoc.isChecked
+        val hasNewPhoto = newPhotoBitmap != null
+        val isRemovingPhoto = tool.photoUrl != null && imgPreview.isGone && !hasNewPhoto
+
+        if (!hasNameChange && !hasLocalChange && !hasNewPhoto && !isRemovingPhoto) {
+            toast(MSG_SELECT_WHAT_TO_EDIT)
+            return
+        }
+
+        val newName = if (hasNameChange) {
+            b.editNewItemName.text.toString().trim().also {
+                if (it.isEmpty()) {
+                    toast(MSG_ENTER_NEW_NAME)
+                    return
+                }
+            }
+        } else tool.name
+
+        val newLockerId = if (hasLocalChange) {
+            requireSelectedOrNull(selectedDestination, MSG_SELECT_DESTINATION)?.id ?: return
+        } else tool.local
+
+        FirebaseQueries.updateTool(tool.id, newName, newLockerId)
+
+        handlePhotoUpdate(hasNewPhoto, isRemovingPhoto, newPhotoBitmap) {
+            FirebaseQueries.updateToolPhoto(tool.id, it)
+        }
+
+        toast("Item updated!")
     }
 
     // ── Delete BottomSheet ────────────────────────────────────────────────────
@@ -302,18 +428,13 @@ class StockPage : AppCompatActivity() {
             }
         }
 
-
         b.btnConfirmDelete.setOnClickListener {
             val isLocker = b.toggleGroup.checkedButtonId == R.id.btnToggleLocker
             lifecycleScope.launch {
                 if (isLocker) {
-                    val locker = selectedLocker ?: run { toast(MSG_SELECT_LOCKER); return@launch }
-                    FirebaseQueries.deleteLocker(locker.id, selectedDestination?.id)
-                    toast(if (selectedDestination != null) "Items moved to '${selectedDestination!!.name}'." else "Locker and items removed.")
+                    deleteLocker(selectedLocker, selectedDestination)
                 } else {
-                    val tool = selectedTool ?: run { toast(MSG_SELECT_ITEM); return@launch }
-                    FirebaseQueries.deleteFerramenta(tool.id)
-                    toast("Item '${tool.name}' removed!")
+                    deleteTool(selectedTool)
                 }
                 dialog.dismiss()
                 loadPage(currentLockerPos)
@@ -324,36 +445,66 @@ class StockPage : AppCompatActivity() {
             lockers = FirebaseQueries.fetchLockers()
             tools = FirebaseQueries.fetchTools()
 
-            bindAutoComplete(b.autoCompleteLockerRemover, lockers.map { it.name }) { _ ->
-                val name = b.autoCompleteLockerRemover.text.toString()
-                selectedLocker = lockers.find { it.name == name }
-                showPhotoPreview(selectedLocker?.photoUrl, b.imgPreviewLocker, b.btnRemoveLockerPhoto)
-                val others = lockers.filter { it.id != selectedLocker?.id }
-                bindAutoComplete(b.autoCompleteItemsDestiny, others.map { it.name }) { _ ->
-                    val destName = b.autoCompleteItemsDestiny.text.toString()
-                    selectedDestination = others.find { it.name == destName }
+            bindAutoCompleteGeneric(
+                b.autoCompleteLockerRemover,
+                lockers,
+                { it.name },
+                { locker ->
+                    selectedLocker = locker
+                    showPhotoPreview(locker.photoUrl, b.imgPreviewLocker, b.btnRemoveLockerPhoto)
+
+                    val others = lockers.filter { it.id != locker.id }
+                    bindAutoCompleteGeneric(
+                        b.autoCompleteItemsDestiny,
+                        others,
+                        { it.name },
+                        { selectedDestination = it }
+                    )
+
+                    b.autoCompleteItemsDestiny.text.clear()
+                    selectedDestination = null
+                    b.layoutItemsDestiny.isEnabled = others.isNotEmpty()
+                    b.txtAvisoSemDestino.visibility = if (others.isEmpty()) View.VISIBLE else View.GONE
                 }
-                b.autoCompleteItemsDestiny.text.clear()
-                selectedDestination = null
-                b.layoutItemsDestiny.isEnabled = others.isNotEmpty()
-                b.txtAvisoSemDestino.visibility = if (others.isEmpty()) View.VISIBLE else View.GONE
-            }
-            bindAutoComplete(b.autoCompleteItemRemover, tools.map { it.name }) { _ ->
-                val name = b.autoCompleteItemRemover.text.toString()
-                selectedTool = tools.find { it.name == name }
-                showPhotoPreview(selectedTool?.photoUrl, b.imgPreviewItem)
-            }
-            bindAutoComplete(b.autoCompleteItemsDestiny, lockers.map { it.name }) { _ ->
-                val name = b.autoCompleteItemsDestiny.text.toString()
-                selectedDestination = lockers.find { it.name == name }
-            }
+            )
+
+            bindAutoCompleteGeneric(
+                b.autoCompleteItemRemover,
+                tools,
+                { it.name },
+                { tool ->
+                    selectedTool = tool
+                    showPhotoPreview(tool.photoUrl, b.imgPreviewItem)
+                }
+            )
+
             dialog.show()
         }
     }
 
+    private suspend fun deleteLocker(selectedLocker: Locker?, selectedDestination: Locker?) {
+        val locker = requireSelectedOrNull(selectedLocker, MSG_SELECT_LOCKER) ?: return
+        FirebaseQueries.deleteLocker(locker.id, selectedDestination?.id)
+        val message = if (selectedDestination != null)
+            "Items moved to '${selectedDestination.name}'."
+        else
+            "Locker and items removed."
+        toast(message)
+    }
+
+    private suspend fun deleteTool(selectedTool: Tool?) {
+        val tool = requireSelectedOrNull(selectedTool, MSG_SELECT_ITEM) ?: return
+        FirebaseQueries.deleteTool(tool.id)
+        toast("Item '${tool.name}' removed!")
+    }
+
     // ── Helpers ───────────────────────────────────────────────────────────────
 
-    private fun bindToggle(group: MaterialButtonToggleGroup, layoutLocker: View, layoutItem: View) {
+    private fun bindToggle(
+        group: MaterialButtonToggleGroup,
+        layoutLocker: View,
+        layoutItem: View
+    ) {
         group.addOnButtonCheckedListener { _, checkedId, isChecked ->
             if (!isChecked) return@addOnButtonCheckedListener
             val isLocker = checkedId == R.id.btnToggleLocker
@@ -384,7 +535,11 @@ class StockPage : AppCompatActivity() {
         }
     }
 
-    private fun showPhotoPreview(url: String?, imgPreview: ImageView, btnRemove: android.widget.Button? = null) {
+    private fun showPhotoPreview(
+        url: String?,
+        imgPreview: ImageView,
+        btnRemove: android.widget.Button? = null
+    ) {
         imgPreview.setImageDrawable(null)
         if (url != null) {
             val bitmap = PhotoManager.base64ToBitmap(url)
@@ -397,24 +552,37 @@ class StockPage : AppCompatActivity() {
         }
     }
 
-    private fun handlePhotoUpdate(
+    private suspend fun handlePhotoUpdate(
         hasNewPhoto: Boolean,
         isRemoving: Boolean,
         bitmap: Bitmap?,
         onUrlReady: suspend (String?) -> Unit
     ) {
-        lifecycleScope.launch {
-            when {
-                hasNewPhoto && bitmap != null -> onUrlReady(PhotoManager.bitmapToBase64(bitmap))
-                isRemoving                    -> onUrlReady(null)
-            }
+        when {
+            hasNewPhoto && bitmap != null -> onUrlReady(getPhotoUrl(bitmap))
+            isRemoving                    -> onUrlReady(null)
         }
     }
 
-    private fun bindAutoComplete(view: AutoCompleteTextView, items: List<String>, onSelected: (Int) -> Unit) {
-        view.setAdapter(dropdownAdapter(items))
+    private fun getPhotoUrl(bitmap: Bitmap?): String? =
+        bitmap?.let { PhotoManager.bitmapToBase64(it) }
+
+    private fun <T> bindAutoCompleteGeneric(
+        view: AutoCompleteTextView,
+        items: List<T>,
+        toLabel: (T) -> String,
+        onSelected: (T) -> Unit
+    ) {
+        val labels = items.map(toLabel)
+        view.setAdapter(dropdownAdapter(labels))
         view.setOnClickListener { view.showDropDown() }
-        view.setOnItemClickListener { _, _, pos, _ -> onSelected(pos) }
+        view.setOnItemClickListener { _, _, pos, _ ->
+            items.getOrNull(pos)?.let { onSelected(it) }
+        }
+    }
+
+    private fun <T> requireSelectedOrNull(value: T?, errorMsg: String): T? {
+        return value ?: run { toast(errorMsg); null }
     }
 
     private fun toast(msg: String) = Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()

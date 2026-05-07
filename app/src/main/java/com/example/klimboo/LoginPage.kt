@@ -66,6 +66,11 @@ class LoginPage : AppCompatActivity() {
             }
         }
 
+        binding.guestLogin.setOnClickListener {
+            startActivity(Intent(this, RegisterPage::class.java))
+            finish()
+        }
+
         binding.registerNow.setOnClickListener {
             startActivity(Intent(this, RegisterPage::class.java))
             finish()
