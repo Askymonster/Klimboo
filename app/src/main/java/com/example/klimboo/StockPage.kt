@@ -170,9 +170,20 @@ class StockPage : AppCompatActivity() {
     private fun updateToolsList(tools: List<Tool>) {
         binding.listTools.layoutManager =
             androidx.recyclerview.widget.LinearLayoutManager(this@StockPage)
+
+        // Cria um mapa id -> local do armário
+        val lockerMap = currentLockers.associate { it.id to it.local }
+
         binding.listTools.adapter = StockAdapter(
             this@StockPage,
-            tools.map { Triple<String, String?, String?>(it.name, it.photoUrl, null) }
+            tools.map { tool ->
+                Locker(
+                    id = tool.id,
+                    name = tool.name,
+                    local = lockerMap[tool.local] ?: "Local desconhecido",  // Busca o nome do local
+                    photoUrl = tool.photoUrl
+                )
+            }
         )
     }
 
@@ -355,13 +366,19 @@ class StockPage : AppCompatActivity() {
             return
         }
 
-        if (hasNameChange) {
-            val newName = b.editNewLockerName.text.toString().trim()
-            val newLocal = b.editNewLockerLocal.text.toString().trim()
-            if (newName.isEmpty()) {
-                toast(MSG_ENTER_NEW_NAME)
-                return
-            }
+        if (hasNameChange || hasLocalChange) {
+            val newName = if (hasNameChange) {
+                b.editNewLockerName.text.toString().trim().also {
+                    if (it.isEmpty()) {
+                        toast(MSG_ENTER_NEW_NAME)
+                        return
+                    }
+                }
+            } else locker.name
+            val newLocal = if (hasLocalChange) {
+                b.editNewLockerLocal.text.toString().trim()
+            } else locker.local
+
             FirebaseQueries.updateLocker(locker.id, newName, newLocal)
         }
 
