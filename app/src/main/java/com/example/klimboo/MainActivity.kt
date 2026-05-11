@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        // ── Verifica se o usuário está logado ou não ──────────────────────────────────────────────────────────────
         val currentUser = Firebase.auth.currentUser
         if (currentUser == null) {
             startActivity(Intent(this, LoginPage::class.java))

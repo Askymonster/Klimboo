@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.klimboo.data.FirebaseQueries.Locker
 import com.example.klimboo.data.PhotoManager
 
+// ── Gerencia o dropdown em StockPage e os itens em MainActivity ──────────────────────────────────────────────────────────────
+
 class LockerSpinnerAdapter(
     context: Context,
     private val lockers: List<Locker>

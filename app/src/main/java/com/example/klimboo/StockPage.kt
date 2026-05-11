@@ -238,6 +238,7 @@ class StockPage : AppCompatActivity() {
         }
     }
 
+    // ── Adiciona novo armário ──────────────────────────────────────────────────────────────
     private suspend fun addNewLocker(b: BottomSheetAddBinding, photoBitmap: Bitmap?) {
         val name = b.editLockerName.text.toString().trim()
         val local = b.editLockerLocal.text.toString().trim()
@@ -252,6 +253,7 @@ class StockPage : AppCompatActivity() {
         toast("Locker '$name' added!")
     }
 
+    // ── Adiciona nova ferramenta ──────────────────────────────────────────────────────────────
     private suspend fun addNewTool(b: BottomSheetAddBinding, photoBitmap: Bitmap?) {
         val name = b.editNomeItem.text.toString().trim()
         if (name.isEmpty()) {
@@ -338,7 +340,7 @@ class StockPage : AppCompatActivity() {
 
             // AutoComplete para Destino
             bindAutoCompleteGeneric(
-                b.autoCompleteDestityLocker,
+                b.autoCompleteDestinyLocker,
                 lockers,
                 { it.name },
                 { locker -> selectedDestination = locker }
@@ -361,6 +363,7 @@ class StockPage : AppCompatActivity() {
         val hasNewPhoto = newPhotoBitmap != null
         val isRemovingPhoto = locker.photoUrl != null && imgPreview.isGone && !hasNewPhoto
 
+        // ── Seletor para o que editar em editlocker ──────────────────────────────────────────────────────────────
         if (!hasNameChange && !hasLocalChange && !hasNewPhoto && !isRemovingPhoto) {
             toast(MSG_SELECT_WHAT_TO_EDIT)
             return
@@ -403,6 +406,7 @@ class StockPage : AppCompatActivity() {
         val hasNewPhoto = newPhotoBitmap != null
         val isRemovingPhoto = tool.photoUrl != null && imgPreview.isGone && !hasNewPhoto
 
+        // ── Seletor para o que editar em editTool ──────────────────────────────────────────────────────────────
         if (!hasNameChange && !hasLocalChange && !hasNewPhoto && !isRemovingPhoto) {
             toast(MSG_SELECT_WHAT_TO_EDIT)
             return
@@ -455,6 +459,7 @@ class StockPage : AppCompatActivity() {
             }
         }
 
+        // ── Exige que ferramentas sejam movidas para outro armário antes de deletar ──────────────────────────────────────────────────────────────
         b.btnConfirmDelete.setOnClickListener {
             val isLocker = b.toggleGroup.checkedButtonId == R.id.btnToggleLocker
             lifecycleScope.launch {

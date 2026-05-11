@@ -55,7 +55,7 @@ class LoginPage : AppCompatActivity() {
         progressBar = binding.progressBar
 
         binding.forgotPassword.setOnClickListener {
-            showGenericDisplay("Recuperar Senha", "...", "email@exemplo.com", forceLight = true) { email ->
+            showGenericDisplay("Recuperar Senha", "...", "exemplo@email.com", forceLight = true) { email ->
                 FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Toast.makeText(this, "E-mail de recuperação enviado!", Toast.LENGTH_LONG).show()
@@ -105,7 +105,7 @@ class LoginPage : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         if (currentUser != null && currentUser!!.isEmailVerified) {
-                            Toast.makeText(this, "Conta existente. Iniciando sessão.", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Iniciando sessão.", Toast.LENGTH_SHORT).show()
 
                             val docRef = Firebase.firestore
                                 .collection("usuarios")

@@ -37,6 +37,8 @@ class ConfigPage : AppCompatActivity() {
             insets
         }
 
+
+        // ── Verificação de registro ──────────────────────────────────────────────────────────────
         val emailUser = currentUser?.email
         if (currentUser == null) {
             startActivity(Intent(this, LoginPage::class.java))

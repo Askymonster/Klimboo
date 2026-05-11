@@ -43,6 +43,8 @@ object FirebaseQueries {
         }
     }
 
+
+    // ── Lógica de inserção/edição/exclusào de armário ──────────────────────────────────────────────────────────────
     suspend fun insertLocker(nome: String, photoUrl: String? = null, local: String) {
         try {
             val data = mutableMapOf<String, Any>("nome" to nome, "local" to local)
@@ -106,6 +108,7 @@ object FirebaseQueries {
         }
     }
 
+    // ── Lógica de inserção/edição/exclusão de ferramentas ──────────────────────────────────────────────────────────────
     suspend fun insertTool(nome: String, lockerId: String, photoUrl: String? = null) {
         try {
             val data = mutableMapOf<String, Any>("nome" to nome, "local" to lockerId)
@@ -143,6 +146,7 @@ object FirebaseQueries {
     }
 
 
+    // ── Funções de listening para atualizar armários e ferramentas ──────────────────────────────────────────────────────────────
     fun listenToLockers(onChange: (List<Locker>) -> Unit): ListenerRegistration {
         return db.collection("armarios")
             .addSnapshotListener { snapshot, error ->

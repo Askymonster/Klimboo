@@ -50,6 +50,8 @@ class RegisterPage : AppCompatActivity() {
             val email = binding.email.text.toString()
             val password = binding.password.text.toString()
 
+
+            // ── Checkers de campos vazios/insuficientes ──────────────────────────────────────────────────────────────
             if (username.isEmpty()) {
                 Toast.makeText(this, "Insira seu nome", Toast.LENGTH_SHORT).show()
                 binding.btnRegister.isEnabled = true
@@ -75,6 +77,7 @@ class RegisterPage : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            // ── Lógica de criação de usuário ──────────────────────────────────────────────────────────────
             Firebase.auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
