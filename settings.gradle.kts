@@ -22,6 +22,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "macaco"
+rootProject.name = "klimboo"
 include(":app")
  
