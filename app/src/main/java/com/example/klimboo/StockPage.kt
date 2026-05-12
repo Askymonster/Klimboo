@@ -170,9 +170,20 @@ class StockPage : AppCompatActivity() {
     private fun updateToolsList(tools: List<Tool>) {
         binding.listTools.layoutManager =
             androidx.recyclerview.widget.LinearLayoutManager(this@StockPage)
+
+        // Cria um mapa id -> local do armário
+        val lockerMap = currentLockers.associate { it.id to it.local }
+
         binding.listTools.adapter = StockAdapter(
             this@StockPage,
-            tools.map { Triple<String, String?, String?>(it.name, it.photoUrl, null) }
+            tools.map { tool ->
+                Locker(
+                    id = tool.id,
+                    name = tool.name,
+                    local = lockerMap[tool.local] ?: "Local desconhecido",  // Busca o nome do local
+                    photoUrl = tool.photoUrl
+                )
+            }
         )
     }
 
@@ -227,6 +238,7 @@ class StockPage : AppCompatActivity() {
         }
     }
 
+    // ── Adiciona novo armário ──────────────────────────────────────────────────────────────
     private suspend fun addNewLocker(b: BottomSheetAddBinding, photoBitmap: Bitmap?) {
         val name = b.editLockerName.text.toString().trim()
         val local = b.editLockerLocal.text.toString().trim()
@@ -241,6 +253,7 @@ class StockPage : AppCompatActivity() {
         toast("Locker '$name' added!")
     }
 
+    // ── Adiciona nova ferramenta ──────────────────────────────────────────────────────────────
     private suspend fun addNewTool(b: BottomSheetAddBinding, photoBitmap: Bitmap?) {
         val name = b.editNomeItem.text.toString().trim()
         if (name.isEmpty()) {
@@ -327,7 +340,7 @@ class StockPage : AppCompatActivity() {
 
             // AutoComplete para Destino
             bindAutoCompleteGeneric(
-                b.autoCompleteDestityLocker,
+                b.autoCompleteDestinyLocker,
                 lockers,
                 { it.name },
                 { locker -> selectedDestination = locker }
@@ -350,18 +363,25 @@ class StockPage : AppCompatActivity() {
         val hasNewPhoto = newPhotoBitmap != null
         val isRemovingPhoto = locker.photoUrl != null && imgPreview.isGone && !hasNewPhoto
 
+        // ── Seletor para o que editar em editlocker ──────────────────────────────────────────────────────────────
         if (!hasNameChange && !hasLocalChange && !hasNewPhoto && !isRemovingPhoto) {
             toast(MSG_SELECT_WHAT_TO_EDIT)
             return
         }
 
-        if (hasNameChange) {
-            val newName = b.editNewLockerName.text.toString().trim()
-            val newLocal = b.editNewLockerLocal.text.toString().trim()
-            if (newName.isEmpty()) {
-                toast(MSG_ENTER_NEW_NAME)
-                return
-            }
+        if (hasNameChange || hasLocalChange) {
+            val newName = if (hasNameChange) {
+                b.editNewLockerName.text.toString().trim().also {
+                    if (it.isEmpty()) {
+                        toast(MSG_ENTER_NEW_NAME)
+                        return
+                    }
+                }
+            } else locker.name
+            val newLocal = if (hasLocalChange) {
+                b.editNewLockerLocal.text.toString().trim()
+            } else locker.local
+
             FirebaseQueries.updateLocker(locker.id, newName, newLocal)
         }
 
@@ -386,6 +406,7 @@ class StockPage : AppCompatActivity() {
         val hasNewPhoto = newPhotoBitmap != null
         val isRemovingPhoto = tool.photoUrl != null && imgPreview.isGone && !hasNewPhoto
 
+        // ── Seletor para o que editar em editTool ──────────────────────────────────────────────────────────────
         if (!hasNameChange && !hasLocalChange && !hasNewPhoto && !isRemovingPhoto) {
             toast(MSG_SELECT_WHAT_TO_EDIT)
             return
@@ -438,6 +459,7 @@ class StockPage : AppCompatActivity() {
             }
         }
 
+        // ── Exige que ferramentas sejam movidas para outro armário antes de deletar ──────────────────────────────────────────────────────────────
         b.btnConfirmDelete.setOnClickListener {
             val isLocker = b.toggleGroup.checkedButtonId == R.id.btnToggleLocker
             lifecycleScope.launch {

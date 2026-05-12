@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        // ── Verifica se o usuário está logado ou não ──────────────────────────────────────────────────────────────
         val currentUser = Firebase.auth.currentUser
         if (currentUser == null) {
             startActivity(Intent(this, LoginPage::class.java))
@@ -57,8 +58,19 @@ class MainActivity : AppCompatActivity() {
         val isGuest = currentUser.isAnonymous
         binding.displayEmail.text = if (isGuest) "Acesso limitado" else currentUser.displayName ?: "Nome não definido"
         binding.displayUsername.text = if (isGuest) "Visitante" else currentUser.email ?: ""
+        binding.exitGuestButton.visibility = if (isGuest) View.VISIBLE else View.GONE
 
         // ── Lógica dos botões  ────────────────────────────────────────────────
+
+        binding.exitGuestButton.setOnClickListener {
+            Firebase.auth.signOut()
+            val intent = Intent(this, LoginPage::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
+            startActivity(intent)
+            finish()
+        }
+
         binding.settings.setOnClickListener {
             if (currentUser.isAnonymous) {
                 AlertDialog.Builder(this)
@@ -68,6 +80,8 @@ class MainActivity : AppCompatActivity() {
                     .show()
             } else {
                 startActivity(Intent(this, ConfigPage::class.java))
+
+
             }
         }
         binding.stock.setOnClickListener { startActivity(Intent(this, StockPage::class.java)) }
@@ -122,13 +136,20 @@ class MainActivity : AppCompatActivity() {
             matchesQuery && matchesChip
         }
 
-        // Monta um mapa id -> nome do armário pra lookup
-        val lockerMap = allLockers.associate { it.id to it.name }
+        // Cria um mapa id -> nome do armário
+        val lockerMap = allLockers.associate { it.id to it.local }
 
         binding.searchResults.visibility = View.VISIBLE
         binding.searchResults.adapter = StockAdapter(
             this,
-            filtered.map { Triple(it.name, it.photoUrl, lockerMap[it.local]) }
+            filtered.map { tool ->
+                Locker(
+                    id = tool.id,
+                    name = tool.name,
+                    local = lockerMap[tool.local] ?: "Local desconhecido",  // Busca o nome do local
+                    photoUrl = tool.photoUrl
+                )
+            }
         )
     }
 }

@@ -8,6 +8,7 @@ import java.io.ByteArrayOutputStream
 
 object PhotoManager {
 
+    // ── Gerencia todas as fotos de armários/ferramentas ──────────────────────────────────────────────────────────────
     fun bitmapToBase64(bitmap: Bitmap): String {
         val stream = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.JPEG, 60, stream)

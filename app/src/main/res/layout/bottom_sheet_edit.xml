@@ -214,7 +214,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:visibility="gone">
             <AutoCompleteTextView
-                android:id="@+id/autoCompleteDestityLocker"
+                android:id="@+id/autoCompleteDestinyLocker"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:hint="@string/buscar_armario_destino_edit"

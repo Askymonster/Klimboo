@@ -123,4 +123,8 @@
     <string name="new_locker_local">Novo local do armário</string>
     <string name="locker">Armário</string>
     <string name="item_locker">Item</string>
+    <string name="Sair">Sair\n</string>
+    <string name="locker_format">Armário: %s</string>
+    <string name="local_format">Local do Armário: %s</string>
+    <string name="local_locker">Local do Armário: %s</string>
 </resources>
