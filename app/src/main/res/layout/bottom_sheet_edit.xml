@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:theme="@style/Theme.AppCompat.Light.DarkActionBar">
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,8 +22,22 @@
         android:layout_height="wrap_content"
         app:checkedButton="@+id/btnToggleLocker"
         app:singleSelection="true">
-        <Button android:id="@+id/btnToggleLocker" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/locker" />
-        <Button android:id="@+id/btnToggleItem" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/item_locker" />
+
+        <Button
+            android:id="@+id/btnToggleLocker"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/locker" />
+
+        <Button
+            android:id="@+id/btnToggleItem"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/item_locker" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <LinearLayout
@@ -59,7 +75,7 @@
         <CheckBox
             android:id="@+id/checkChangeLockerName"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="@string/alterar_nome_do_armario"
             android:layout_marginBottom="8dp" />
 
@@ -67,7 +83,7 @@
         <CheckBox
             android:id="@+id/checkChangeLockerLocal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="@string/change_local_locker"
             android:layout_marginBottom="8dp"/>
 
@@ -123,14 +139,14 @@
 
                 <Button
                     android:id="@+id/btnLockerPhoto"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="@string/alterar_foto_edit" />
 
                 <Button
                     android:id="@+id/btnRemoverLockerPhoto"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -250,14 +266,14 @@
 
                 <Button
                     android:id="@+id/btnItemPhoto"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="@string/alterar_foto_edit_item" />
 
                 <Button
                     android:id="@+id/btnRemoveItemPhoto"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"

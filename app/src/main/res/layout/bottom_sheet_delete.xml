@@ -20,8 +20,22 @@
         android:layout_height="wrap_content"
         app:checkedButton="@+id/btnToggleLocker"
         app:singleSelection="true">
-        <Button android:id="@+id/btnToggleLocker" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/armario" />
-        <Button android:id="@+id/btnToggleItem" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/item_botao_toggle" />
+
+        <Button
+            android:id="@+id/btnToggleLocker"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/armario" />
+
+        <Button
+            android:id="@+id/btnToggleItem"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/item_botao_toggle" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <LinearLayout
@@ -79,7 +93,7 @@
 
                 <Button
                     android:id="@+id/btnRemoveLockerPhoto"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="@string/remover_foto"

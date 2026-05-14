@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StockPage">
+    tools:context=".StockPage"
+    tools:theme="@style/Theme.AppCompat.Light.DarkActionBar">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topBar"
@@ -51,7 +52,7 @@
         android:src="@drawable/edit_stock"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        app:tint="@color/blue"
+        app:tint="@color/white"
         app:shapeAppearanceOverlay="@style/RoundedCorners"
         android:visibility="gone"/>
 

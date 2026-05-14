@@ -20,8 +20,20 @@
         android:layout_height="wrap_content"
         app:checkedButton="@+id/btnToggleLocker"
         app:singleSelection="true">
-        <Button android:id="@+id/btnToggleLocker" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/arm_rio" />
-        <Button android:id="@+id/btnToggleItem" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/item" />
+        <Button
+            android:id="@+id/btnToggleLocker"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/arm_rio" />
+        <Button
+            android:id="@+id/btnToggleItem"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/item" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <LinearLayout
@@ -53,7 +65,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/locker_place"
-                android:inputType="textCapWords"/>
+                android:inputType="textCapWords"
+                android:textColor="@color/white"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
@@ -80,22 +93,26 @@
 
                 <Button
                     android:id="@+id/btnLockerPhoto"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white"
                     android:text="@string/adicionar_foto" />
 
                 <Button
                     android:id="@+id/btnRemoveLockerPhoto"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="@string/remover_foto_botao"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    android:textColor="@color/white"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
+
 
     <LinearLayout
         android:id="@+id/layoutAddItem"
@@ -152,18 +169,20 @@
 
                 <Button
                     android:id="@+id/btnItemPhoto"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/adicionar_foto_add" />
+                    android:text="@string/adicionar_foto_add"
+                    android:textColor="@color/white"/>
 
                 <Button
                     android:id="@+id/btnRemoveItemPhoto"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="@string/remover_foto_add"
+                    android:textColor="@color/white"
                     android:visibility="gone" />
             </LinearLayout>
         </LinearLayout>
