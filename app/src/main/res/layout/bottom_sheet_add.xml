@@ -47,7 +47,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            style="@style/TextInputStyle" >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editLockerName"
                 android:layout_width="match_parent"
@@ -59,14 +59,13 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            style="@style/TextInputStyle" >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editLockerLocal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/locker_place"
-                android:inputType="textCapWords"
-                android:textColor="@color/white"/>
+                android:inputType="textCapWords" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
@@ -125,7 +124,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/TextInputStyle"
             android:layout_marginBottom="12dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editNomeItem"
@@ -141,10 +140,23 @@
             android:text="@string/onde_ser_guardado"
             android:layout_marginBottom="8dp" />
 
-        <Spinner
-            android:id="@+id/spinnerDestinyLocker"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp" />
+            android:layout_height="wrap_content"
+            style="@style/TextInputStyle">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteDestinyLockerAdd"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:completionThreshold="0"
+                android:hint="@string/buscar_arm_rio_destino"
+                android:inputType="textCapWords"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

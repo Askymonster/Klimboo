@@ -79,10 +79,10 @@ class ConfigPage : AppCompatActivity() {
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "Sucesso! Verifique o link no novo e-mail.", Toast.LENGTH_LONG).show()
                                     Firebase.auth.signOut()
-                                     Intent(this, LoginPage::class.java).apply {
+                                    val loginIntent = Intent(this, LoginPage::class.java).apply {
                                         flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                     }
-                                    startActivity(intent)
+                                    startActivity(loginIntent)
                                     finish()
                                 }
                                 .addOnFailureListener { e ->

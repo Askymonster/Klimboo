@@ -178,8 +178,7 @@
         android:scaleType="fitXY"
         android:padding="6dp"
         app:shapeAppearanceOverlay="@style/RoundedCorners"
-        app:tint="@color/white"
-        android:background="@color/royal_blue"
+        app:tint="@color/buttonsTint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -191,20 +190,24 @@
         android:layout_marginBottom="16dp"
         android:contentDescription="@string/settings_desc"
         android:src="@drawable/config"
-        android:background="@color/royal_blue"
         android:scaleType="fitXY"
         android:padding="6dp"
-        app:tint="@color/white"
+        app:tint="@color/buttonsTint"
         app:shapeAppearanceOverlay="@style/RoundedCorners"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <Button
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/exitGuestButton"
-        android:layout_width="83dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="20dp"
-        android:text="@string/Sair"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/exit_app"
+        android:src="@drawable/exit_button"
+        android:scaleType="fitXY"
+        android:padding="6dp"
+        app:shapeAppearanceOverlay="@style/RoundedCorners"
+        app:tint="@color/buttonsTint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

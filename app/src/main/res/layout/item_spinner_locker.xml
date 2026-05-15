@@ -11,8 +11,9 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imgLocker"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:contentDescription="@string/imagem_do_armario"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         app:shapeAppearanceOverlay="@style/RoundedCorners"
@@ -34,7 +35,7 @@
             android:id="@+id/txtLocalLocker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="13sp"
             android:layout_marginTop="4dp" />
 
     </LinearLayout>

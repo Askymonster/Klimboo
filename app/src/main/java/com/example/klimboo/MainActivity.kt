@@ -137,16 +137,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Cria um mapa id -> nome do armário
-        val lockerMap = allLockers.associate { it.id to it.local }
+        val lockerMap = allLockers.associateBy { it.id }
 
         binding.searchResults.visibility = View.VISIBLE
         binding.searchResults.adapter = StockAdapter(
             this,
             filtered.map { tool ->
-                Locker(
+                val locker = lockerMap[tool.local]
+                StockAdapter.StockItem(
                     id = tool.id,
                     name = tool.name,
-                    local = lockerMap[tool.local] ?: "Local desconhecido",  // Busca o nome do local
+                    lockerName = locker?.name ?: "Armário desconhecido",
+                    lockerLocal = locker?.local ?: "Local desconhecido",
                     photoUrl = tool.photoUrl
                 )
             }

@@ -2,6 +2,7 @@ package com.example.klimboo.data
 
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ListenerRegistration
 import kotlinx.coroutines.tasks.await
 
@@ -15,7 +16,8 @@ object FirebaseQueries {
         val id: String = "",
         val name: String = "",
         val local: String = "",
-        val photoUrl: String? = null
+        val photoUrl: String? = null,
+        val itemCount: Long = 0
     )
 
     data class Tool(
@@ -34,7 +36,8 @@ object FirebaseQueries {
                     id = doc.id,
                     name = doc.getString("nome") ?: "",
                     local = doc.getString("local") ?: "",
-                    photoUrl = doc.getString("photoUrl")
+                    photoUrl = doc.getString("photoUrl"),
+                    itemCount = doc.getLong("itemCount") ?: 0
                 )
             }
         } catch (e: Exception) {
@@ -47,11 +50,16 @@ object FirebaseQueries {
     // ── Lógica de inserção/edição/exclusào de armário ──────────────────────────────────────────────────────────────
     suspend fun insertLocker(nome: String, photoUrl: String? = null, local: String) {
         try {
-            val data = mutableMapOf<String, Any>("nome" to nome, "local" to local)
+            val data = mutableMapOf<String, Any>(
+                "nome" to nome,
+                "local" to local,
+                "itemCount" to 0
+            )
             if (photoUrl != null) data["photoUrl"] = photoUrl
             db.collection("armarios").add(data).await()
         } catch (e: Exception) {
             logError("insertLocker", e)
+            throw e
         }
     }
 
@@ -61,6 +69,7 @@ object FirebaseQueries {
                 .update(mapOf("nome" to newName, "local" to newLocal)).await()
         } catch (e: Exception) {
             logError("updateLocker", e)
+            throw e
         }
     }
 
@@ -70,6 +79,21 @@ object FirebaseQueries {
                 .update("photoUrl", photoUrl).await()
         } catch (e: Exception) {
             logError("updateLockerPhoto", e)
+            throw e
+        }
+    }
+
+    suspend fun hasToolsInLocker(id: String): Boolean {
+        return try {
+            !db.collection("ferramentas")
+                .whereEqualTo("local", id)
+                .limit(1)
+                .get()
+                .await()
+                .isEmpty
+        } catch (e: Exception) {
+            logError("hasToolsInLocker", e)
+            true
         }
     }
 
@@ -77,16 +101,29 @@ object FirebaseQueries {
         try {
             val tools = db.collection("ferramentas")
                 .whereEqualTo("local", id).get().await()
-            for (doc in tools.documents) {
-                if (lockerDestinyId != null) {
-                    doc.reference.update("local", lockerDestinyId).await()
-                } else {
-                    doc.reference.delete().await()
+
+            if (lockerDestinyId != null && !tools.isEmpty) {
+                val batch = db.batch()
+                for (doc in tools.documents) {
+                    batch.update(doc.reference, "local", lockerDestinyId)
                 }
+                batch.update(
+                    db.collection("armarios").document(id),
+                    "itemCount",
+                    0
+                )
+                batch.update(
+                    db.collection("armarios").document(lockerDestinyId),
+                    "itemCount",
+                    FieldValue.increment(tools.size().toLong())
+                )
+                batch.commit().await()
             }
+
             db.collection("armarios").document(id).delete().await()
         } catch (e: Exception) {
             logError("deleteLocker", e)
+            throw e
         }
     }
 
@@ -113,18 +150,43 @@ object FirebaseQueries {
         try {
             val data = mutableMapOf<String, Any>("nome" to nome, "local" to lockerId)
             if (photoUrl != null) data["photoUrl"] = photoUrl
-            db.collection("ferramentas").add(data).await()
+            val batch = db.batch()
+            batch.set(db.collection("ferramentas").document(), data)
+            batch.update(
+                db.collection("armarios").document(lockerId),
+                "itemCount",
+                FieldValue.increment(1)
+            )
+            batch.commit().await()
         } catch (e: Exception) {
             logError("insertTool", e)
+            throw e
         }
     }
 
-    suspend fun updateTool(id: String, novoNome: String, newLockerId: String) {
+    suspend fun updateTool(id: String, novoNome: String, oldLockerId: String, newLockerId: String) {
         try {
-            db.collection("ferramentas").document(id)
-                .update(mapOf("nome" to novoNome, "local" to newLockerId)).await()
+            val batch = db.batch()
+            batch.update(
+                db.collection("ferramentas").document(id),
+                mapOf("nome" to novoNome, "local" to newLockerId)
+            )
+            if (oldLockerId != newLockerId) {
+                batch.update(
+                    db.collection("armarios").document(oldLockerId),
+                    "itemCount",
+                    FieldValue.increment(-1)
+                )
+                batch.update(
+                    db.collection("armarios").document(newLockerId),
+                    "itemCount",
+                    FieldValue.increment(1)
+                )
+            }
+            batch.commit().await()
         } catch (e: Exception) {
             logError("updateTool", e)
+            throw e
         }
     }
 
@@ -134,14 +196,23 @@ object FirebaseQueries {
                 .update("photoUrl", photoUrl).await()
         } catch (e: Exception) {
             logError("updateToolPhoto", e)
+            throw e
         }
     }
 
-    suspend fun deleteTool(id: String) {
+    suspend fun deleteTool(id: String, lockerId: String) {
         try {
-            db.collection("ferramentas").document(id).delete().await()
+            val batch = db.batch()
+            batch.delete(db.collection("ferramentas").document(id))
+            batch.update(
+                db.collection("armarios").document(lockerId),
+                "itemCount",
+                FieldValue.increment(-1)
+            )
+            batch.commit().await()
         } catch (e: Exception) {
             logError("deleteTool", e)
+            throw e
         }
     }
 
@@ -159,7 +230,8 @@ object FirebaseQueries {
                         id = doc.id,
                         name = doc.getString("nome") ?: "",
                         local = doc.getString("local") ?: "",
-                        photoUrl = doc.getString("photoUrl")
+                        photoUrl = doc.getString("photoUrl"),
+                        itemCount = doc.getLong("itemCount") ?: 0
                     )
                 } ?: emptyList()
                 onChange(lockers)

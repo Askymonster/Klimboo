@@ -26,34 +26,65 @@
         android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/logomini" />
 
-    <Spinner
-        android:id="@+id/spinnerLockers"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutLockerSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteLockers"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:completionThreshold="0"
+            android:hint="@string/buscar_armario"
+            android:inputType="textCapWords"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listTools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/spinnerLockers"
+        android:layout_below="@id/layoutLockerSearch"
         android:layout_above="@id/editStock"
         android:layout_margin="16dp" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/editStock"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/royal_blue"
         android:contentDescription="@string/edit_stock"
         android:padding="6dp"
         android:scaleType="fitXY"
         android:src="@drawable/edit_stock"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        app:tint="@color/white"
+        app:tint="@color/buttonsTint"
         app:shapeAppearanceOverlay="@style/RoundedCorners"
         android:visibility="gone"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/backtomainButton"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/voltar_mainpage"
+        android:src="@drawable/exit_button"
+        android:scaleType="fitXY"
+        android:padding="6dp"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        app:shapeAppearanceOverlay="@style/RoundedCorners"
+        app:tint="@color/buttonsTint"/>
 
 </RelativeLayout>
