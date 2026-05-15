@@ -20,8 +20,22 @@
         android:layout_height="wrap_content"
         app:checkedButton="@+id/btnToggleLocker"
         app:singleSelection="true">
-        <Button android:id="@+id/btnToggleLocker" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/armario" />
-        <Button android:id="@+id/btnToggleItem" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/item_botao_toggle" />
+
+        <Button
+            android:id="@+id/btnToggleLocker"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/armario" />
+
+        <Button
+            android:id="@+id/btnToggleItem"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/item_botao_toggle" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <LinearLayout
@@ -41,7 +55,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/TextInputStyle"
             android:layout_marginBottom="16dp">
             <AutoCompleteTextView
                 android:id="@+id/autoCompleteLockerRemover"
@@ -72,20 +86,6 @@
                 app:shapeAppearanceOverlay="@style/RoundedCorners"
                 android:layout_marginEnd="12dp" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/btnRemoveLockerPhoto"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/remover_foto"
-                    android:visibility="gone" />
-            </LinearLayout>
-
         </LinearLayout>
 
         <TextView
@@ -98,7 +98,7 @@
             android:id="@+id/layoutItemsDestiny"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            style="@style/TextInputStyle">
             <AutoCompleteTextView
                 android:id="@+id/autoCompleteItemsDestiny"
                 android:layout_width="match_parent"
@@ -141,7 +141,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/TextInputStyle"
             android:layout_marginBottom="12dp">
             <AutoCompleteTextView
                 android:id="@+id/autoCompleteItemRemover"

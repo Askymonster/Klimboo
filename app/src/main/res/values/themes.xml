@@ -10,4 +10,12 @@
         <item name="cornerSize">12dp</item>
         <item name="cornerFamily">rounded</item>
     </style>
+
+    <style name="TextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@drawable/text_input_style</item>
+        <item name="android:textColorHint">@color/royal_blue</item>
+        <item name="hintTextColor">@drawable/text_input_style</item>
+    </style>
+
+    <color name="buttonsTint">@color/royal_blue</color>
 </resources>

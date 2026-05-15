@@ -2,9 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:theme="@style/Theme.AppCompat.Light.DarkActionBar">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topBar"
@@ -173,11 +175,10 @@
         android:layout_marginBottom="16dp"
         android:contentDescription="@string/stock_desc"
         android:src="@drawable/stock"
-        android:background="@color/royal_blue"
         android:scaleType="fitXY"
         android:padding="6dp"
         app:shapeAppearanceOverlay="@style/RoundedCorners"
-        app:tint="@color/blue"
+        app:tint="@color/buttonsTint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -189,20 +190,24 @@
         android:layout_marginBottom="16dp"
         android:contentDescription="@string/settings_desc"
         android:src="@drawable/config"
-        android:background="@color/royal_blue"
         android:scaleType="fitXY"
         android:padding="6dp"
-        app:tint="@color/blue"
+        app:tint="@color/buttonsTint"
         app:shapeAppearanceOverlay="@style/RoundedCorners"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <Button
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/exitGuestButton"
-        android:layout_width="83dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="20dp"
-        android:text="@string/Sair"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/exit_app"
+        android:src="@drawable/exit_button"
+        android:scaleType="fitXY"
+        android:padding="6dp"
+        app:shapeAppearanceOverlay="@style/RoundedCorners"
+        app:tint="@color/buttonsTint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

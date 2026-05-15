@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfigPage">
+    tools:context=".ConfigPage"
+    tools:theme="@style/Theme.AppCompat.Light.DarkActionBar">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topBar"
